@@ -1,0 +1,18 @@
+{
+	"trailingComma": "all",
+	"tabWidth": 4,
+	"semi": false,
+	"useTabs": true,
+	"singleQuote": true,
+	"bracketSpacing": true,
+	"printWidth": 150,
+	"jsxSingleQuote": true,
+	"plugins": ["prettier-plugin-tailwindcss", "@serverless-guru/prettier-plugin-import-order"],
+	"importOrderParserPlugins": ["typescript", "jsx"],
+	"importOrder": ["^components/(.*)$", "^(pages?|routes?)/(.*)$", "^@/(.*)$", "^#/(.*)$", "^[./]"],
+	"importOrderSeparation": true,
+	"importOrderSortSpecifiers": true,
+	"importOrderTypeImportsToTop": true,
+	"importOrderMergeDuplicateImports": true,
+	"importOrderNamespaceImportsToGroupTop": true
+}
