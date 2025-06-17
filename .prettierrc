@@ -8,6 +8,7 @@
 	"printWidth": 150,
 	"jsxSingleQuote": true,
 	"plugins": ["prettier-plugin-tailwindcss", "@serverless-guru/prettier-plugin-import-order"],
+	"tailwindFunctions": ["clsx", "twMerge", "cn"],
 	"importOrderParserPlugins": ["typescript", "jsx"],
 	"importOrder": ["^components/(.*)$", "^(pages?|routes?)/(.*)$", "^@/(.*)$", "^#/(.*)$", "^[./]"],
 	"importOrderSeparation": true,
