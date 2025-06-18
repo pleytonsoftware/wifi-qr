@@ -121,10 +121,11 @@ export const WiFiQRGenerator = () => {
 
 			<footer className='mt-8 text-center text-sm text-base-content-secondary'>
 				<p>
-					Created by{' '}
+					Created by
 					<a href='https://pleyt.dev' target='_blank' rel='noopener noreferrer' className='btn btn-link btn-xs'>
 						pleyt.dev
 					</a>
+					&copy; {new Date().getFullYear()}
 				</p>
 			</footer>
 		</div>
