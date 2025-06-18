@@ -11,6 +11,9 @@
 			"@/*": ["src/*"],
 			"@cn": ["src/utils/cn.ts"],
 			"@ui/*": ["src/components/ui/*"],
+			"@atoms/*": ["src/components/ui/atoms/*"],
+			"@molecules/*": ["src/components/ui/molecules/*"],
+			"@organism/*": ["src/components/ui/organism/*"],
 			"@hooks/*": ["src/components/hooks/*"],
 			"@contexts/*": ["src/components/contexts/*"],
 			"@providers/*": ["src/components/providers/*"]

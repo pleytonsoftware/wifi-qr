@@ -1,4 +1,4 @@
-import type { ButtonProps } from '@ui/button'
+import type { ButtonProps } from '@atoms/button'
 import type { InputHTMLAttributes, FC, ReactNode, ComponentType } from 'react'
 
 import { cn } from '@cn'
