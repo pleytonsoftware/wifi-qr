@@ -29,14 +29,7 @@ export default tseslint.config(
       'prettier/prettier': 'warn',
       'no-console': 'warn',
       'no-debugger': 'warn',
-      'no-unused-vars': [
-        'warn',
-        { vars: 'all', args: 'after-used', argsIgnorePattern: '^_', varsIgnorePattern: '^_' }
-      ],
-      '@typescript-eslint/no-unused-vars': [
-        'warn',
-        { vars: 'all', args: 'after-used', argsIgnorePattern: '^_', varsIgnorePattern: '^_' }
-      ],
+      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
     },
   },
 )

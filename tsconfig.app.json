@@ -9,7 +9,11 @@
 		"baseUrl": ".",
 		"paths": {
 			"@/*": ["src/*"],
-			"@cn": ["src/utils/cn.ts"]
+			"@cn": ["src/utils/cn.ts"],
+			"@ui/*": ["src/components/ui/*"],
+			"@hooks/*": ["src/components/hooks/*"],
+			"@contexts/*": ["src/components/contexts/*"],
+			"@providers/*": ["src/components/providers/*"]
 		},
 
 		/* Bundler mode */
