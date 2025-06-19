@@ -3,7 +3,9 @@ import type { FC } from 'react'
 import { Input } from '@atoms/input'
 import { Select, type SelectOptionProps } from '@atoms/select'
 import { Toggle } from '@atoms/toggle'
-import { Wifi } from 'lucide-react'
+import { Wifi, Eye } from 'lucide-react'
+
+import { Button } from '../../atoms/button'
 
 type WiFiConfigFormProps = {
 	ssid: string
@@ -51,6 +53,7 @@ export const WiFiConfigForm: FC<WiFiConfigFormProps> = ({
 					placeholder='Enter Wi-Fi password'
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
+					icon={<Button icon={<Eye className='w-4 h-4' />} />}
 				/>
 			)}
 			<Toggle label='Hidden Network?' defaultChecked={hiddenNetwork} onValueChange={setHiddenNetwork} />

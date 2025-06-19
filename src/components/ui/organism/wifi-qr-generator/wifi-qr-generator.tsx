@@ -6,7 +6,7 @@ import { WiFiConfigForm } from '@molecules/wifi-config-form'
 import { WiFiQRCodeDisplay } from '@molecules/wifi-qr-code-display'
 import { WiFiStringCopy } from '@molecules/wifi-string-copy/wifi-string-copy'
 import { Wifi } from 'lucide-react'
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useState } from 'react'
 
 import { useToast } from '@/components/hooks/use-toast.hook'
 import { getWiFiString, NO_PASS_VALUE } from '@/utils/qr-generator'
@@ -24,47 +24,6 @@ export const WiFiQRGenerator = () => {
 	const [hiddenNetwork, setHiddenNetwork] = useState<boolean>(false)
 	const [password, setPassword] = useState('')
 	const [securityType, setSecurityType] = useState('WPA')
-	const [copied, setCopied] = useState(false)
-	const { showToast } = useToast()
-	const qrRef = useRef<HTMLDivElement>(null)
-
-	const copyWiFiString = useCallback(async () => {
-		const wifiString = getWiFiString({
-			ssid,
-			password,
-			security: securityType,
-			hidden: hiddenNetwork,
-		})
-
-		try {
-			await navigator.clipboard.writeText(wifiString)
-			setCopied(true)
-			setTimeout(() => setCopied(false), 2000)
-
-			showToast({
-				title: 'Copied to Clipboard',
-				description: 'Wi-Fi configuration string copied successfully.',
-				variant: 'success',
-			})
-		} catch (error) {
-			// eslint-disable-next-line no-console
-			console.error('Failed to copy to clipboard:', error)
-			showToast({
-				title: 'Copy Failed',
-				description: 'Unable to copy to clipboard.',
-				variant: 'error',
-			})
-		}
-	}, [ssid, password, securityType, hiddenNetwork, showToast])
-	const handleDownload = async () => {
-		if (!qrRef.current) return
-		const { toPng } = await import('html-to-image')
-		const dataUrl = await toPng(qrRef.current)
-		const link = document.createElement('a')
-		link.href = dataUrl
-		link.download = `${ssid}_wifi_qr.png`
-		link.click()
-	}
 
 	return (
 		<div className='min-h-screen bg-base-100 flex flex-col justify-center p-4'>
@@ -95,11 +54,7 @@ export const WiFiQRGenerator = () => {
 								NO_PASS_VALUE={NO_PASS_VALUE}
 							/>
 							<div className='pt-4 space-y-2'>
-								<WiFiStringCopy
-									value={getWiFiString({ ssid, password, security: securityType, hidden: hiddenNetwork })}
-									copied={copied}
-									onCopy={copyWiFiString}
-								/>
+								<WiFiStringCopy value={getWiFiString({ ssid, password, security: securityType, hidden: hiddenNetwork })} />
 							</div>
 						</Card.Body>
 					</Card>
@@ -108,10 +63,8 @@ export const WiFiQRGenerator = () => {
 							<Card.Title>Generated QR Code</Card.Title>
 							<Card.Description>Scan this code to connect to the Wi-Fi network</Card.Description>
 							<WiFiQRCodeDisplay
-								qrRef={qrRef}
 								ssid={ssid}
 								qrValue={getWiFiString({ ssid, password, security: securityType, hidden: hiddenNetwork })}
-								onDownload={handleDownload}
 							/>
 						</Card.Body>
 					</Card>
