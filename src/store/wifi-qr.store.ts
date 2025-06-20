@@ -14,15 +14,16 @@ export type WiFiQRState = {
 	wifiString: WifiString
 	setWifiDetails: (details: Partial<WifiDetails>) => void
 }
+const initialWifiDetails: WifiDetails = {
+	ssid: '',
+	password: '',
+	securityType: DEFAULT_SECURITY_TYPE,
+	hiddenNetwork: false,
+}
 
 export const useWiFiQRStore = create<WiFiQRState>((set) => ({
-	wifiDetails: {
-		ssid: '',
-		password: '',
-		securityType: DEFAULT_SECURITY_TYPE,
-		hiddenNetwork: false,
-	},
-	wifiString: '',
+	wifiDetails: initialWifiDetails,
+	wifiString: getWiFiString(initialWifiDetails),
 	setWifiDetails: ({ ssid, password, securityType, hiddenNetwork }) =>
 		set(({ wifiDetails }) => {
 			const updatedDetails = {

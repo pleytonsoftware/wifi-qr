@@ -59,7 +59,7 @@ export const WiFiQRCodeDisplay: FC = memo(() => {
 			<div className='space-y-3 justify-self-end'>
 				{hasSSID ? (
 					<>
-						<div className='flex gap-2'>
+						<div className='flex gap-2 flex-col lg:flex-row items-center justify-around'>
 							<Button colour='primary' onClick={handleDownload} className='flex items-center gap-2'>
 								<Download className='h-4 w-4' />
 								Download QR Code

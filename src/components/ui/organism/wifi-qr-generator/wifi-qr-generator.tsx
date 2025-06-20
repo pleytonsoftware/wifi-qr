@@ -2,7 +2,7 @@ import { Card } from '@atoms/card'
 import { Instructions } from '@molecules/instructions/instructions'
 import { WiFiConfigForm } from '@molecules/wifi-config-form'
 import { WiFiQRCodeDisplay } from '@molecules/wifi-qr-code-display'
-import { WiFiStringCopy } from '@molecules/wifi-string-copy/wifi-string-copy'
+import { WiFiStringCopy } from '@molecules/wifi-string-copy'
 import { Wifi } from 'lucide-react'
 import { useRef } from 'react'
 
