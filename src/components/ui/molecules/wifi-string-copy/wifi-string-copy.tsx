@@ -2,18 +2,15 @@ import { Button } from '@atoms/button'
 import { Input } from '@atoms/input'
 import { useToast } from '@hooks/use-toast.hook'
 import { Copy, Check } from 'lucide-react'
-import { useCallback, useState, type FC } from 'react'
+import { memo, useCallback, useState, type FC } from 'react'
 
-type WiFiStringCopyProps = {
-	value: string
-}
+import { useWiFiQRStore } from '@/store/wifi-qr.store'
 
-export const WiFiStringCopy: FC<WiFiStringCopyProps> = ({ value }) => {
+export const WiFiStringCopy: FC = memo(() => {
 	const [copied, setCopied] = useState(false)
 	const { showToast } = useToast()
+	const wifiString = useWiFiQRStore((state) => state.wifiString)
 	const copyWiFiString = useCallback(async () => {
-		const wifiString = value
-
 		try {
 			await navigator.clipboard.writeText(wifiString)
 			setCopied(true)
@@ -33,12 +30,16 @@ export const WiFiStringCopy: FC<WiFiStringCopyProps> = ({ value }) => {
 				variant: 'error',
 			})
 		}
-	}, [value, showToast])
+	}, [wifiString, showToast])
 
 	return (
 		<Input
 			readOnly
-			value={value}
+			value={
+				/^(.*P:)(.*?)(;.*)$/.test(wifiString) && RegExp.$2
+					? wifiString.replace(/(P:)(.*?)(;)/, (_, p1, _p2, p3) => p1 + '****' + p3)
+					: wifiString
+			}
 			className='font-mono text-xs'
 			Button={Button}
 			buttonProps={{
@@ -47,4 +48,4 @@ export const WiFiStringCopy: FC<WiFiStringCopyProps> = ({ value }) => {
 			}}
 		/>
 	)
-}
+})

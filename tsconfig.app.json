@@ -15,7 +15,8 @@
 			"@organism/*": ["src/components/ui/organism/*"],
 			"@hooks/*": ["src/components/hooks/*"],
 			"@contexts/*": ["src/components/contexts/*"],
-			"@providers/*": ["src/components/providers/*"]
+			"@providers/*": ["src/components/providers/*"],
+			"@store/*": ["src/store/*"]
 		},
 
 		/* Bundler mode */
@@ -30,7 +31,6 @@
 		"strict": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
-		"erasableSyntaxOnly": true,
 		"noFallthroughCasesInSwitch": true,
 		"noUncheckedSideEffectImports": true
 	},

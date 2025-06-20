@@ -4,18 +4,18 @@ import { cn } from '@cn'
 import { Download, Printer } from 'lucide-react'
 import ms from 'ms'
 import { QRCodeSVG } from 'qrcode.react'
-import { useState, useCallback, type FC, useRef } from 'react'
+import { useState, useCallback, type FC, useRef, memo } from 'react'
 
-type WiFiQRCodeDisplayProps = {
-	ssid: string
-	qrValue: string
-}
+import { useWiFiQRStore } from '@/store/wifi-qr.store'
 
 const CLOSE_PRINT_TIMEOUT_MS = ms('0.5 seconds')
 
-export const WiFiQRCodeDisplay: FC<WiFiQRCodeDisplayProps> = ({ ssid, qrValue }) => {
+export const WiFiQRCodeDisplay: FC = memo(() => {
+	const ssid = useWiFiQRStore((state) => state.wifiDetails.ssid)
+	const wifiString = useWiFiQRStore((state) => state.wifiString)
 	const qrRef = useRef<SVGSVGElement>(null)
 	const [printWithSSID, setPrintWithSSID] = useState<boolean>(true)
+	const hasSSID = Boolean(ssid.trim())
 
 	const handleDownload = useCallback(async () => {
 		if (!qrRef.current) return
@@ -50,12 +50,11 @@ export const WiFiQRCodeDisplay: FC<WiFiQRCodeDisplayProps> = ({ ssid, qrValue })
 			}, CLOSE_PRINT_TIMEOUT_MS)
 		}
 	}, [printWithSSID, ssid])
-	const hasSSID = Boolean(ssid.trim())
 
 	return (
 		<div className='w-full h-full justify-center flex flex-col items-center self-center space-y-4'>
 			<div className={cn('bg-white p-4 rounded-lg shadow-sm border', !hasSSID && 'hidden')}>
-				{hasSSID && <QRCodeSVG value={qrValue} size={200} ref={qrRef} />}
+				{hasSSID && <QRCodeSVG value={wifiString} size={200} ref={qrRef} />}
 			</div>
 			<div className='space-y-3 justify-self-end'>
 				{hasSSID ? (
@@ -86,4 +85,4 @@ export const WiFiQRCodeDisplay: FC<WiFiQRCodeDisplayProps> = ({ ssid, qrValue })
 			</div>
 		</div>
 	)
-}
+})

@@ -1,37 +1,21 @@
-import type { FC } from 'react'
-
+import { Button } from '@atoms/button'
 import { Input } from '@atoms/input'
-import { Select, type SelectOptionProps } from '@atoms/select'
+import { Select } from '@atoms/select'
 import { Toggle } from '@atoms/toggle'
-import { Wifi, Eye } from 'lucide-react'
+import { useWiFiQRStore } from '@store/wifi-qr.store'
+import { Wifi, Eye, EyeClosed } from 'lucide-react'
+import { memo, useState, type FC } from 'react'
 
-import { Button } from '../../atoms/button'
+import { DEFAULT_SECURITY_TYPE, securityOptionsWithPick, SecurityType } from '@/constants/wifi'
 
-type WiFiConfigFormProps = {
-	ssid: string
-	setSsid: (v: string) => void
-	password: string
-	setPassword: (v: string) => void
-	securityType: string
-	setSecurityType: (v: string) => void
-	hiddenNetwork: boolean
-	setHiddenNetwork: (v: boolean) => void
-	securityOptions: SelectOptionProps[]
-	NO_PASS_VALUE: string
-}
+export const WiFiConfigForm: FC = memo(() => {
+	const [showPassword, setShowPassword] = useState<boolean>(false)
+	const {
+		wifiDetails: { ssid, password, securityType, hiddenNetwork },
+		setWifiDetails,
+	} = useWiFiQRStore()
+	const ShowPasswordIcon = showPassword ? Eye : EyeClosed
 
-export const WiFiConfigForm: FC<WiFiConfigFormProps> = ({
-	ssid,
-	setSsid,
-	password,
-	setPassword,
-	securityType,
-	setSecurityType,
-	hiddenNetwork,
-	setHiddenNetwork,
-	securityOptions,
-	NO_PASS_VALUE,
-}) => {
 	return (
 		<>
 			<Input
@@ -40,23 +24,47 @@ export const WiFiConfigForm: FC<WiFiConfigFormProps> = ({
 				placeholder='Enter Wi-Fi network name'
 				value={ssid}
 				icon={<Wifi className='h-4 w-4' />}
-				onChange={(e) => setSsid(e.target.value)}
+				onChange={(e) =>
+					setWifiDetails({
+						ssid: e.target.value,
+					})
+				}
 			/>
 			<div className='space-y-2'>
-				<Select label='Security Type' defaultValue={securityOptions[0].value} onValueChange={setSecurityType} options={securityOptions} />
+				<Select
+					label='Security Type'
+					defaultValue={DEFAULT_SECURITY_TYPE}
+					onValueChange={(securityType) => setWifiDetails({ securityType })}
+					options={securityOptionsWithPick}
+				/>
 			</div>
-			{securityType !== NO_PASS_VALUE && (
+			{securityType !== SecurityType.NO_PASS && (
 				<Input
 					legend='Password'
 					id='password'
-					type='password'
+					type={showPassword ? 'text' : 'password'}
 					placeholder='Enter Wi-Fi password'
 					value={password}
-					onChange={(e) => setPassword(e.target.value)}
-					icon={<Button icon={<Eye className='w-4 h-4' />} />}
+					onChange={(e) => setWifiDetails({ password: e.target.value })}
+					containerClassName='w-full'
+					Button={Button}
+					buttonProps={{
+						icon: <ShowPasswordIcon className='w-4 h-4' />,
+						onClick: setShowPassword.bind(null, (prev) => !prev),
+						colour: 'base',
+						variant: 'ghost',
+					}}
 				/>
 			)}
-			<Toggle label='Hidden Network?' defaultChecked={hiddenNetwork} onValueChange={setHiddenNetwork} />
+			<Toggle
+				label='Hidden Network?'
+				defaultChecked={hiddenNetwork}
+				onValueChange={(hiddenNetwork) =>
+					setWifiDetails({
+						hiddenNetwork,
+					})
+				}
+			/>
 		</>
 	)
-}
+})

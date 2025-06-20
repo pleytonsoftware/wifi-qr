@@ -1,14 +1,13 @@
-type WiFiConfig = {
-	ssid: string
-	password: string
-	security?: string
-	hidden?: boolean
-}
+import type { WifiDetails } from '@/store/wifi-qr.store'
 
-export const NO_PASS_VALUE = 'nopass' as const
-export const getWiFiString = ({ ssid, password, security = 'WPA', hidden = false }: WiFiConfig) => {
-	if (security === NO_PASS_VALUE) {
-		return `WIFI:T:nopass;S:${ssid};H:${hidden};;`
+import { SecurityType } from '@/constants/wifi'
+
+type WiFiConfig = WifiDetails
+export type WifiString = string
+
+export const getWiFiString = ({ ssid, password, securityType, hiddenNetwork }: WiFiConfig): WifiString => {
+	if (securityType === SecurityType.NO_PASS || !securityType) {
+		return `WIFI:T:nopass;S:${ssid};H:${hiddenNetwork};;`
 	}
-	return `WIFI:T:${security};S:${ssid};P:${password};H:${hidden};;`
+	return `WIFI:T:${securityType};S:${ssid};P:${password};H:${hiddenNetwork};;`
 }

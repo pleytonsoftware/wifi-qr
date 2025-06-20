@@ -3,7 +3,7 @@ import type { ButtonHTMLAttributes, FC, JSX } from 'react'
 import { Loading } from '@atoms/loading'
 import { cn } from '@cn'
 
-type ButtonColour = 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning' | 'error'
+type ButtonColour = 'base' | 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning' | 'error'
 type ButtonVariant = 'default' | 'outline' | 'soft' | 'dash' | 'ghost' | 'link'
 type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -14,7 +14,8 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 	loading?: boolean
 }
 
-const colours = {
+const colours: Record<ButtonColour, string | null> = {
+	base: null, // Default colour, no specific class
 	primary: 'btn-primary',
 	secondary: 'btn-secondary',
 	accent: 'btn-accent',
@@ -24,7 +25,7 @@ const colours = {
 	error: 'btn-error',
 }
 
-const variants = {
+const variants: Record<ButtonVariant, string | null> = {
 	default: null, // Default variant, no specific class
 	outline: 'btn-outline',
 	soft: 'btn-soft',
@@ -32,7 +33,7 @@ const variants = {
 	ghost: 'btn-ghost',
 	link: 'btn-link',
 }
-const sizes = {
+const sizes: Record<ButtonSize, string | null> = {
 	xs: 'btn-xs',
 	sm: 'btn-sm',
 	md: null, // Default size, no specific class

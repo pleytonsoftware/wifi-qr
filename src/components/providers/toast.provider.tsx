@@ -14,7 +14,7 @@ export type ToastProviderProps = PropsWithChildren<{
 	defaultDuration?: ms.StringValue // ms, default 3000
 }>
 
-const TOAST_DEFAULT_DURATION = ms('3m')
+const TOAST_DEFAULT_DURATION = ms('3 seconds')
 
 export const ToastProvider: FC<ToastProviderProps> = ({ defaultDuration, children, horizontalPosition, verticalPosition }) => {
 	const timeoutIds = useRef<ReturnType<typeof setTimeout>[]>([])

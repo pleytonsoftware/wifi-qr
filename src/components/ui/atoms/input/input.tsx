@@ -62,11 +62,19 @@ export const Input: FC<InputProps> = ({
 	const labelNode = label && <span className='label max-w-1/3 truncate'>{label}</span>
 	let input = (
 		<label
-			className={cn('input w-full', ButtonComponent && 'join-item', variants[variant], colours[colour], sizes[inputSize], containerClassName)}
+			className={cn(
+				'input w-full',
+				ButtonComponent && 'join-item',
+				variants[variant],
+				colours[colour],
+				sizes[inputSize],
+				containerClassName,
+				props.readOnly && '!outline-none !ring-0 focus:!outline-none focus:!ring-0',
+			)}
 		>
 			{labelNode && labelPlacement === 'left' && labelNode}
 			{icon && <span className='mr-2 flex items-center'>{icon}</span>}
-			<input className={cn('grow', className)} {...props} />
+			<input className={cn('grow', className, props.readOnly && '!outline-none !ring-0 focus:!outline-none focus:!ring-0')} {...props} />
 			{labelNode && labelPlacement === 'right' && labelNode}
 			{rightElement && <span className='ml-2 flex items-center'>{rightElement}</span>}
 		</label>
@@ -86,7 +94,7 @@ export const Input: FC<InputProps> = ({
 		return (
 			<div className={cn('join w-full', containerClassName)}>
 				{input}
-				<ButtonComponent className={cn('join-item', legendNode && 'bottom-0', buttonClassName)} {...buttonProps} />
+				<ButtonComponent className={cn('join-item', legendNode && 'self-end mb-1', buttonClassName)} {...buttonProps} />
 			</div>
 		)
 	}
