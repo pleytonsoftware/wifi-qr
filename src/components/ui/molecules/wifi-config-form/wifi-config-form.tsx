@@ -34,7 +34,7 @@ export const WiFiConfigForm: FC = memo(() => {
 				<Select
 					label='Security Type'
 					defaultValue={DEFAULT_SECURITY_TYPE}
-					onValueChange={(securityType) => setWifiDetails({ securityType })}
+					onValueChange={(securityType) => setWifiDetails({ securityType: securityType as SecurityType })}
 					options={securityOptionsWithPick}
 				/>
 			</div>
