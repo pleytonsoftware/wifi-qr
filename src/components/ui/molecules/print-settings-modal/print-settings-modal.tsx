@@ -1,9 +1,10 @@
+import type { FC } from 'react'
+
 import { Button } from '@atoms/button'
 import { Input } from '@atoms/input'
 import { Modal } from '@atoms/modal'
 import { Toggle } from '@atoms/toggle'
 import { Printer } from 'lucide-react'
-import { useState, type FC } from 'react'
 
 import { useWiFiQRStore } from '@/store/wifi-qr.store'
 
