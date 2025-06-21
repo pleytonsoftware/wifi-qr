@@ -60,6 +60,8 @@ export const Input: FC<InputProps> = ({
 	...props
 }) => {
 	const labelNode = label && <span className='label max-w-1/3 truncate'>{label}</span>
+	const shouldRenderSimpleLabel = labelNode && !legendNode
+
 	let input = (
 		<label
 			className={cn(
@@ -72,10 +74,10 @@ export const Input: FC<InputProps> = ({
 				props.readOnly && '!outline-none !ring-0 focus:!outline-none focus:!ring-0',
 			)}
 		>
-			{labelNode && labelPlacement === 'left' && labelNode}
+			{shouldRenderSimpleLabel && labelPlacement === 'left' && labelNode}
 			{icon && <span className='mr-2 flex items-center'>{icon}</span>}
 			<input className={cn('grow', className, props.readOnly && '!outline-none !ring-0 focus:!outline-none focus:!ring-0')} {...props} />
-			{labelNode && labelPlacement === 'right' && labelNode}
+			{shouldRenderSimpleLabel && labelPlacement === 'right' && labelNode}
 			{rightElement && <span className='ml-2 flex items-center'>{rightElement}</span>}
 		</label>
 	)
