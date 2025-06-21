@@ -1,5 +1,4 @@
 import { Button } from '@atoms/button'
-import { Checkbox } from '@atoms/checkbox'
 import { cn } from '@cn'
 import { Download, Printer } from 'lucide-react'
 import ms from 'ms'
@@ -8,13 +7,18 @@ import { useState, useCallback, type FC, useRef, memo } from 'react'
 
 import { useWiFiQRStore } from '@/store/wifi-qr.store'
 
+import { PrintSettingsModal } from '../print-settings-modal'
+
 const CLOSE_PRINT_TIMEOUT_MS = ms('0.5 seconds')
 
 export const WiFiQRCodeDisplay: FC = memo(() => {
+	const [open, setOpen] = useState(false)
+	const [numberOfCards, setNumberOfCards] = useState<number>(1)
+	const [printWithSSID, setPrintWithSSID] = useState<boolean>(true)
+	const [printWithPassword, setPrintWithPassword] = useState<boolean>(false)
 	const ssid = useWiFiQRStore((state) => state.wifiDetails.ssid)
 	const wifiString = useWiFiQRStore((state) => state.wifiString)
 	const qrRef = useRef<SVGSVGElement>(null)
-	const [printWithSSID, setPrintWithSSID] = useState<boolean>(true)
 	const hasSSID = Boolean(ssid.trim())
 
 	const handleDownload = useCallback(async () => {
@@ -27,6 +31,7 @@ export const WiFiQRCodeDisplay: FC = memo(() => {
 		link.click()
 	}, [ssid])
 
+	const handlePrintOpen = useCallback(() => setOpen(true), [])
 	const handlePrint = useCallback(async () => {
 		if (!qrRef?.current) return
 		const { toPng } = await import('html-to-image')
@@ -38,21 +43,26 @@ export const WiFiQRCodeDisplay: FC = memo(() => {
 				import('react-dom/server'),
 				import('@atoms/wifi-qr-code-printer'),
 			])
+			const ssidToDisplay = printWithSSID ? ssid : undefined
+			const password = printWithPassword ? useWiFiQRStore.getState().wifiDetails.password : undefined
 
-			const html = renderToStaticMarkup(<WifiQRCodePrinter ssid={printWithSSID ? ssid : undefined} dataUrl={dataUrl} />)
+			const html = renderToStaticMarkup(
+				<WifiQRCodePrinter ssid={ssidToDisplay} password={password} dataUrl={dataUrl} numberOfCards={numberOfCards} />,
+			)
 			printWindow.document.writeln(html)
 			printWindow.document.close()
 			printWindow.focus()
+			setOpen(false)
 
 			setTimeout(() => {
 				printWindow.print()
-				// printWindow.close()
+				printWindow.close()
 			}, CLOSE_PRINT_TIMEOUT_MS)
 		}
-	}, [printWithSSID, ssid])
+	}, [printWithSSID, ssid, printWithPassword, numberOfCards])
 
 	return (
-		<div className='w-full h-full justify-center flex flex-col items-center self-center space-y-4'>
+		<div className='w-full h-full justify-around flex flex-col items-center self-center space-y-4'>
 			<div className={cn('bg-white p-4 rounded-lg shadow-sm border', !hasSSID && 'hidden')}>
 				{hasSSID && <QRCodeSVG value={wifiString} size={200} ref={qrRef} />}
 			</div>
@@ -64,18 +74,26 @@ export const WiFiQRCodeDisplay: FC = memo(() => {
 								<Download className='h-4 w-4' />
 								Download QR Code
 							</Button>
-							<Button colour='primary' variant='outline' onClick={handlePrint} className='flex items-center gap-2'>
+							<Button colour='primary' variant='outline' onClick={handlePrintOpen} className='flex items-center gap-2'>
 								<Printer className='h-4 w-4' />
 								Print QR Code
 							</Button>
-						</div>
-
-						<div className='flex items-center space-x-2'>
-							<Checkbox
-								id='print-ssid'
-								label='Include network name when printing'
-								checked={printWithSSID}
-								onValueChange={setPrintWithSSID}
+							<PrintSettingsModal
+								open={open}
+								onClose={() => setOpen(false)}
+								onPrint={handlePrint}
+								numberOfCards={numberOfCards}
+								printWithSSID={printWithSSID}
+								printWithPassword={printWithPassword}
+								onValueChange={(key, value) => {
+									if (key === 'numberOfCards') {
+										setNumberOfCards(value as number)
+									} else if (key === 'printWithSSID') {
+										setPrintWithSSID(value as boolean)
+									} else if (key === 'printWithPassword') {
+										setPrintWithPassword(value as boolean)
+									}
+								}}
 							/>
 						</div>
 					</>
