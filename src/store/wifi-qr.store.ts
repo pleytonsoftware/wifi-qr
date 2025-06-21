@@ -1,12 +1,12 @@
 import { create } from 'zustand'
 
-import { DEFAULT_SECURITY_TYPE } from '@/constants/wifi'
+import { DEFAULT_SECURITY_TYPE, SecurityType } from '@/constants/wifi'
 import { getWiFiString, type WifiString } from '@/utils/qr-generator'
 
 export type WifiDetails = {
 	ssid: string
 	password: string
-	securityType: string
+	securityType: SecurityType
 	hiddenNetwork: boolean
 }
 export type WiFiQRState = {
