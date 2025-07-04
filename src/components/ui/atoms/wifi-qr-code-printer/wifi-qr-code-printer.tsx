@@ -230,8 +230,8 @@ export const WifiQRCodePrinter: FC<WifiQRCodePrinterProps> = ({ ssid, password, 
 					<div className='instructions'>{t('qr_code_printer.instructions')}</div>
 					<div className='card-container'>
 						{Array.from({ length: numberOfCards }).map((_, idx) => (
-							<div style={{ paddingTop: '0.25in' }}>
-								<WifiCard key={idx} ssid={ssid} password={password} dataUrl={dataUrl} cutGuides />
+							<div key={idx} style={{ paddingTop: '0.25in' }}>
+								<WifiCard ssid={ssid} password={password} dataUrl={dataUrl} cutGuides />
 							</div>
 						))}
 					</div>
