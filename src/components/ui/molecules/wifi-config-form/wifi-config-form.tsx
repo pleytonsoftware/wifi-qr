@@ -5,10 +5,13 @@ import { Toggle } from '@atoms/toggle'
 import { useWiFiQRStore } from '@store/wifi-qr.store'
 import { Wifi, Eye, EyeClosed } from 'lucide-react'
 import { memo, useState, type FC } from 'react'
+import { useTranslation } from 'react-i18next'
 
+import { LOCALE_NAMESPACES } from '@/constants/languages'
 import { DEFAULT_SECURITY_TYPE, securityOptionsWithPick, SecurityType } from '@/constants/wifi'
 
 export const WiFiConfigForm: FC = memo(() => {
+	const { t } = useTranslation(LOCALE_NAMESPACES.common)
 	const [showPassword, setShowPassword] = useState<boolean>(false)
 	const {
 		wifiDetails: { ssid, password, securityType, hiddenNetwork },
@@ -19,9 +22,9 @@ export const WiFiConfigForm: FC = memo(() => {
 	return (
 		<>
 			<Input
-				legend='Network Name (SSID)'
+				legend={t('wifi_config.fields.network_name.label')}
 				id='ssid'
-				placeholder='Enter Wi-Fi network name'
+				placeholder={t('wifi_config.fields.network_name.placeholder')}
 				value={ssid}
 				icon={<Wifi className='h-4 w-4' />}
 				onChange={(e) =>
@@ -32,18 +35,21 @@ export const WiFiConfigForm: FC = memo(() => {
 			/>
 			<div className='space-y-2'>
 				<Select
-					label='Security Type'
+					label={t('wifi_config.fields.security_type.label')}
 					defaultValue={DEFAULT_SECURITY_TYPE}
 					onValueChange={(securityType) => setWifiDetails({ securityType: securityType as SecurityType })}
-					options={securityOptionsWithPick}
+					options={securityOptionsWithPick.map((option) => ({
+						...option,
+						label: t(`wifi_config.fields.security_type.options.${option.value}`),
+					}))}
 				/>
 			</div>
 			{securityType !== SecurityType.NO_PASS && (
 				<Input
-					legend='Password'
+					legend={t('wifi_config.fields.password.label')}
 					id='password'
 					type={showPassword ? 'text' : 'password'}
-					placeholder='Enter Wi-Fi password'
+					placeholder={t('wifi_config.fields.password.placeholder')}
 					value={password}
 					onChange={(e) => setWifiDetails({ password: e.target.value })}
 					containerClassName='w-full'
@@ -57,7 +63,7 @@ export const WiFiConfigForm: FC = memo(() => {
 				/>
 			)}
 			<Toggle
-				label='Hidden Network?'
+				label={t('wifi_config.fields.hidden_network.label')}
 				defaultChecked={hiddenNetwork}
 				onValueChange={(hiddenNetwork) =>
 					setWifiDetails({

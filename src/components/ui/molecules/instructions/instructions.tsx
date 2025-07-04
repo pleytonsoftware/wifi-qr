@@ -1,41 +1,51 @@
+import type { ParseKeys } from 'i18next'
 import type { FC } from 'react'
 
 import { Badge } from '@atoms/badge'
 import { Card } from '@atoms/card'
+import { Translation } from 'react-i18next'
 
-const useSteps = [
+type Step = {
+	title: ParseKeys<'common'>
+	description: ParseKeys<'common'>
+}
+const guideSteps: Array<Step> = [
 	{
-		title: 'Configure Wi-Fi',
-		description: 'Enter your network name, select security type, and add password if required.',
+		title: 'steps.1.title',
+		description: 'steps.1.description',
 	},
 	{
-		title: 'Generate QR Code',
-		description: 'The QR code is automatically generated as you type your Wi-Fi details.',
+		title: 'steps.2.title',
+		description: 'steps.2.description',
 	},
 	{
-		title: 'Share & Connect',
-		description: 'Download, print or share the QR code. Others can scan it to connect instantly.',
+		title: 'steps.3.title',
+		description: 'steps.3.description',
 	},
 ]
 
 export const Instructions: FC = () => (
-	<Card>
-		<Card.Body className='space-y-2'>
-			<Card.Title>How to Use</Card.Title>
-			<Card.Description>Follow these steps to generate and share your Wi-Fi QR code:</Card.Description>
-			<div className='grid md:grid-cols-3 gap-4 text-sm'>
-				{useSteps.map((step, index) => (
-					<div key={index} className='flex items-start gap-3'>
-						<Badge colour='primary' rounded>
-							{index + 1}
-						</Badge>
-						<div>
-							<h4 className='font-medium mb-1'>{step.title}</h4>
-							<p className='text-gray-600'>{step.description}</p>
-						</div>
+	<Translation ns='common'>
+		{(t) => (
+			<Card>
+				<Card.Body className='space-y-2'>
+					<Card.Title>{t('steps.title')}</Card.Title>
+					<Card.Description>{t('steps.description')}:</Card.Description>
+					<div className='grid md:grid-cols-3 gap-4 text-sm'>
+						{guideSteps.map((step, index) => (
+							<div key={index} className='flex items-start gap-3'>
+								<Badge colour='primary' rounded>
+									{index + 1}
+								</Badge>
+								<div>
+									<h4 className='font-medium mb-1'>{t(step.title)}</h4>
+									<p className='text-gray-600'>{t(step.description)}</p>
+								</div>
+							</div>
+						))}
 					</div>
-				))}
-			</div>
-		</Card.Body>
-	</Card>
+				</Card.Body>
+			</Card>
+		)}
+	</Translation>
 )

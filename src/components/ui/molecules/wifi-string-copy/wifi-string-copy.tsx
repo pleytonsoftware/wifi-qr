@@ -3,10 +3,13 @@ import { Input } from '@atoms/input'
 import { useToast } from '@hooks/use-toast.hook'
 import { Copy, Check } from 'lucide-react'
 import { memo, useCallback, useState, type FC } from 'react'
+import { useTranslation } from 'react-i18next'
 
+import { LOCALE_NAMESPACES } from '@/constants/languages'
 import { useWiFiQRStore } from '@/store/wifi-qr.store'
 
 export const WiFiStringCopy: FC = memo(() => {
+	const { t, i18n } = useTranslation(LOCALE_NAMESPACES.common)
 	const [copied, setCopied] = useState(false)
 	const { showToast } = useToast()
 	const wifiString = useWiFiQRStore((state) => state.wifiString)
@@ -17,20 +20,20 @@ export const WiFiStringCopy: FC = memo(() => {
 			setTimeout(() => setCopied(false), 2000)
 
 			showToast({
-				title: 'Copied to Clipboard',
-				description: 'Wi-Fi configuration string copied successfully.',
+				title: t('wifi_string_copy.toast.copied.title'),
+				description: t('wifi_string_copy.toast.copied.description'),
 				variant: 'success',
 			})
 		} catch (error) {
 			// eslint-disable-next-line no-console
 			console.error('Failed to copy to clipboard:', error)
 			showToast({
-				title: 'Copy Failed',
-				description: 'Unable to copy to clipboard.',
+				title: t('wifi_string_copy.toast.copy_failed.title'),
+				description: t('wifi_string_copy.toast.copy_failed.description'),
 				variant: 'error',
 			})
 		}
-	}, [wifiString, showToast])
+	}, [wifiString, showToast, i18n.resolvedLanguage])
 
 	return (
 		<Input

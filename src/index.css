@@ -102,3 +102,90 @@
 	/* ✨ Effects */
 	--depth: 0;
 }
+
+@utility card-outlines {
+	@apply rounded-2xl border-2 border-dashed border-gray-300;
+}
+
+.wifi-card {
+	@apply relative flex w-[2in] break-inside-avoid flex-col items-center justify-center rounded-2xl bg-white p-[0.15in];
+	page-break-inside: avoid;
+
+	&.has-password {
+		@apply h-[2.5in];
+	}
+
+	&:not(.has-password) {
+		@apply h-[2in];
+	}
+
+	/* &::before,
+	&::after {
+		@apply absolute bg-neutral-400 content-[''];
+	}
+
+	&::before {
+		@apply -top-px -right-2 h-px w-[15px];
+	}
+
+	&::after {
+		@apply -top-2 -right-px h-[15px] w-px;
+	} */
+}
+
+.cut-guides {
+	@apply card-outlines pointer-events-none absolute -top-2.5 -right-2.5 -bottom-2.5 -left-2.5;
+
+	/* &::before,
+	&::after {
+		@apply absolute bg-neutral-400 content-[''];
+	}
+
+	&::before {
+		@apply -top-px -left-2 h-px w-[15px];
+	}
+
+	&::after {
+		@apply -top-2 -left-px h-[15px] w-px;
+	} */
+
+	.scissors {
+		@apply absolute -top-2 -left-3 h-4 w-4 text-black;
+	}
+}
+
+.card-header {
+	@apply flex flex-col gap-[0.12in] text-center;
+
+	.card-header__name {
+		@apply flex gap-[0.083in];
+
+		.card-header__network-name {
+			@apply mb-1 text-[14px] leading-[1.2] font-bold break-all text-[#333];
+		}
+	}
+
+	.card-header__network-password {
+		@apply rounded-[3px] bg-[#f8f8f8] px-[6px] py-[2px] font-mono text-[11px] leading-[1.2] break-all text-[#666];
+	}
+
+	.card-header__icon {
+		@apply inline-block h-4 w-4 align-middle text-black;
+	}
+}
+
+.qr-section {
+	@apply flex flex-1 items-center justify-center;
+
+	.qr-section__image {
+		@apply h-auto max-h-[1.2in] w-auto max-w-[1.2in];
+	}
+}
+
+.card-footer {
+	@apply mt-1 text-center;
+
+	.card-footer__scan-text {
+		@apply text-base-100 text-[8px] leading-[1.1];
+	}
+}

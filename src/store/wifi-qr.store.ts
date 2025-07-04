@@ -12,7 +12,9 @@ export type WifiDetails = {
 export type WiFiQRState = {
 	wifiDetails: WifiDetails
 	wifiString: WifiString
+	wifiDataUrl?: string
 	setWifiDetails: (details: Partial<WifiDetails>) => void
+	setWifiDataUrl: (dataUrl: string) => void
 }
 const initialWifiDetails: WifiDetails = {
 	ssid: '',
@@ -24,6 +26,7 @@ const initialWifiDetails: WifiDetails = {
 export const useWiFiQRStore = create<WiFiQRState>((set) => ({
 	wifiDetails: initialWifiDetails,
 	wifiString: getWiFiString(initialWifiDetails),
+	wifiDataUrl: undefined,
 	setWifiDetails: ({ ssid, password, securityType, hiddenNetwork }) =>
 		set(({ wifiDetails }) => {
 			const updatedDetails = {
@@ -36,6 +39,11 @@ export const useWiFiQRStore = create<WiFiQRState>((set) => ({
 			return {
 				wifiDetails: updatedDetails,
 				wifiString: getWiFiString(updatedDetails),
+				wifiDataUrl: undefined,
 			}
 		}),
+	setWifiDataUrl: (dataUrl: string) =>
+		set(() => ({
+			wifiDataUrl: dataUrl,
+		})),
 }))

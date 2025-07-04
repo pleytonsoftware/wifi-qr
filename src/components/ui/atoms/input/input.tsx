@@ -59,7 +59,7 @@ export const Input: FC<InputProps> = ({
 	buttonProps: { className: buttonClassName, ...buttonProps } = {},
 	...props
 }) => {
-	const labelNode = label && <span className='label max-w-1/3 truncate'>{label}</span>
+	const labelNode = label && <span className='label max-w-full truncate'>{label}</span>
 	const shouldRenderSimpleLabel = labelNode && !legendNode
 
 	let input = (

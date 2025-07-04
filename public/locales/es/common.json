@@ -1,0 +1,39 @@
+{
+	"app": {
+		"title": "Generador de QR para Wi-Fi",
+		"subtitle": "Genera códigos QR para compartir Wi-Fi fácilmente"
+	},
+	"wifi_config": {
+		"title": "Configuración de Wi-Fi",
+		"description": "Ingresa los detalles de tu Wi-Fi para generar un código QR"
+	},
+	"generated_qr": {
+		"title": "Código QR Generado",
+		"description": "Escanea este código para conectarte a la red Wi-Fi"
+	},
+	"footer": {
+		"created_by": "Creado con ❤️ por <1>pleyt.dev</1>",
+		"copyright": "© {{year}}"
+	},
+	"qr_code_printer": {
+		"title": "Tarjetas de acceso Wi-Fi",
+		"instructions": "Corta por las líneas punteadas para crear tarjetas Wi-Fi individuales",
+		"scan": "Escanea para conectarte al Wi-Fi"
+	},
+	"steps": {
+		"title": "Cómo funciona",
+		"description": "Sigue estos pasos para generar y compartir tu código QR de Wi-Fi",
+		"1": {
+			"title": "Configura el Wi-Fi",
+			"description": "Ingresa el nombre de tu red, selecciona el tipo de seguridad y añade la contraseña si es necesario."
+		},
+		"2": {
+			"title": "Genera el código QR",
+			"description": "El código QR se genera automáticamente a medida que escribes los detalles de tu Wi-Fi."
+		},
+		"3": {
+			"title": "Comparte y conecta",
+			"description": "Descarga, imprime o comparte el código QR. Otros pueden escanearlo para conectarse al instante."
+		}
+	}
+}

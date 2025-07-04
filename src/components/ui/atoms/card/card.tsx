@@ -58,7 +58,7 @@ export const Card: CardComponent = ({
 	return (
 		<div
 			className={cn(
-				'card',
+				'card shadow-lg',
 				colourClasses[colour],
 				sizeClasses[size],
 				border && 'card-border',

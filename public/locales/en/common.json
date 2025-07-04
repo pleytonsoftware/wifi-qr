@@ -1,0 +1,101 @@
+{
+	"app": {
+		"title": "Wi-Fi QR Generator",
+		"subtitle": "Generate QR codes for easy Wi-Fi sharing"
+	},
+	"wifi_config": {
+		"title": "Wi-Fi Configuration",
+		"description": "Enter your Wi-Fi details to generate a QR code",
+		"fields": {
+			"network_name": {
+				"label": "Network Name (SSID)",
+				"placeholder": "Enter Wi-Fi network name"
+			},
+			"security_type": {
+				"label": "Security Type",
+				"options": {
+					"pick": "Select security type",
+					"WPA": "WPA/WPA2/WPA3",
+					"WEP": "WEP",
+					"nopass": "No Password"
+				}
+			},
+			"password": {
+				"label": "Password",
+				"placeholder": "Enter Wi-Fi password"
+			},
+			"hidden_network": {
+				"label": "Hidden Network?"
+			}
+		}
+	},
+	"generated_qr": {
+		"title": "Generated QR Code",
+		"description": "Scan this code to connect to the Wi-Fi network"
+	},
+	"footer": {
+		"created_by": "Created with ❤️ by <1>pleyt.dev</1>",
+		"copyright": "© {{year}}"
+	},
+	"qr_code_printer": {
+		"title": "Wi-Fi Access Cards",
+		"instructions": "Cut along the dashed lines to create individual Wi-Fi cards",
+		"scan": "Scan to connect to Wi-Fi"
+	},
+	"buttons": {
+		"cancel": "Cancel",
+		"print_cards_one": "Print {{count}} Card",
+		"print_cards_other": "Print {{count}} Cards"
+	},
+	"steps": {
+		"title": "How to Use",
+		"description": "Follow these steps to generate and share your Wi-Fi QR code",
+		"1": {
+			"title": "Configure Wi-Fi",
+			"description": "Enter your network name, select security type, and add password if required."
+		},
+		"2": {
+			"title": "Generate QR Code",
+			"description": "The QR code is automatically generated as you type your Wi-Fi details."
+		},
+		"3": {
+			"title": "Share & Connect",
+			"description": "Download, print or share the QR code. Others can scan it to connect instantly."
+		}
+	},
+	"print-setup": {
+		"title": "Print Settings",
+		"description": "Configure your print options for the Wi-Fi QR code cards.",
+		"number_of_cards": {
+			"legend": "Number of Cards",
+			"label": "Print between {{min}} and {{max}} cards"
+		},
+		"card_content": {
+			"title": "Card Content",
+			"display_ssid": "Display Network name (SSID)",
+			"display_password": "Display Password"
+		}
+	},
+	"qr_display": {
+		"buttons": {
+			"download": "Download QR Code",
+			"print": "Print QR Code"
+		},
+		"messages": {
+			"enter_details": "Please enter valid Wi-Fi details to generate a QR code.",
+			"ensure_requirements": "Ensure the SSID is provided and, if applicable, the password is set for WPA or WEP security types."
+		}
+	},
+	"wifi_string_copy": {
+		"toast": {
+			"copied": {
+				"title": "Copied to Clipboard",
+				"description": "Wi-Fi configuration string copied successfully."
+			},
+			"copy_failed": {
+				"title": "Copy Failed",
+				"description": "Unable to copy to clipboard."
+			}
+		}
+	}
+}
