@@ -63,7 +63,7 @@
 			"description": "Download, print or share the QR code. Others can scan it to connect instantly."
 		}
 	},
-	"print-setup": {
+	"print_setup": {
 		"title": "Print Settings",
 		"description": "Configure your print options for the Wi-Fi QR code cards.",
 		"number_of_cards": {

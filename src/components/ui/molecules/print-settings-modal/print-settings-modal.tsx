@@ -48,15 +48,15 @@ export const PrintSettingsModal: FC<PrintSettingsModalProps> = ({
 			<div className='flex flex-col-reverse lg:flex-row w-full space-x-4'>
 				<div className='flex flex-col'>
 					<div className='mb-4'>
-						<h2 className='text-lg font-bold'>{t('print-setup.title')}</h2>
-						<p className='text-sm text-base-content-secondary'>{t('print-setup.description')}</p>
+						<h2 className='text-lg font-bold'>{t('print_setup.title')}</h2>
+						<p className='text-sm text-base-content-secondary'>{t('print_setup.description')}</p>
 					</div>
 					<div className='space-y-4'>
 						<div className='space-y-2'>
 							<Input
 								id={`${idPrefix}-card-count`}
 								type='number'
-								legend={t('print-setup.number_of_cards.legend')}
+								legend={t('print_setup.number_of_cards.legend')}
 								min={NUMBER_CARDS_LIMITS.min}
 								max={NUMBER_CARDS_LIMITS.max}
 								value={numberOfCards}
@@ -68,14 +68,14 @@ export const PrintSettingsModal: FC<PrintSettingsModalProps> = ({
 									onValueChange?.('numberOfCards', value)
 								}}
 								className='w-full'
-								label={t('print-setup.number_of_cards.label', { min: NUMBER_CARDS_LIMITS.min, max: NUMBER_CARDS_LIMITS.max })}
+								label={t('print_setup.number_of_cards.label', { min: NUMBER_CARDS_LIMITS.min, max: NUMBER_CARDS_LIMITS.max })}
 							/>
 						</div>
 						<div className='flex flex-col space-y-3'>
-							<span className='text-sm font-medium'>{t('print-setup.card_content.title')}</span>
+							<span className='text-sm font-medium'>{t('print_setup.card_content.title')}</span>
 							<div className='flex items-center space-x-2'>
 								<Toggle
-									label={t('print-setup.card_content.display_ssid')}
+									label={t('print_setup.card_content.display_ssid')}
 									id={`${idPrefix}-print-ssid`}
 									checked={printWithSSID}
 									onValueChange={(printWithSSID) => onValueChange?.('printWithSSID', printWithSSID)}
@@ -84,7 +84,7 @@ export const PrintSettingsModal: FC<PrintSettingsModalProps> = ({
 							{wifiDetails.securityType !== 'nopass' && (
 								<div className='flex items-center space-x-2'>
 									<Toggle
-										label={t('print-setup.card_content.display_password')}
+										label={t('print_setup.card_content.display_password')}
 										id={`${idPrefix}-print-password`}
 										checked={printWithPassword}
 										onValueChange={(printWithPassword) => onValueChange?.('printWithPassword', printWithPassword)}
