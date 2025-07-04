@@ -79,7 +79,6 @@ export const WiFiQRCodeDisplay: FC = memo(() => {
 			}, CLOSE_PRINT_TIMEOUT_MS)
 		}
 	}, [printWithSSID, ssid, printWithPassword, numberOfCards, wifiDataUrl])
-	const size = 200
 
 	return (
 		<div className='w-full h-full justify-around flex flex-col items-center self-center space-y-4'>
@@ -87,10 +86,7 @@ export const WiFiQRCodeDisplay: FC = memo(() => {
 				{isReadyQR ? (
 					<div className='relative inline-block w-full h-full' ref={qrRef}>
 						<QRCodeSVG value={wifiString} level='H' className='w-full h-full' />
-						<div
-							className='absolute top-1/2 left-1/2 text-primary bg-white rounded-lg flex items-center justify-center'
-							style={{ width: size / 4, height: size / 4, transform: 'translate(-50%, -50%)' }}
-						>
+						<div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 text-primary bg-white rounded-lg flex items-center justify-center'>
 							<Wifi />
 						</div>
 					</div>
