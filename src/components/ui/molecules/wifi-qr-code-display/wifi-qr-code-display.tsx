@@ -1,7 +1,7 @@
 import { Button } from '@atoms/button'
 import { cn } from '@cn'
 import { PrintSettingsModal } from '@molecules/print-settings-modal'
-import { Download, Printer, QrCode } from 'lucide-react'
+import { Download, Printer, QrCode, Wifi } from 'lucide-react'
 import ms from 'ms'
 import { QRCodeSVG } from 'qrcode.react'
 import { useState, useCallback, type FC, useRef, memo } from 'react'
@@ -23,7 +23,7 @@ export const WiFiQRCodeDisplay: FC = memo(() => {
 	const wifiString = useWiFiQRStore((state) => state.wifiString)
 	const wifiDataUrl = useWiFiQRStore((state) => state.wifiDataUrl)
 	const setWifiDataUrl = useWiFiQRStore((state) => state.setWifiDataUrl)
-	const qrRef = useRef<SVGSVGElement>(null)
+	const qrRef = useRef<HTMLDivElement>(null)
 	const isReadyQR =
 		Boolean(ssid.trim()) &&
 		(securityType === SecurityType.NO_PASS ||
@@ -79,12 +79,21 @@ export const WiFiQRCodeDisplay: FC = memo(() => {
 			}, CLOSE_PRINT_TIMEOUT_MS)
 		}
 	}, [printWithSSID, ssid, printWithPassword, numberOfCards, wifiDataUrl])
+	const size = 200
 
 	return (
 		<div className='w-full h-full justify-around flex flex-col items-center self-center space-y-4'>
-			<div className={cn('bg-white p-4 rounded-lg shadow-sm border aspect-square w-48')}>
+			<div className={cn('bg-white p-4 rounded-lg shadow-sm border aspect-square w-48 h-48')}>
 				{isReadyQR ? (
-					<QRCodeSVG value={wifiString} size={200} className='w-full h-full' ref={qrRef} />
+					<div className='relative inline-block w-full h-full' ref={qrRef}>
+						<QRCodeSVG value={wifiString} level='H' className='w-full h-full' />
+						<div
+							className='absolute top-1/2 left-1/2 text-primary bg-white rounded-lg flex items-center justify-center'
+							style={{ width: size / 4, height: size / 4, transform: 'translate(-50%, -50%)' }}
+						>
+							<Wifi />
+						</div>
+					</div>
 				) : (
 					<QrCode className='text-black w-full h-full' />
 				)}
