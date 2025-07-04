@@ -4,6 +4,7 @@ import { Wifi } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 import { LOCALE_NAMESPACES } from '@/constants/languages'
+import indexCssUrl from '@/index.css?url'
 
 import { WifiCard } from '../wifi-card/wifi-card'
 
@@ -19,7 +20,7 @@ export const WifiQRCodePrinter: FC<WifiQRCodePrinterProps> = ({ ssid, password, 
 		<html>
 			<head>
 				<title>Wi-Fi QR Code - ${ssid}</title>
-				<link rel='stylesheet' href={`/${import.meta.env.DEV ? 'src' : 'dist'}/index.css`} />
+				<link rel='stylesheet' href={indexCssUrl} />
 				<style>
 					{`
           * {
