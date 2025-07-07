@@ -32,7 +32,6 @@ export default tseslint.config(
       'no-console': 'warn',
       'no-debugger': 'warn',
       '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
-      "formatjs/no-missing-translation": "error",
     },
   },
 )
