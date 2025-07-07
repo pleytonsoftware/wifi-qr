@@ -30,7 +30,7 @@ export const SEOHead = () => {
 	}, [t, i18n.resolvedLanguage])
 
 	const currentLang = i18n.language
-	const baseUrl = import.meta.env.VITE_BASE_HOST || window.location.hostname
+	const baseUrl = import.meta.env.VITE_BASE_HOST || `${window.location.protocol}//${window.location.host}`
 	const currentUrl = currentLang === Languages.ENGLISH ? baseUrl : `${baseUrl}?lng=${currentLang}`
 
 	// Schema markup
