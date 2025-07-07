@@ -12,6 +12,7 @@ declare module 'i18next' {
 		resources: {
 			common: typeof import('../public/locales/en/common.json')
 			languages: typeof import('../public/locales/en/languages.json')
+			seo: typeof import('../public/locales/en/seo.json')
 		}
 		// other
 	}

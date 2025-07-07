@@ -3,15 +3,16 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 import HttpBackend from 'i18next-http-backend'
 import { initReactI18next } from 'react-i18next'
 
-import { DEFAULT_LANGUAGE, LOCALE_NAMESPACES, SUPPORTED_LANGUAGES } from './constants/languages'
+import { DEFAULT_LANGUAGE, I18NEXT_IDENTIFIER, LOCALE_NAMESPACES, SUPPORTED_LANGUAGES } from './constants/languages'
 
 const languageDetector = new LanguageDetector()
 languageDetector.init({
 	supportedLngs: SUPPORTED_LANGUAGES,
 	detection: {
-		order: ['querystring', 'cookie', 'localStorage', 'navigator'],
-		caches: ['localStorage', 'cookie'],
+		order: ['querystring', 'localStorage', 'navigator'],
+		caches: ['localStorage'],
 		lookupQuerystring: 'lng',
+		lookupLocalStorage: I18NEXT_IDENTIFIER,
 	},
 })
 

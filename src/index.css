@@ -187,5 +187,9 @@
 
 	.card-footer__scan-text {
 		@apply text-base-100 text-[8px] leading-[1.1];
+
+		.smaller {
+			@apply text-[6px];
+		}
 	}
 }

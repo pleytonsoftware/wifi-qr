@@ -43,8 +43,10 @@ export enum DisabledLanguages {
 
 export const SUPPORTED_LANGUAGES = [...Object.values(Languages)] as const
 export const DEFAULT_LANGUAGE = Languages.ENGLISH
+export const I18NEXT_IDENTIFIER = 'i18next'
 
 export const LOCALE_NAMESPACES = {
 	common: 'common',
 	languages: 'languages',
+	seo: 'seo',
 } as const
