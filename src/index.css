@@ -7,9 +7,9 @@
 
 @plugin "daisyui/theme" {
 	name: 'light';
-	default: true;
+	/* default: false;
 	prefersdark: false;
-	color-scheme: 'light';
+	color-scheme: 'light'; */
 
 	/* 🌤 Base Colors (Light Backgrounds) */
 	--color-base-100: oklch(99% 0.005 260); /* main bg */
@@ -56,9 +56,6 @@
 
 @plugin "daisyui/theme" {
 	name: 'dark';
-	default: false;
-	prefersdark: true;
-	color-scheme: 'dark';
 
 	/* 🧱 Base layers - Dark grayscale backgrounds */
 	--color-base-100: oklch(20% 0.005 260); /* Main background */

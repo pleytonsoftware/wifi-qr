@@ -21,21 +21,19 @@ export const LanguageSelector = () => {
 	)
 
 	return (
-		<div className='fixed bottom-4 right-4'>
-			<Dropdown
-				vertical='top'
-				horizontal='end'
-				buttonClassName='shadow-lg'
-				menuClassName='max-h-60 overflow-y-auto'
-				buttonContent={
-					<Dropdown.Item className='flex items-center gap-2 text-sm font-medium text-base-content'>
-						<LanguagesIcon className='text-secondary w-4 h-4' />
-						{t(`languages.${i18n.resolvedLanguage}`)}
-					</Dropdown.Item>
-				}
-			>
-				{languagesNode}
-			</Dropdown>
-		</div>
+		<Dropdown
+			vertical='top'
+			horizontal='end'
+			buttonClassName='shadow-lg'
+			menuClassName='max-h-60 overflow-y-auto'
+			buttonContent={
+				<Dropdown.Item className='flex items-center gap-2 text-sm font-medium text-base-content'>
+					<LanguagesIcon className='text-secondary w-4 h-4' />
+					{t(`languages.${i18n.resolvedLanguage}`)}
+				</Dropdown.Item>
+			}
+		>
+			{languagesNode}
+		</Dropdown>
 	)
 }

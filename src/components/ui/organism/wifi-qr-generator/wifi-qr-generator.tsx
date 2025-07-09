@@ -1,6 +1,7 @@
 import { Card } from '@atoms/card'
 import { Instructions } from '@molecules/instructions/instructions'
 import { LanguageSelector } from '@molecules/language-selector'
+import { ThemeToggler } from '@molecules/theme-toggler'
 import { WiFiConfigForm } from '@molecules/wifi-config-form'
 import { WiFiQRCodeDisplay } from '@molecules/wifi-qr-code-display'
 import { WiFiStringCopy } from '@molecules/wifi-string-copy'
@@ -46,7 +47,10 @@ export const WiFiQRGenerator = () => {
 						</Card>
 					</div>
 					<Instructions />
-					<LanguageSelector />
+					<div className='fixed bottom-4 right-4 flex items-center gap-2 z-50'>
+						<LanguageSelector />
+						<ThemeToggler />
+					</div>
 				</div>
 			</div>
 			<footer className='mt-8 text-center py-6 border-t border-base-200 bg-transparent'>
