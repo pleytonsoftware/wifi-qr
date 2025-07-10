@@ -1,6 +1,6 @@
 import { Icon } from '@atoms/icon/icon'
 import { Swap } from '@atoms/swap/swap'
-import { useDarkMode } from '@hooks/use-dark-mode'
+import { useDarkMode } from '@hooks/use-dark-mode.hook'
 import { Moon, Sun } from 'lucide-react'
 import { useEffect, type FC } from 'react'
 

@@ -37,6 +37,7 @@ export const WiFiStringCopy: FC = memo(() => {
 
 	return (
 		<Input
+			legend={t('wifi_string_copy.legend')}
 			readOnly
 			value={
 				/^(.*P:)(.*?)(;.*)$/.test(wifiString) && RegExp.$2

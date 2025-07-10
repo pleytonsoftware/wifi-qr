@@ -42,6 +42,7 @@ export const Toggle: FC<ToggleProps> = ({
 	labelClassName,
 	containerClassName,
 	onValueChange,
+	onChange,
 	...props
 }) => (
 	<label className={cn('inline-flex items-center gap-2', containerClassName)}>
@@ -49,7 +50,7 @@ export const Toggle: FC<ToggleProps> = ({
 			type='checkbox'
 			className={cn('toggle', colours[colour], sizes[size], className, props.disabled && 'toggle-disabled')}
 			onChange={(e) => {
-				props.onChange?.(e)
+				onChange?.(e)
 				onValueChange?.(e.target.checked)
 			}}
 			{...props}

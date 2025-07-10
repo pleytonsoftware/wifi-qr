@@ -9,7 +9,10 @@
 		"fields": {
 			"network_name": {
 				"label": "Network Name (SSID)",
-				"placeholder": "Enter Wi-Fi network name"
+				"placeholder": "Enter Wi-Fi network name",
+				"error": {
+					"required": "Network name is required"
+				}
 			},
 			"security_type": {
 				"label": "Security Type",
@@ -18,11 +21,17 @@
 					"WPA": "WPA/WPA2/WPA3",
 					"WEP": "WEP",
 					"nopass": "No Password"
+				},
+				"error": {
+					"invalid": "Invalid security type selected"
 				}
 			},
 			"password": {
 				"label": "Password",
-				"placeholder": "Enter Wi-Fi password"
+				"placeholder": "Enter Wi-Fi password",
+				"error": {
+					"required": "Password is required for WPA/WEP security types"
+				}
 			},
 			"hidden_network": {
 				"label": "Hidden Network?"
@@ -96,6 +105,7 @@
 				"title": "Copy Failed",
 				"description": "Unable to copy to clipboard."
 			}
-		}
+		},
+		"legend": "Wi-Fi Configuration String"
 	}
 }

@@ -1,37 +1,69 @@
-import { Button } from '@atoms/button'
-import { Input } from '@atoms/input'
+import * as yup from 'yup'
+import { Input, PasswordInput } from '@atoms/input'
 import { Select } from '@atoms/select'
 import { Toggle } from '@atoms/toggle'
+import { yupResolver } from '@hookform/resolvers/yup'
 import { useWiFiQRStore } from '@store/wifi-qr.store'
-import { Wifi, Eye, EyeClosed } from 'lucide-react'
-import { memo, useState, type FC } from 'react'
+import { Wifi } from 'lucide-react'
+import { memo, useMemo, type FC } from 'react'
+import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
 import { LOCALE_NAMESPACES } from '@/constants/languages'
-import { DEFAULT_SECURITY_TYPE, securityOptionsWithPick, SecurityType } from '@/constants/wifi'
+import { DEFAULT_SECURITY_TYPE, securityOptions, securityOptionsWithPick, SecurityType } from '@/constants/wifi'
+
+type WifiConfigFormType = {
+	ssid: string
+	securityType: SecurityType
+	password: string
+	hiddenNetwork: boolean
+}
 
 export const WiFiConfigForm: FC = memo(() => {
-	const { t } = useTranslation(LOCALE_NAMESPACES.common)
-	const [showPassword, setShowPassword] = useState<boolean>(false)
-	const {
-		wifiDetails: { ssid, password, securityType, hiddenNetwork },
-		setWifiDetails,
-	} = useWiFiQRStore()
-	const ShowPasswordIcon = showPassword ? Eye : EyeClosed
+	const { t, i18n } = useTranslation(LOCALE_NAMESPACES.common)
+	const schema = useMemo(
+		() =>
+			yup.object({
+				ssid: yup.string().required(t('wifi_config.fields.network_name.error.required')),
+				securityType: yup
+					.mixed<SecurityType>()
+					.oneOf(
+						securityOptions.map((option) => option.value as SecurityType),
+						t('wifi_config.fields.security_type.error.invalid'),
+					)
+					.required(t('wifi_config.fields.security_type.error.invalid')),
+				password: yup.string().when('securityType', {
+					is: (securityType: SecurityType) => securityType !== SecurityType.NO_PASS,
+					then: (schema) => schema.required(t('wifi_config.fields.password.error.required')),
+					otherwise: (schema) => schema,
+				}),
+			}) as yup.ObjectSchema<WifiConfigFormType>,
+		[i18n.resolvedLanguage],
+	)
+	const { register, formState, watch, getValues, setValue } = useForm<WifiConfigFormType>({
+		defaultValues: {
+			ssid: '',
+			securityType: DEFAULT_SECURITY_TYPE,
+			password: '',
+			hiddenNetwork: false,
+		},
+		mode: 'onBlur',
+		resolver: yupResolver(schema),
+	})
+	const setWifiDetails = useWiFiQRStore((state) => state.setWifiDetails)
 
 	return (
-		<>
+		<form onSubmit={(e) => e.preventDefault()} className='space-y-2'>
 			<Input
 				legend={t('wifi_config.fields.network_name.label')}
 				id='ssid'
 				placeholder={t('wifi_config.fields.network_name.placeholder')}
-				value={ssid}
 				icon={<Wifi className='h-4 w-4' />}
-				onChange={(e) =>
-					setWifiDetails({
-						ssid: e.target.value,
-					})
-				}
+				{...register('ssid', {
+					onChange: (e) => setWifiDetails({ ssid: e.target.value }),
+				})}
+				error={formState.errors.ssid?.message}
+				required
 			/>
 			<div className='space-y-2'>
 				<Select
@@ -42,35 +74,33 @@ export const WiFiConfigForm: FC = memo(() => {
 						...option,
 						label: t(`wifi_config.fields.security_type.options.${option.value}`),
 					}))}
+					{...register('securityType')}
 				/>
 			</div>
-			{securityType !== SecurityType.NO_PASS && (
-				<Input
+			{watch('securityType') !== SecurityType.NO_PASS && (
+				<PasswordInput
 					legend={t('wifi_config.fields.password.label')}
 					id='password'
-					type={showPassword ? 'text' : 'password'}
 					placeholder={t('wifi_config.fields.password.placeholder')}
-					value={password}
-					onChange={(e) => setWifiDetails({ password: e.target.value })}
-					containerClassName='w-full'
-					Button={Button}
-					buttonProps={{
-						icon: <ShowPasswordIcon className='w-4 h-4' />,
-						onClick: setShowPassword.bind(null, (prev) => !prev),
-						colour: 'base',
-						variant: 'ghost',
-					}}
+					{...register('password', {
+						onChange: (e) => setWifiDetails({ password: e.target.value }),
+					})}
+					error={formState.errors.password?.message}
 				/>
 			)}
 			<Toggle
 				label={t('wifi_config.fields.hidden_network.label')}
-				defaultChecked={hiddenNetwork}
-				onValueChange={(hiddenNetwork) =>
+				defaultChecked={getValues('hiddenNetwork')}
+				{...register('hiddenNetwork')}
+				onValueChange={(hiddenNetwork) => {
 					setWifiDetails({
 						hiddenNetwork,
 					})
-				}
+					setValue('hiddenNetwork', hiddenNetwork, {
+						shouldValidate: true,
+					})
+				}}
 			/>
-		</>
+		</form>
 	)
 })
