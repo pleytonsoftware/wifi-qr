@@ -67,18 +67,16 @@ export const WiFiConfigForm: FC = memo(() => {
 				autoComplete='off'
 				autoFocus
 			/>
-			<div className='space-y-2'>
-				<Select
-					label={t('wifi_config.fields.security_type.label')}
-					defaultValue={DEFAULT_SECURITY_TYPE}
-					onValueChange={(securityType) => setWifiDetails({ securityType: securityType as SecurityType })}
-					options={securityOptionsWithPick.map((option) => ({
-						...option,
-						label: t(`wifi_config.fields.security_type.options.${option.value}`),
-					}))}
-					{...register('securityType')}
-				/>
-			</div>
+			<Select
+				label={t('wifi_config.fields.security_type.label')}
+				defaultValue={DEFAULT_SECURITY_TYPE}
+				onValueChange={(securityType) => setWifiDetails({ securityType: securityType as SecurityType })}
+				options={securityOptionsWithPick.map((option) => ({
+					...option,
+					label: t(`wifi_config.fields.security_type.options.${option.value}`),
+				}))}
+				{...register('securityType')}
+			/>
 			{watch('securityType') !== SecurityType.NO_PASS && (
 				<PasswordInput
 					legend={t('wifi_config.fields.password.label')}
@@ -92,6 +90,7 @@ export const WiFiConfigForm: FC = memo(() => {
 				/>
 			)}
 			<Toggle
+				containerClassName='mt-2'
 				label={t('wifi_config.fields.hidden_network.label')}
 				defaultChecked={getValues('hiddenNetwork')}
 				{...register('hiddenNetwork')}
