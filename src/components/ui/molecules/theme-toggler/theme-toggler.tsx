@@ -4,9 +4,7 @@ import { useDarkMode } from '@hooks/use-dark-mode.hook'
 import { Moon, Sun } from 'lucide-react'
 import { useEffect, type FC } from 'react'
 
-type ThemeTogglerProps = {}
-
-export const ThemeToggler: FC<ThemeTogglerProps> = () => {
+export const ThemeToggler: FC = () => {
 	const { isDarkMode, toggle } = useDarkMode()
 
 	useEffect(() => {

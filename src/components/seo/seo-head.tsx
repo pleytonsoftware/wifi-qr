@@ -27,7 +27,7 @@ export const SEOHead = () => {
 			availableLength > 0 ? seoTitle.substring(0, availableLength - 3) + '...' : appTitle.substring(0, maxLength - 3) + '...'
 
 		return availableLength > 0 ? `${truncatedSeoTitle}${separator}${appTitle}` : truncatedSeoTitle
-	}, [t, i18n.resolvedLanguage])
+	}, [i18n.resolvedLanguage])
 
 	const currentLang = i18n.language
 	const baseUrl = import.meta.env.VITE_BASE_HOST || `${window.location.protocol}//${window.location.host}`

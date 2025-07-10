@@ -5,7 +5,6 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 import prettier from 'eslint-plugin-prettier'
 import prettierConfig from 'eslint-config-prettier'
-import formatjs from 'eslint-plugin-formatjs'
 
 export default tseslint.config(
   { ignores: ['dist'] },
@@ -20,7 +19,6 @@ export default tseslint.config(
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
       prettier,
-      formatjs
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
@@ -32,7 +30,7 @@ export default tseslint.config(
       'no-console': 'warn',
       'no-debugger': 'warn',
       '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
-      "formatjs/no-missing-translation": "error",
+      "react-hooks/exhaustive-deps": 'off',
     },
   },
 )

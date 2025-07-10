@@ -1,7 +1,6 @@
 import 'i18next'
 
 import type { LOCALE_NAMESPACES, Languages } from '@/constants/languages'
-import type { CustomTypeOptions } from 'i18next'
 
 declare module 'i18next' {
 	// Extend CustomTypeOptions
