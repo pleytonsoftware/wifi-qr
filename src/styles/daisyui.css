@@ -1,0 +1,5 @@
+@plugin "daisyui";
+
+@theme {
+	--color-base-content-secondary: lightgray;
+}
