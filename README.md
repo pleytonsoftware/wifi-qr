@@ -15,7 +15,7 @@ Generate QR codes for easy Wi-Fi sharing. Instantly create, download, print, and
 ### 🎯 Near-term Features
 
 - [x] **Dark/Light Theme**: User preference theme switching
-- [ ] **Form Validation & Clear Button**: Add input validation with error messages and a clear button to reset all fields
+- [x] **Form Validation & Clear Button**: Add input validation with error messages and a clear button to reset all fields
 - [ ] **Save WiFi Cards**: Store your frequently used WiFi networks locally (localStorage)
 - [ ] **Multi-language Support**: Expand beyond current i18n setup (more languages)
 - [ ] **Color Palette**: Customize WiFi card colors and themes for better organization
