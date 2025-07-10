@@ -190,3 +190,40 @@
 		}
 	}
 }
+
+/* Divider spacing utilities using Tailwind spacing variables */
+.divider-vertical {
+	&.divider-xs {
+		--divider-m: theme(spacing[0.5]) 0;
+	}
+	&.divider-sm {
+		--divider-m: theme(spacing[1]) 0;
+	}
+	&.divider-md {
+		--divider-m: theme(spacing[2]) 0;
+	}
+	&.divider-lg {
+		--divider-m: theme(spacing[3]) 0;
+	}
+	/* &.divider-xl {
+		--divider-m: theme(spacing[8]) 0;
+	} */
+}
+
+.divider-horizontal {
+	&.divider-xs {
+		--divider-m: 0 theme(spacing[0.5]);
+	}
+	&.divider-sm {
+		--divider-m: 0 theme(spacing[1]);
+	}
+	&.divider-md {
+		--divider-m: 0 theme(spacing[2]);
+	}
+	&.divider-lg {
+		--divider-m: 0 theme(spacing[3]);
+	}
+	/* &.divider-xl {
+		--divider-m: 0 theme(spacing[8]);
+	} */
+}

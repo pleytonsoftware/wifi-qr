@@ -1,4 +1,5 @@
 import { Card } from '@atoms/card'
+import { Divider } from '@atoms/divider'
 import { Instructions } from '@molecules/instructions/instructions'
 import { LanguageSelector } from '@molecules/language-selector'
 import { ThemeToggler } from '@molecules/theme-toggler'
@@ -33,7 +34,8 @@ export const WiFiQRGenerator = () => {
 								<Card.Title>{t('wifi_config.title')}</Card.Title>
 								<Card.Description>{t('wifi_config.description')}</Card.Description>
 								<WiFiConfigForm />
-								<div className='pt-4 space-y-2'>
+								<Divider spacing='xs' />
+								<div className='space-y-2'>
 									<WiFiStringCopy />
 								</div>
 							</Card.Body>
