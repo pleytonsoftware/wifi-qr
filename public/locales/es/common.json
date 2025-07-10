@@ -9,7 +9,10 @@
 		"fields": {
 			"network_name": {
 				"label": "Nombre de la Red (SSID)",
-				"placeholder": "Ingresa el nombre de la red Wi-Fi"
+				"placeholder": "Ingresa el nombre de la red Wi-Fi",
+				"error": {
+					"required": "El nombre de la red es obligatorio"
+				}
 			},
 			"security_type": {
 				"label": "Tipo de Seguridad",
@@ -18,11 +21,17 @@
 					"WPA": "WPA/WPA2/WPA3",
 					"WEP": "WEP",
 					"nopass": "Sin Contraseña"
+				},
+				"error": {
+					"invalid": "Tipo de seguridad seleccionado no válido"
 				}
 			},
 			"password": {
 				"label": "Contraseña",
-				"placeholder": "Ingresa la contraseña del Wi-Fi"
+				"placeholder": "Ingresa la contraseña del Wi-Fi",
+				"error": {
+					"required": "La contraseña es obligatoria para tipos de seguridad WPA/WEP"
+				}
 			},
 			"hidden_network": {
 				"label": "¿Red Oculta?"
@@ -96,6 +105,7 @@
 				"title": "Error al Copiar",
 				"description": "No se pudo copiar al portapapeles."
 			}
-		}
+		},
+		"legend": "Cadena de configuración Wi-Fi"
 	}
 }
