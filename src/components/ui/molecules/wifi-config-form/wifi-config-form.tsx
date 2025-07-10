@@ -64,6 +64,8 @@ export const WiFiConfigForm: FC = memo(() => {
 				})}
 				error={formState.errors.ssid?.message}
 				required
+				autoComplete='off'
+				autoFocus
 			/>
 			<div className='space-y-2'>
 				<Select
@@ -86,6 +88,7 @@ export const WiFiConfigForm: FC = memo(() => {
 						onChange: (e) => setWifiDetails({ password: e.target.value }),
 					})}
 					error={formState.errors.password?.message}
+					required
 				/>
 			)}
 			<Toggle
