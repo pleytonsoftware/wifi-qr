@@ -1,0 +1,111 @@
+{
+	"app": {
+		"title": "Générateur de QR Wi-Fi",
+		"subtitle": "Générez des codes QR pour partager le Wi-Fi facilement"
+	},
+	"wifi_config": {
+		"title": "Configuration Wi-Fi",
+		"description": "Entrez les détails de votre Wi-Fi pour générer un code QR",
+		"fields": {
+			"network_name": {
+				"label": "Nom du réseau (SSID)",
+				"placeholder": "Entrez le nom du réseau Wi-Fi",
+				"error": {
+					"required": "Le nom du réseau est requis"
+				}
+			},
+			"security_type": {
+				"label": "Type de sécurité",
+				"options": {
+					"pick": "Sélectionner le type de sécurité",
+					"WPA": "WPA/WPA2/WPA3",
+					"WEP": "WEP",
+					"nopass": "Pas de mot de passe"
+				},
+				"error": {
+					"invalid": "Type de sécurité sélectionné invalide"
+				}
+			},
+			"password": {
+				"label": "Mot de passe",
+				"placeholder": "Entrez le mot de passe Wi-Fi",
+				"error": {
+					"required": "Le mot de passe est requis pour les types de sécurité WPA/WEP"
+				}
+			},
+			"hidden_network": {
+				"label": "Réseau caché ?"
+			}
+		}
+	},
+	"generated_qr": {
+		"title": "Code QR généré",
+		"description": "Scannez ce code pour vous connecter au réseau Wi-Fi"
+	},
+	"footer": {
+		"created_by": "Créé avec ❤️ par <1>pleyt.dev</1>",
+		"copyright": "© {{year}}"
+	},
+	"qr_code_printer": {
+		"title": "Cartes d'accès Wi-Fi",
+		"instructions": "Coupez le long des lignes pointillées pour créer des cartes Wi-Fi individuelles",
+		"scan": "Scannez pour vous connecter au Wi-Fi"
+	},
+	"buttons": {
+		"cancel": "Annuler",
+		"print_cards_one": "Imprimer {{count}} carte",
+		"print_cards_other": "Imprimer {{count}} cartes"
+	},
+	"steps": {
+		"title": "Comment ça marche",
+		"description": "Suivez ces étapes pour générer et partager votre code QR Wi-Fi",
+		"1": {
+			"title": "Configurer le Wi-Fi",
+			"description": "Entrez le nom de votre réseau, sélectionnez le type de sécurité et ajoutez le mot de passe si nécessaire."
+		},
+		"2": {
+			"title": "Générer le code QR",
+			"description": "Le code QR est généré automatiquement au fur et à mesure que vous saisissez les détails de votre Wi-Fi."
+		},
+		"3": {
+			"title": "Partager et connecter",
+			"description": "Téléchargez, imprimez ou partagez le code QR. D'autres peuvent le scanner pour se connecter instantanément."
+		}
+	},
+	"print_setup": {
+		"title": "Paramètres d'impression",
+		"description": "Configurez vos options d'impression pour les cartes de code QR Wi-Fi.",
+		"number_of_cards": {
+			"legend": "Nombre de cartes",
+			"label": "Imprimer entre {{min}} et {{max}} cartes"
+		},
+		"card_content": {
+			"title": "Contenu de la carte",
+			"display_ssid": "Afficher le nom du réseau (SSID)",
+			"display_password": "Afficher le mot de passe"
+		}
+	},
+	"qr_display": {
+		"buttons": {
+			"download": "Télécharger le code QR",
+			"print": "Imprimer le code QR"
+		},
+		"messages": {
+			"enter_details": "Veuillez saisir des informations Wi-Fi valides pour générer un code QR.",
+			"ensure_requirements": "Assurez-vous que le SSID est fourni et, le cas échéant, que le mot de passe est défini pour les types de sécurité WPA ou WEP."
+		}
+	},
+	"wifi_string_copy": {
+		"toast": {
+			"copied": {
+				"title": "Copié dans le presse-papiers",
+				"description": "Chaîne de configuration Wi-Fi copiée avec succès."
+			},
+			"copy_failed": {
+				"title": "Échec de la copie",
+				"description": "Impossible de copier dans le presse-papiers."
+			}
+		},
+		"legend": "Chaîne de configuration Wi-Fi"
+	}
+}

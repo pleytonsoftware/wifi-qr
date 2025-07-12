@@ -1,13 +1,13 @@
 export enum Languages {
 	ENGLISH = 'en', // English
 	SPANISH = 'es', // Spanish
-}
-
-export enum DisabledLanguages {
 	GERMAN = 'de', // German
 	FRENCH = 'fr', // French
 	ITALIAN = 'it', // Italian
 	PORTUGUESE = 'pt', // Portuguese
+}
+
+export enum DisabledLanguages {
 	DUTCH = 'nl', // Dutch
 	POLISH = 'pl', // Polish
 	RUSSIAN = 'ru', // Russian
