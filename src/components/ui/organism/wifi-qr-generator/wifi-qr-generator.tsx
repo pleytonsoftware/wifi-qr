@@ -21,8 +21,8 @@ export const WiFiQRGenerator = () => {
 			<div className='absolute inset-0 z-0 bg-wifiqr-gradient' />
 			<div className='min-h-dvh bg-transparent relative'>
 				<div className='min-h-dvh flex flex-col justify-center p-4'>
-					<div className='max-w-4xl 2xl:max-w-7xl w-full mx-auto flex flex-col space-y-6'>
-						<div className='2xl:h-[10dvh] text-center mb-8'>
+					<div className='max-w-4xl 3xl:max-w-7xl w-full mx-auto flex flex-col space-y-6'>
+						<div className='3xl:h-[10dvh] text-center mb-8'>
 							<div className='flex items-center justify-center gap-2 mb-4'>
 								<Wifi className='h-8 w-8 text-primary' />
 								<h1 className='text-3xl font-bold text-base-content'>{t('app.title')}</h1>

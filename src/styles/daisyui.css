@@ -5,6 +5,8 @@
 	--color-bg-gradient-1: hsla(223, 23%, 35%, 0.5);
 	--color-bg-gradient-2: var(--color-secondary);
 	--color-bg-gradient-3: hsla(236, 23%, 76%, 0.3);
+
+	--breakpoint-3xl: 120rem;
 }
 
 .bg-wifiqr-gradient {
