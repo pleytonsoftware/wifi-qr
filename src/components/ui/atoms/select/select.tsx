@@ -62,6 +62,7 @@ export const Select: FC<SelectProps> & { Option: FC<SelectOptionProps> } = ({
 	helperTextClassName,
 	children,
 	onValueChange,
+	onChange,
 	...props
 }) => (
 	<fieldset className={cn('fieldset', fieldsetClassName, className)}>
@@ -69,7 +70,7 @@ export const Select: FC<SelectProps> & { Option: FC<SelectOptionProps> } = ({
 		<select
 			className={cn('select w-full', colours[colour], variants[variant], sizes[selectSize], selectClassName)}
 			onChange={(e) => {
-				props.onChange?.(e)
+				onChange?.(e)
 				onValueChange?.(e.target.value)
 			}}
 			{...props}

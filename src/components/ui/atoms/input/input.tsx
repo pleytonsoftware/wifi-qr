@@ -1,7 +1,7 @@
 import type { ButtonProps } from '@atoms/button'
+import type { InputHTMLAttributes, FC, ReactNode, ComponentType } from 'react'
 
 import { cn } from '@cn'
-import { type InputHTMLAttributes, type FC, type ReactNode, type ComponentType, useRef, useEffect, useState } from 'react'
 
 type InputColour = 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning' | 'error'
 type InputVariant = 'default' | 'ghost'
@@ -61,17 +61,9 @@ export const Input: FC<InputProps> = ({
 	error,
 	...props
 }) => {
-	const legendRef = useRef<HTMLLegendElement>(null)
-	const [offsetLegend, setOffsetLegend] = useState<number>(() => 0)
 	const labelNode = label && <span className='label max-w-full truncate'>{label}</span>
 	const errorNode = error && <span className='label-text-alt text-error text-xs'>{error}</span>
 	const shouldRenderSimpleLabel = labelNode && !legendNode
-
-	useEffect(() => {
-		if (ButtonComponent && legendNode && legendRef.current) {
-			setOffsetLegend(legendRef.current.offsetHeight)
-		}
-	}, [legendNode, legendRef.current])
 
 	let input = (
 		<>
@@ -79,32 +71,50 @@ export const Input: FC<InputProps> = ({
 				className={cn(
 					'input w-full',
 					ButtonComponent && 'join-item',
-					// ButtonComponent && legendNode && 'rounded-r-none',
 					variants[variant],
 					error ? colours.error : colours[colour],
 					sizes[inputSize],
-					containerClassName,
+					!legendNode && containerClassName,
 					props.readOnly && '!outline-none !ring-0 focus:!outline-none focus:!ring-0',
 				)}
 			>
 				{shouldRenderSimpleLabel && labelPlacement === 'left' && labelNode}
 				{icon && <span className='mr-2 flex items-center'>{icon}</span>}
-				<input className={cn('grow', className, props.readOnly && '!outline-none !ring-0 focus:!outline-none focus:!ring-0')} {...props} />
+				<input
+					className={cn(
+						'placeholder:text-base-content-secondary/50 grow',
+						className,
+						props.readOnly && '!outline-none !ring-0 focus:!outline-none focus:!ring-0',
+					)}
+					{...props}
+				/>
 				{shouldRenderSimpleLabel && labelPlacement === 'right' && labelNode}
 				{rightElement && <span className='ml-2 flex items-center'>{rightElement}</span>}
 			</label>
-			{!legendNode && errorNode}
+			{!legendNode && !ButtonComponent && errorNode}
 		</>
 	)
 
+	if (ButtonComponent) {
+		input = (
+			<div className='join'>
+				{input}
+				{ButtonComponent && (
+					<ButtonComponent
+						className={cn('join-item', legendNode && 'relative self-start', buttonClassName)}
+						{...buttonProps}
+						style={{
+							...buttonProps.style,
+						}}
+					/>
+				)}
+			</div>
+		)
+	}
 	if (legendNode) {
 		input = (
 			<fieldset className={cn('fieldset', containerClassName)}>
-				{legendNode && (
-					<legend className='fieldset-legend' ref={legendRef}>
-						{legendNode}
-					</legend>
-				)}
+				<legend className='fieldset-legend'>{legendNode}</legend>
 				{input}
 				{errorNode}
 				{labelNode}
@@ -112,18 +122,11 @@ export const Input: FC<InputProps> = ({
 		)
 	}
 
-	if (ButtonComponent) {
+	if (!legendNode && ButtonComponent) {
 		return (
-			<div className={cn('join w-full', containerClassName)}>
-				<div className='w-full'>{input}</div>
-				<ButtonComponent
-					className={cn('join-item', legendNode && 'relative self-start', buttonClassName)}
-					{...buttonProps}
-					style={{
-						...buttonProps.style,
-						top: legendNode && offsetLegend ? `${offsetLegend}px` : undefined,
-					}}
-				/>
+			<div className={cn('flex flex-col', containerClassName)}>
+				{input}
+				<span className='pt-1'>{errorNode}</span>
 			</div>
 		)
 	}

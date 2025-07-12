@@ -1,3 +1,5 @@
+import type { ParseKeys } from 'i18next'
+
 import * as yup from 'yup'
 import { Input, PasswordInput } from '@atoms/input'
 import { Select } from '@atoms/select'
@@ -20,25 +22,25 @@ type WifiConfigFormType = {
 }
 
 export const WiFiConfigForm: FC = memo(() => {
-	const { t, i18n } = useTranslation(LOCALE_NAMESPACES.common)
+	const { t } = useTranslation(LOCALE_NAMESPACES.common)
 	const schema = useMemo(
 		() =>
 			yup.object({
-				ssid: yup.string().required(t('wifi_config.fields.network_name.error.required')),
+				ssid: yup.string().required('wifi_config.fields.network_name.error.required' as ParseKeys<'common'>),
 				securityType: yup
 					.mixed<SecurityType>()
 					.oneOf(
 						securityOptions.map((option) => option.value as SecurityType),
-						t('wifi_config.fields.security_type.error.invalid'),
+						'wifi_config.fields.security_type.error.invalid' as ParseKeys<'common'>,
 					)
-					.required(t('wifi_config.fields.security_type.error.invalid')),
+					.required('wifi_config.fields.security_type.error.invalid' as ParseKeys<'common'>),
 				password: yup.string().when('securityType', {
 					is: (securityType: SecurityType) => securityType !== SecurityType.NO_PASS,
-					then: (schema) => schema.required(t('wifi_config.fields.password.error.required')),
+					then: (schema) => schema.required('wifi_config.fields.password.error.required' as ParseKeys<'common'>),
 					otherwise: (schema) => schema,
 				}),
 			}) as yup.ObjectSchema<WifiConfigFormType>,
-		[i18n.resolvedLanguage],
+		[],
 	)
 	const { register, formState, watch, getValues, setValue } = useForm<WifiConfigFormType>({
 		defaultValues: {
@@ -47,7 +49,7 @@ export const WiFiConfigForm: FC = memo(() => {
 			password: '',
 			hiddenNetwork: false,
 		},
-		mode: 'onBlur',
+		mode: 'all',
 		resolver: yupResolver(schema),
 	})
 	const setWifiDetails = useWiFiQRStore((state) => state.setWifiDetails)
@@ -56,36 +58,33 @@ export const WiFiConfigForm: FC = memo(() => {
 		<form onSubmit={(e) => e.preventDefault()} className='space-y-2'>
 			<Input
 				legend={t('wifi_config.fields.network_name.label')}
-				id='ssid'
 				placeholder={t('wifi_config.fields.network_name.placeholder')}
 				icon={<Wifi className='h-4 w-4' />}
 				{...register('ssid', {
 					onChange: (e) => setWifiDetails({ ssid: e.target.value }),
 				})}
-				error={formState.errors.ssid?.message}
+				error={formState.errors.ssid && t(formState.errors.ssid?.message as ParseKeys<'common'>)}
 				required
 				autoComplete='off'
-				autoFocus
 			/>
 			<Select
 				label={t('wifi_config.fields.security_type.label')}
 				defaultValue={DEFAULT_SECURITY_TYPE}
-				onValueChange={(securityType) => setWifiDetails({ securityType: securityType as SecurityType })}
 				options={securityOptionsWithPick.map((option) => ({
 					...option,
 					label: t(`wifi_config.fields.security_type.options.${option.value}`),
 				}))}
 				{...register('securityType')}
+				onValueChange={(securityType) => setWifiDetails({ securityType: securityType as SecurityType })}
 			/>
 			{watch('securityType') !== SecurityType.NO_PASS && (
 				<PasswordInput
 					legend={t('wifi_config.fields.password.label')}
-					id='password'
 					placeholder={t('wifi_config.fields.password.placeholder')}
 					{...register('password', {
 						onChange: (e) => setWifiDetails({ password: e.target.value }),
 					})}
-					error={formState.errors.password?.message}
+					error={formState.errors.password && t(formState.errors.password?.message as ParseKeys<'common'>)}
 					required
 				/>
 			)}

@@ -82,7 +82,7 @@ export const WiFiQRCodeDisplay: FC = memo(() => {
 
 	return (
 		<div className='w-full h-full justify-around flex flex-col items-center self-center space-y-4'>
-			<div className={cn('bg-white p-4 rounded-lg shadow-sm border aspect-square w-48 h-48')}>
+			<div className={cn('bg-white p-4 rounded-lg shadow-sm border aspect-square w-2/3 h-auto')}>
 				{isReadyQR ? (
 					<div className='relative inline-block w-full h-full' ref={qrRef}>
 						<QRCodeSVG value={wifiString} level='H' className='w-full h-full' />
@@ -94,17 +94,17 @@ export const WiFiQRCodeDisplay: FC = memo(() => {
 					<QrCode className='text-black w-full h-full' />
 				)}
 			</div>
-			<div className='space-y-3 justify-self-end min-h-12'>
+			<div className='flex space-y-3 justify-self-end min-h-12 w-full max-w-2/3 lg:max-w-none'>
 				{isReadyQR ? (
 					<>
-						<div className='flex gap-2 flex-col lg:flex-row items-center justify-around'>
-							<Button colour='primary' onClick={handleDownload} className='flex items-center gap-2'>
+						<div className='flex flex-1 gap-2 flex-col lg:flex-row items-center justify-around'>
+							<Button colour='primary' onClick={handleDownload} className='flex lg:flex-1 items-center gap-2 w-full'>
 								<Download className='h-4 w-4' />
-								{t('qr_display.buttons.download')}
+								<span className='truncate'>{t('qr_display.buttons.download')}</span>
 							</Button>
-							<Button colour='primary' variant='outline' onClick={handlePrintOpen} className='flex items-center gap-2'>
+							<Button colour='primary' variant='outline' onClick={handlePrintOpen} className='flex lg:flex-1 items-center gap-2 w-full'>
 								<Printer className='h-4 w-4' />
-								{t('qr_display.buttons.print')}
+								<span className='truncate'>{t('qr_display.buttons.print')}</span>
 							</Button>
 							<PrintSettingsModal
 								open={open}

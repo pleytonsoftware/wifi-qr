@@ -2,4 +2,14 @@
 
 @theme {
 	--color-base-content-secondary: lightgray;
+	--color-bg-gradient-1: hsla(223, 23%, 35%, 0.5);
+	--color-bg-gradient-2: var(--color-secondary);
+	--color-bg-gradient-3: hsla(236, 23%, 76%, 0.3);
+}
+
+.bg-wifiqr-gradient {
+	background-image:
+		radial-gradient(circle at 50% 100%, var(--color-bg-gradient-1) 0%, transparent 60%),
+		radial-gradient(circle at 50% 100%, var(--color-bg-gradient-2) 0%, transparent 70%),
+		radial-gradient(circle at 50% 100%, var(--color-bg-gradient-3) 0%, transparent 80%);
 }

@@ -1,26 +1,23 @@
 @plugin "daisyui/theme" {
 	name: 'light';
-	/* default: false;
-	prefersdark: false;
-	color-scheme: 'light'; */
 
 	/* 🌤 Base Colors (Light Backgrounds) */
 	--color-base-100: oklch(99% 0.005 260); /* main bg */
-	--color-base-200: oklch(97% 0.005 260); /* elevated bg */
-	--color-base-300: oklch(94% 0.005 260); /* cards, etc */
+	--color-base-200: oklch(96% 0.005 260); /* elevated bg */
+	--color-base-300: oklch(88% 0.005 260); /* cards, etc */
 	--color-base-content: oklch(21% 0.01 260); /* text */
 	--color-base-content-secondary: oklch(30% 0.01 260); /* secondary text - light gray */
 
 	/* 🔷 Primary (Sky Blue) */
-	--color-primary: oklch(65% 0.2 240); /* Sky 500-ish */
+	--color-primary: oklch(55% 0.18 280); /* Indigo 500-ish */
 	--color-primary-content: oklch(98% 0.01 260); /* white-ish text on buttons */
 
 	/* 🟣 Secondary (Indigo) */
-	--color-secondary: oklch(55% 0.18 280); /* Indigo 500-ish */
+	--color-secondary: oklch(65% 0.2 240); /* Sky 500-ish */
 	--color-secondary-content: oklch(98% 0.01 260);
 
 	/* 🟢 Accent (Emerald/Success button alt) */
-	--color-accent: oklch(70% 0.15 150); /* Emerald 400/500 */
+	--color-accent: oklch(65% 0.15 190); /* Emerald, slightly darker */
 	--color-accent-content: oklch(25% 0.04 150);
 
 	/* 🌑 Neutral */

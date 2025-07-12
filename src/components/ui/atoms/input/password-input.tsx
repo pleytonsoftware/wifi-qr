@@ -1,7 +1,6 @@
 import type { FC, ComponentProps } from 'react'
 
 import { Button } from '@atoms/button'
-import { cn } from '@cn'
 import { Eye, EyeClosed } from 'lucide-react'
 import { useToggle } from 'usehooks-ts'
 
@@ -18,11 +17,9 @@ export const PasswordInput: FC<Omit<ComponentProps<typeof Input>, 'type' | 'Butt
 			buttonProps={{
 				icon: <ShowPasswordIcon className='w-4 h-4' />,
 				onClick: toggle.bind(null),
-				colour: 'base',
-				variant: 'ghost',
+				variant: 'outline',
 			}}
 			{...props}
-			containerClassName={cn('gap-x-0.25', props.containerClassName)}
 		/>
 	)
 }
