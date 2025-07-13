@@ -75,7 +75,7 @@ export const SEOHead = () => {
 				'Instant QR code generation',
 				'Mobile and desktop friendly',
 			],
-			screenshot: `${baseUrl}/screenshots/app-preview.jpg`,
+			screenshot: `${baseUrl}/screenshots/app-preview.jpg`, // TODO: Add actual screenshots
 			aggregateRating: {
 				'@type': 'AggregateRating',
 				ratingValue: '4.8',
@@ -117,23 +117,23 @@ export const SEOHead = () => {
 				<meta property='og:type' content='website' />
 				<meta property='og:site_name' content={t('common:app.title')} />
 				<meta property='og:locale' content={currentLang === 'es' ? 'es_ES' : 'en_US'} />
-				<meta property='og:image' content={`${baseUrl}/og-image.jpg`} />
-				<meta property='og:image:width' content='1200' />
-				<meta property='og:image:height' content='630' />
+				<meta property='og:image' content={`${baseUrl}/beefi.webp`} />
+				<meta property='og:image:width' content='512' />
+				<meta property='og:image:height' content='512' />
 				<meta property='og:image:alt' content={t('seo:title')} />
 
 				{/* Twitter */}
 				<meta name='twitter:card' content='summary_large_image' />
 				<meta name='twitter:title' content={t('seo:title')} />
 				<meta name='twitter:description' content={t('seo:description')} />
-				<meta name='twitter:image' content={`${baseUrl}/twitter-image.jpg`} />
+				<meta name='twitter:image' content={`${baseUrl}/beefi.webp`} />
 				<meta name='twitter:image:alt' content={t('seo:title')} />
 
 				{/* Additional meta tags */}
 				<meta name='robots' content='index, follow' />
 				<meta name='googlebot' content='index, follow' />
-				<meta name='theme-color' content='#2563eb' />
-				<meta name='msapplication-TileColor' content='#2563eb' />
+				<meta name='theme-color' content='#fbc600' />
+				<meta name='msapplication-TileColor' content='#fbc600' />
 				<meta name='apple-mobile-web-app-capable' content='yes' />
 				<meta name='apple-mobile-web-app-status-bar-style' content='default' />
 				<meta name='apple-mobile-web-app-title' content={t('common:app.title')} />
@@ -145,9 +145,9 @@ export const SEOHead = () => {
 				<link rel='alternate' hrefLang='x-default' href={baseUrl} />
 
 				{/* Favicon and app icons */}
-				<link rel='icon' type='image/svg+xml' href='/beefi.svg' />
+				<link rel='icon' type='image/x-icon' href='/beefi.ico' />
 				<link rel='apple-touch-icon' href='/apple-touch-icon.png' />
-				<link rel='manifest' href='/manifest.json' />
+				{/* <link rel='manifest' href='/manifest.json' /> */}
 
 				{/* Preconnect for performance */}
 				<link rel='preconnect' href='https://fonts.googleapis.com' />
