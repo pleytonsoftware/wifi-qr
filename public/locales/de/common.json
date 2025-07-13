@@ -1,7 +1,6 @@
 {
 	"app": {
-		"title": "Wi-Fi QR Generator",
-		"subtitle": "QR-Codes für einfaches Wi-Fi-Sharing generieren"
+		"subtitle": "WiFi-QR einfach generieren"
 	},
 	"wifi_config": {
 		"title": "Wi-Fi-Konfiguration",
@@ -43,7 +42,7 @@
 		"description": "Scannen Sie diesen Code, um sich mit dem Wi-Fi zu verbinden"
 	},
 	"footer": {
-		"created_by": "Erstellt mit ❤️ von <1>pleyt.dev</1>",
+		"created_by": "Erstellt mit 💛 von <0>@pleyt.dev</0>",
 		"copyright": "© {{year}}"
 	},
 	"qr_code_printer": {

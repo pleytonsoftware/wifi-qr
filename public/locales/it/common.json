@@ -1,7 +1,6 @@
 {
 	"app": {
-		"title": "Generatore QR Wi-Fi",
-		"subtitle": "Genera codici QR per condividere facilmente il Wi-Fi"
+		"subtitle": "Genera facilmente QR Wi-Fi"
 	},
 	"wifi_config": {
 		"title": "Configurazione Wi-Fi",
@@ -43,7 +42,7 @@
 		"description": "Scansiona questo codice per connetterti alla rete Wi-Fi"
 	},
 	"footer": {
-		"created_by": "Creato con ❤️ da <1>pleyt.dev</1>",
+		"created_by": "Creato con 💛 da <0>@pleyt.dev</0>",
 		"copyright": "© {{year}}"
 	},
 	"qr_code_printer": {

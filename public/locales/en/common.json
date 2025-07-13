@@ -1,7 +1,7 @@
 {
 	"app": {
-		"title": "Wi-Fi QR Generator",
-		"subtitle": "Generate QR codes for easy Wi-Fi sharing"
+		"title": "Bee-Fi",
+		"subtitle": "Generate WiFi QR easily"
 	},
 	"wifi_config": {
 		"title": "Wi-Fi Configuration",
@@ -43,7 +43,7 @@
 		"description": "Scan this code to connect to the Wi-Fi network"
 	},
 	"footer": {
-		"created_by": "Created with ❤️ by <1>pleyt.dev</1>",
+		"created_by": "Created with 💛 by <0>@pleyt.dev</0>",
 		"copyright": "© {{year}}"
 	},
 	"qr_code_printer": {
