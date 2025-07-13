@@ -98,7 +98,7 @@ export const WiFiQRCodeDisplay: FC = memo(() => {
 			<div className='flex space-y-3 justify-self-end min-h-12 w-full px-2 lg:max-w-none'>
 				{isReadyQR ? (
 					<>
-						<div className='flex flex-1 gap-2 flex-col lg:flex-row items-center justify-around'>
+						<div className='flex flex-1 gap-2 flex-col lg:flex-row items-center justify-around flex-wrap'>
 							<Button colour='primary' onClick={handleDownload} className='flex lg:flex-1 items-center gap-2 w-full'>
 								<Download className='h-4 w-4' />
 								<span className='truncate'>{t('qr_display.buttons.download')}</span>
