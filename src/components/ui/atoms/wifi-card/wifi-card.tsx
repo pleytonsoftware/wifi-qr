@@ -11,14 +11,15 @@ type WifiCardProps = {
 	dataUrl: string
 	password?: string
 	cutGuides?: boolean
+	shadow?: boolean
 }
 
 export const WifiCard: FC<WifiCardProps> = memo(
-	({ ssid, password, dataUrl, cutGuides }) => {
+	({ ssid, password, dataUrl, cutGuides, shadow = false }) => {
 		const { t, i18n } = useTranslation(LOCALE_NAMESPACES.common)
 
 		return (
-			<div className={cn('wifi-card', cutGuides && 'cut-outline', ssid && password && 'has-password')}>
+			<div className={cn('wifi-card', cutGuides && 'cut-outline', ssid && password && 'has-password', shadow && 'shadow-md')}>
 				{cutGuides && (
 					<div className='cut-guides'>
 						<Scissors className='scissors' />

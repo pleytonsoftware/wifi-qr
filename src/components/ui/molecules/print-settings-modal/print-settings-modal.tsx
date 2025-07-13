@@ -105,6 +105,7 @@ export const PrintSettingsModal: FC<PrintSettingsModalProps> = ({
 				</div>
 				<div className='flex flex-col mx-auto items-center justify-center w-64 p-4 lg:border-l lg:border-base-300'>
 					<WifiCard
+						shadow
 						ssid={printWithSSID ? wifiDetails.ssid : undefined}
 						password={printWithPassword ? wifiDetails.password : undefined}
 						dataUrl={wifiDataUrl || ''}
