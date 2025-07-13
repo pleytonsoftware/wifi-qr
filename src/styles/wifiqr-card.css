@@ -52,10 +52,10 @@
 }
 
 .card-footer {
-	@apply mt-1 text-center;
+	@apply mt-1.5 text-center;
 
 	.card-footer__scan-text {
-		@apply text-base-100 text-[8px] leading-[1.1];
+		@apply text-[8px] leading-[1.1] text-black;
 
 		.smaller {
 			@apply text-[6px];

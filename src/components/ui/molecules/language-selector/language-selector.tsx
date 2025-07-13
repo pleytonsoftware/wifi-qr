@@ -28,7 +28,7 @@ export const LanguageSelector = () => {
 			menuClassName='max-h-60 overflow-y-auto'
 			buttonContent={
 				<Dropdown.Item className='flex items-center gap-2 text-sm font-medium text-base-content'>
-					<LanguagesIcon className='text-secondary w-4 h-4' />
+					<LanguagesIcon className='text-primary w-4 h-4' />
 					{t(`languages.${i18n.resolvedLanguage}`)}
 				</Dropdown.Item>
 			}

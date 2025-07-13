@@ -75,7 +75,7 @@ export const Input: FC<InputProps> = ({
 					error ? colours.error : colours[colour],
 					sizes[inputSize],
 					!legendNode && containerClassName,
-					props.readOnly && '!outline-none !ring-0 focus:!outline-none focus:!ring-0',
+					props.readOnly && '!outline-none !ring-0 focus:!outline-none focus:!ring-0 !bg-base-200/50 !text-base-content-secondary/50',
 				)}
 			>
 				{shouldRenderSimpleLabel && labelPlacement === 'left' && labelNode}

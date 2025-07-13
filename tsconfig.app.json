@@ -13,10 +13,12 @@
 			"@atoms/*": ["src/components/ui/atoms/*"],
 			"@molecules/*": ["src/components/ui/molecules/*"],
 			"@organism/*": ["src/components/ui/organism/*"],
+			"@pages/*": ["src/components/ui/pages/*"],
 			"@hooks/*": ["src/components/hooks/*"],
 			"@contexts/*": ["src/components/contexts/*"],
 			"@providers/*": ["src/components/providers/*"],
-			"@store/*": ["src/store/*"]
+			"@store/*": ["src/store/*"],
+			"@assets/*": ["src/assets/*"]
 		},
 
 		/* Bundler mode */

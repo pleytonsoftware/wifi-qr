@@ -8,17 +8,17 @@
 	--color-base-content: oklch(21% 0.01 260); /* text */
 	--color-base-content-secondary: oklch(30% 0.01 260); /* secondary text - light gray */
 
-	/* 🔷 Primary (Sky Blue) */
-	--color-primary: oklch(55% 0.18 280); /* Indigo 500-ish */
-	--color-primary-content: oklch(98% 0.01 260); /* white-ish text on buttons */
+	/* 🟡 Primary (Bee Yellow) */
+	--color-primary: oklch(85% 0.18 90); /* Vibrant bee yellow */
+	--color-primary-content: oklch(98% 0.01 260); /* Contrast: deep honey brown */
 
-	/* 🟣 Secondary (Indigo) */
-	--color-secondary: oklch(65% 0.2 240); /* Sky 500-ish */
-	--color-secondary-content: oklch(98% 0.01 260);
+	/* 🩵 Secondary (Bee Blue Wing) */
+	--color-secondary: oklch(86.6% 0.13 236.6); /* Soft bee wing blue */
+	--color-secondary-content: oklch(98% 0.01 260); /* Contrast: white-ish text */
 
-	/* 🟢 Accent (Emerald/Success button alt) */
-	--color-accent: oklch(65% 0.15 190); /* Emerald, slightly darker */
-	--color-accent-content: oklch(25% 0.04 150);
+	/* 🟠 Accent (Honey Orange) */
+	--color-accent: oklch(75% 0.18 70); /* Honey orange */
+	--color-accent-content: oklch(98% 0.01 70); /* Contrast: high-accessibility white for honey orange accent */
 
 	/* 🌑 Neutral */
 	--color-neutral: oklch(20% 0.01 260); /* dark gray */
@@ -39,6 +39,8 @@
 	/* ❌ Error */
 	--color-error: oklch(65% 0.2 25); /* Red 500 */
 	--color-error-content: oklch(20% 0.08 25);
+
+	--color-footer-text: var(--color-primary-content);
 
 	/* ✨ Effects */
 	--depth: 0;

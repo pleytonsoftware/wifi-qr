@@ -1,4 +1,4 @@
-import { WiFiQRGenerator } from '@organism/wifi-qr-generator'
+import { HomePage } from '@pages/home'
 import { ToastProvider } from '@providers/toast.provider'
 import { HelmetProvider } from 'react-helmet-async'
 
@@ -11,7 +11,7 @@ function App() {
 		<HelmetProvider>
 			<ToastProvider>
 				<SEOHead />
-				<WiFiQRGenerator />
+				<HomePage />
 			</ToastProvider>
 		</HelmetProvider>
 	)

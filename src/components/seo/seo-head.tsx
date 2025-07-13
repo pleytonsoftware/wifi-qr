@@ -4,14 +4,17 @@ import { useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 
-import { Languages, LOCALE_NAMESPACES } from '@/constants/languages'
+import { DEFAULT_LANGUAGE, Languages, LOCALE_NAMESPACES } from '@/constants/languages'
+import { getUrl } from '@/utils/get-site'
 
 export const SEOHead = () => {
 	const { t, i18n } = useTranslation([LOCALE_NAMESPACES.seo, LOCALE_NAMESPACES.common])
 
 	const title = useMemo(() => {
 		const seoTitle = t('seo:title')
-		const appTitle = t('common:app.title')
+		const appTitle = t('common:app.title', {
+			lng: DEFAULT_LANGUAGE,
+		})
 		const separator = ' | '
 		const maxLength = 70 // Updated to 70 chars
 
@@ -30,7 +33,7 @@ export const SEOHead = () => {
 	}, [i18n.resolvedLanguage])
 
 	const currentLang = i18n.language
-	const baseUrl = import.meta.env.VITE_BASE_HOST || `${window.location.protocol}//${window.location.host}`
+	const baseUrl = getUrl()
 	const currentUrl = currentLang === Languages.ENGLISH ? baseUrl : `${baseUrl}?lng=${currentLang}`
 
 	// Schema markup
@@ -142,7 +145,7 @@ export const SEOHead = () => {
 				<link rel='alternate' hrefLang='x-default' href={baseUrl} />
 
 				{/* Favicon and app icons */}
-				<link rel='icon' type='image/svg+xml' href='/logo.svg' />
+				<link rel='icon' type='image/svg+xml' href='/beefi.svg' />
 				<link rel='apple-touch-icon' href='/apple-touch-icon.png' />
 				<link rel='manifest' href='/manifest.json' />
 

@@ -4,6 +4,7 @@ import { memo, type FC } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { DEFAULT_LANGUAGE, LOCALE_NAMESPACES } from '@/constants/languages'
+import { getUrl } from '@/utils/get-site'
 
 type WifiCardProps = {
 	ssid?: string
@@ -44,6 +45,7 @@ export const WifiCard: FC<WifiCardProps> = memo(
 							})}
 						</div>
 					)}
+					<span className='card-footer__scan-text smaller'>{getUrl()}</span>
 				</div>
 			</div>
 		)

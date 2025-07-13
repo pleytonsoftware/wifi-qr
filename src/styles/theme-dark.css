@@ -2,43 +2,45 @@
 	name: 'dark';
 
 	/* 🧱 Base layers - Dark grayscale backgrounds */
-	--color-base-100: oklch(20% 0.005 260); /* Main background */
-	--color-base-200: oklch(17% 0.005 260); /* Elevated cards */
-	--color-base-300: oklch(14% 0.004 260); /* Borders, contrast */
-	--color-base-content: oklch(98% 0.01 260); /* Main text - almost white */
-	--color-base-content-secondary: oklch(90% 0.01 260); /* Secondary text - light gray */
+	--color-base-100: oklch(22% 0.02 90); /* Deep honey brown */
+	--color-base-200: oklch(18% 0.02 90); /* Darker honey brown */
+	--color-base-300: oklch(14% 0.015 90); /* Almost black brown */
+	--color-base-content: oklch(98% 0.01 90); /* Main text - pale yellow */
+	--color-base-content-secondary: oklch(85% 0.12 90); /* Secondary text - muted yellow */
 
-	/* 🔷 Primary (Sky/Blue accent) */
-	--color-primary: oklch(58% 0.22 295); /* Balanced Indigo */
-	--color-primary-content: oklch(10% 0.01 260); /* Very dark for contrast */
+	/* 🟡 Primary (Bee Yellow) */
+	--color-primary: oklch(85% 0.18 90); /* Vibrant bee yellow */
+	--color-primary-content: oklch(22% 0.02 90); /* Contrast: deep honey brown */
 
-	/* 🟣 Secondary (Indigo) */
-	--color-secondary: oklch(68% 0.25 235); /* Vibrant Sky/Blue */
-	--color-secondary-content: oklch(10% 0.01 260);
+	/* ⚫ Secondary (Bee Black) */
+	--color-secondary: oklch(12% 0.01 90); /* Bee black */
+	--color-secondary-content: oklch(98% 0.01 90); /* Contrast: pale yellow */
 
-	/* 🟢 Accent (Emerald) */
-	--color-accent: oklch(72% 0.15 190); /* Emerald 500 vibe */
-	--color-accent-content: oklch(12% 0.01 150);
+	/* 🟠 Accent (Honey Orange) */
+	--color-accent: oklch(75% 0.18 70); /* Honey orange */
+	--color-accent-content: oklch(22% 0.02 90); /* Contrast: deep honey brown */
 
-	/* 🌘 Neutral grays */
-	--color-neutral: oklch(20% 0.01 260); /* Deep slate */
-	--color-neutral-content: oklch(98% 0.01 260); /* Light gray text */
+	/* 🌘 Neutral grays (soft brown) */
+	--color-neutral: oklch(20% 0.01 90); /* Soft brown */
+	--color-neutral-content: oklch(98% 0.01 90); /* Light yellow text */
 
-	/* 🔵 Info */
-	--color-info: oklch(70% 0.18 240); /* Blue-ish */
-	--color-info-content: oklch(10% 0.01 240);
+	/* 🔵 Info (light blue for contrast) */
+	--color-info: oklch(70% 0.18 240); /* Blue-ish for info */
+	--color-info-content: oklch(22% 0.02 90);
 
-	/* ✅ Success */
-	--color-success: oklch(72% 0.18 145); /* Emerald */
-	--color-success-content: oklch(12% 0.01 145);
+	/* ✅ Success (green for pollen) */
+	--color-success: oklch(72% 0.18 145); /* Pollen green */
+	--color-success-content: oklch(22% 0.02 90);
 
-	/* ⚠️ Warning */
+	/* ⚠️ Warning (amber) */
 	--color-warning: oklch(80% 0.18 85); /* Amber */
-	--color-warning-content: oklch(20% 0.05 85);
+	--color-warning-content: oklch(22% 0.02 90);
 
-	/* ❌ Error */
-	--color-error: oklch(68% 0.2 25); /* Rose/Red */
-	--color-error-content: oklch(10% 0.02 25);
+	/* ❌ Error (red for danger) */
+	--color-error: oklch(68% 0.2 25); /* Red */
+	--color-error-content: oklch(98% 0.01 90);
+
+	--color-footer-text: var(--color-base-content-secondary);
 
 	/* ✨ Effects */
 	--depth: 0;

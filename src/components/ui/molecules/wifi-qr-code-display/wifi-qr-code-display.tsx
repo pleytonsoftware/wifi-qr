@@ -1,7 +1,9 @@
 import { Button } from '@atoms/button'
 import { cn } from '@cn'
+import { MiniLogo } from '@molecules/mini-logo'
 import { PrintSettingsModal } from '@molecules/print-settings-modal'
-import { Download, Printer, QrCode, Wifi } from 'lucide-react'
+import { useWiFiQRStore } from '@store/wifi-qr.store'
+import { Download, Printer, QrCode } from 'lucide-react'
 import ms from 'ms'
 import { QRCodeSVG } from 'qrcode.react'
 import { useState, useCallback, type FC, useRef, memo } from 'react'
@@ -9,7 +11,6 @@ import { useTranslation } from 'react-i18next'
 
 import { LOCALE_NAMESPACES } from '@/constants/languages'
 import { SecurityType } from '@/constants/wifi'
-import { useWiFiQRStore } from '@/store/wifi-qr.store'
 
 const CLOSE_PRINT_TIMEOUT_MS = ms('0.5 seconds')
 
@@ -82,19 +83,19 @@ export const WiFiQRCodeDisplay: FC = memo(() => {
 
 	return (
 		<div className='w-full h-full justify-around flex flex-col items-center self-center space-y-4'>
-			<div className={cn('bg-white p-4 rounded-lg shadow-sm border aspect-square w-2/3 h-auto')}>
+			<div className={cn('bg-white rounded-lg shadow-sm border aspect-square w-full px-2 md:w-2/3 md:px-0 h-auto')}>
 				{isReadyQR ? (
-					<div className='relative inline-block w-full h-full' ref={qrRef}>
+					<div className='relative inline-block w-full h-full p-4' ref={qrRef}>
 						<QRCodeSVG value={wifiString} level='H' className='w-full h-full' />
 						<div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 text-primary bg-white rounded-lg flex items-center justify-center'>
-							<Wifi />
+							<MiniLogo />
 						</div>
 					</div>
 				) : (
 					<QrCode className='text-black w-full h-full' />
 				)}
 			</div>
-			<div className='flex space-y-3 justify-self-end min-h-12 w-full max-w-2/3 lg:max-w-none'>
+			<div className='flex space-y-3 justify-self-end min-h-12 w-full px-2 lg:max-w-none'>
 				{isReadyQR ? (
 					<>
 						<div className='flex flex-1 gap-2 flex-col lg:flex-row items-center justify-around'>
@@ -126,11 +127,11 @@ export const WiFiQRCodeDisplay: FC = memo(() => {
 						</div>
 					</>
 				) : (
-					<p className='text-sm text-base-content-secondary text-center'>
-						{t('qr_display.messages.enter_details')}
+					<span className='text-sm text-base-content-secondary text-left md:text-center'>
+						<p>{t('qr_display.messages.enter_details')}</p>
 						<br />
-						{t('qr_display.messages.ensure_requirements')}
-					</p>
+						<p>{t('qr_display.messages.ensure_requirements')}</p>
+					</span>
 				)}
 			</div>
 		</div>
