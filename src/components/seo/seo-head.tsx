@@ -4,7 +4,7 @@ import { useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 
-import { DEFAULT_LANGUAGE, Languages, LOCALE_NAMESPACES } from '@/constants/languages'
+import { DEFAULT_LANGUAGE, LOCALE_NAMESPACES, SUPPORTED_LANGUAGES } from '@/constants/languages'
 import { getUrl } from '@/utils/get-site'
 
 export const SEOHead = () => {
@@ -16,7 +16,7 @@ export const SEOHead = () => {
 			lng: DEFAULT_LANGUAGE,
 		})
 		const separator = ' | '
-		const maxLength = 70 // Updated to 70 chars
+		const maxLength = 60 // Updated to 70 chars
 
 		const fullTitle = `${seoTitle}${separator}${appTitle}`
 
@@ -34,7 +34,6 @@ export const SEOHead = () => {
 
 	const currentLang = i18n.language
 	const baseUrl = getUrl()
-	const currentUrl = currentLang === Languages.ENGLISH ? baseUrl : `${baseUrl}?lng=${currentLang}`
 
 	// Schema markup
 	const [websiteSchema] = useMemo(() => {
@@ -108,12 +107,15 @@ export const SEOHead = () => {
 				<meta name='keywords' content={t('seo:keywords')} />
 
 				{/* Canonical URL */}
-				<link rel='canonical' href={currentUrl} />
+				<link rel='canonical' href={`${baseUrl}?lng=${currentLang}`} />
+				{SUPPORTED_LANGUAGES.map((lang) => (
+					<link rel='alternate' hrefLang={lang} href={baseUrl} />
+				))}
 
 				{/* Open Graph */}
 				<meta property='og:title' content={t('seo:title')} />
 				<meta property='og:description' content={t('seo:description')} />
-				<meta property='og:url' content={currentUrl} />
+				<meta property='og:url' content={baseUrl} />
 				<meta property='og:type' content='website' />
 				<meta property='og:site_name' content={t('common:app.title')} />
 				<meta property='og:locale' content={currentLang === 'es' ? 'es_ES' : 'en_US'} />
