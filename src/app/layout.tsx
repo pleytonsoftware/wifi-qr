@@ -1,5 +1,10 @@
 import type { Metadata } from 'next'
 
+import { cn } from '@cn'
+import { Footer } from '@molecules/footer'
+import { Header } from '@molecules/header'
+import { LanguageSelector } from '@molecules/language-selector'
+import { ThemeToggler } from '@molecules/theme-toggler'
 import { Montserrat, Quicksand } from 'next/font/google'
 
 import './globals.css'
@@ -7,11 +12,13 @@ import './globals.css'
 const montserrat = Montserrat({
 	variable: '--font-montserrat',
 	subsets: ['latin'],
+	style: ['italic', 'normal'],
 })
 
 const quicksand = Quicksand({
 	variable: '--font-quicksand',
 	subsets: ['latin'],
+	display: 'swap',
 })
 
 export const metadata: Metadata = {
@@ -26,7 +33,26 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={`${montserrat.variable} ${quicksand.variable} antialiased`}>{children}</body>
+			<body className={cn(montserrat.variable, quicksand.variable)}>
+				<div className='min-h-dvh w-full bg-base dark:bg-base-100 relative'>
+					<div className='absolute inset-0 z-0 bg-wifiqr-gradient'>
+						<div className='h-full w-full bg-wifiqr-pattern-gradient' />
+					</div>
+					<div className='min-h-dvh bg-transparent relative'>
+						<Header />
+						<div className='min-h-[calc(100dvh-calc(var(--spacing)*24))] md:mt-[calc(var(--spacing)*-8)] flex flex-col justify-center p-4'>
+							<div className='max-w-4xl 3xl:max-w-7xl w-full mx-auto flex flex-col space-y-6'>
+								{children}
+								<div className='fixed bottom-4 right-4 flex items-center gap-2 z-50'>
+									<LanguageSelector />
+									<ThemeToggler />
+								</div>
+							</div>
+						</div>
+						<Footer />
+					</div>
+				</div>
+			</body>
 		</html>
 	)
 }

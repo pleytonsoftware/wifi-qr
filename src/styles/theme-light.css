@@ -1,0 +1,47 @@
+@plugin "daisyui/theme" {
+	name: 'light';
+
+	/* 🌤 Base Colors (Light Backgrounds) */
+	--color-base-100: oklch(99% 0.005 260); /* main bg */
+	--color-base-200: oklch(96% 0.005 260); /* elevated bg */
+	--color-base-300: oklch(88% 0.005 260); /* cards, etc */
+	--color-base-content: oklch(21% 0.01 260); /* text */
+	--color-base-content-secondary: oklch(30% 0.01 260); /* secondary text - light gray */
+
+	/* 🟡 Primary (Bee Yellow) */
+	--color-primary: oklch(85% 0.18 90); /* Vibrant bee yellow */
+	--color-primary-content: oklch(98% 0.01 260); /* Contrast: deep honey brown */
+
+	/* 🩵 Secondary (Bee Blue Wing) */
+	--color-secondary: oklch(86.6% 0.13 236.6); /* Soft bee wing blue */
+	--color-secondary-content: oklch(98% 0.01 260); /* Contrast: white-ish text */
+
+	/* 🟠 Accent (Honey Orange) */
+	--color-accent: oklch(75% 0.18 70); /* Honey orange */
+	--color-accent-content: oklch(98% 0.01 70); /* Contrast: high-accessibility white for honey orange accent */
+
+	/* 🌑 Neutral */
+	--color-neutral: oklch(20% 0.01 260); /* dark gray */
+	--color-neutral-content: oklch(98% 0.01 260);
+
+	/* 🔵 Info */
+	--color-info: oklch(72% 0.16 230); /* Blue 400 */
+	--color-info-content: oklch(25% 0.05 230);
+
+	/* ✅ Success */
+	--color-success: oklch(75% 0.18 145); /* Emerald */
+	--color-success-content: oklch(20% 0.05 145);
+
+	/* ⚠️ Warning */
+	--color-warning: oklch(82% 0.2 90); /* Amber 400 */
+	--color-warning-content: oklch(32% 0.09 80);
+
+	/* ❌ Error */
+	--color-error: oklch(65% 0.2 25); /* Red 500 */
+	--color-error-content: oklch(20% 0.08 25);
+
+	--color-footer-text: var(--color-primary-content);
+
+	/* ✨ Effects */
+	--depth: 0;
+}

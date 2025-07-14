@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Sitemap location (update with your actual domain)
+# Sitemap: https://yourdomain.com/sitemap.xml
+
+# Allow indexing of the main application
+# Allow: /
+
+# Prevent indexing of any potential admin or config paths
+# Disallow: /admin/
+# Disallow: /config/
+# Disallow: /.well-known/
+
+# Common bot crawl delay (optional)
+Crawl-delay: 1
