@@ -107,9 +107,9 @@ export const SEOHead = () => {
 				<meta name='keywords' content={t('seo:keywords')} />
 
 				{/* Canonical URL */}
-				<link rel='canonical' href={`${baseUrl}?lng=${currentLang}`} />
+				<link rel='canonical' href={baseUrl} />
 				{SUPPORTED_LANGUAGES.map((lang) => (
-					<link rel='alternate' hrefLang={lang} href={baseUrl} />
+					<link rel='alternate' hrefLang={lang} href={`${baseUrl}?lng=${currentLang}`} />
 				))}
 
 				{/* Open Graph */}
