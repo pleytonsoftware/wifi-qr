@@ -1,10 +1,11 @@
 import type { WebApplication, WithContext } from 'schema-dts'
 
 import { useMemo } from 'react'
+
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 
-import { DEFAULT_LANGUAGE, LOCALE_NAMESPACES, SUPPORTED_LANGUAGES } from '@/constants/languages'
+import { DEFAULT_LANGUAGE, LOCALE_NAMESPACES, AVAILABLE_LANGUAGES } from '@/constants/languages'
 import { getUrl } from '@/utils/get-site'
 
 export const SEOHead = () => {
@@ -108,7 +109,7 @@ export const SEOHead = () => {
 
 				{/* Canonical URL */}
 				<link rel='canonical' href={baseUrl} />
-				{SUPPORTED_LANGUAGES.map((lang) => (
+				{AVAILABLE_LANGUAGES.map((lang) => (
 					<link rel='alternate' hrefLang={lang} href={`${baseUrl}?lng=${currentLang}`} />
 				))}
 

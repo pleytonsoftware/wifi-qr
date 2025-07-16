@@ -1,18 +1,19 @@
-import type { ParseKeys } from 'i18next'
+'use client'
+
+import { memo, useMemo, type FC } from 'react'
 
 import * as yup from 'yup'
+import { Wifi } from 'lucide-react'
+import { TransKeys, useTranslations } from 'next-intl'
+import { useForm } from 'react-hook-form'
+
+import { LOCALE_NAMESPACES } from '@/constants/languages'
+import { DEFAULT_SECURITY_TYPE, securityOptions, securityOptionsWithPick, SecurityType } from '@/constants/wifi'
 import { Input, PasswordInput } from '@atoms/input'
 import { Select } from '@atoms/select'
 import { Toggle } from '@atoms/toggle'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useWiFiQRStore } from '@store/wifi-qr.store'
-import { Wifi } from 'lucide-react'
-import { memo, useMemo, type FC } from 'react'
-import { useForm } from 'react-hook-form'
-import { useTranslation } from 'react-i18next'
-
-import { LOCALE_NAMESPACES } from '@/constants/languages'
-import { DEFAULT_SECURITY_TYPE, securityOptions, securityOptionsWithPick, SecurityType } from '@/constants/wifi'
 
 type WifiConfigFormType = {
 	ssid: string
@@ -21,22 +22,22 @@ type WifiConfigFormType = {
 	hiddenNetwork: boolean
 }
 
-export const WiFiConfigForm: FC = memo(() => {
-	const { t } = useTranslation(LOCALE_NAMESPACES.common)
+export const WiFiConfigForm: FC = memo(function WiFiConfigForm() {
+	const t = useTranslations(LOCALE_NAMESPACES.common)
 	const schema = useMemo(
 		() =>
 			yup.object({
-				ssid: yup.string().required('wifi_config.fields.network_name.error.required' as ParseKeys<'common'>),
+				ssid: yup.string().required('wifi_config.fields.network_name.error.required' as TransKeys),
 				securityType: yup
 					.mixed<SecurityType>()
 					.oneOf(
 						securityOptions.map((option) => option.value as SecurityType),
-						'wifi_config.fields.security_type.error.invalid' as ParseKeys<'common'>,
+						'wifi_config.fields.security_type.error.invalid' as TransKeys,
 					)
-					.required('wifi_config.fields.security_type.error.invalid' as ParseKeys<'common'>),
+					.required('wifi_config.fields.security_type.error.invalid' as TransKeys),
 				password: yup.string().when('securityType', {
 					is: (securityType: SecurityType) => securityType !== SecurityType.NO_PASS,
-					then: (schema) => schema.required('wifi_config.fields.password.error.required' as ParseKeys<'common'>),
+					then: (schema) => schema.required('wifi_config.fields.password.error.required' as TransKeys),
 					otherwise: (schema) => schema,
 				}),
 			}) as yup.ObjectSchema<WifiConfigFormType>,
@@ -63,7 +64,7 @@ export const WiFiConfigForm: FC = memo(() => {
 				{...register('ssid', {
 					onChange: (e) => setWifiDetails({ ssid: e.target.value }),
 				})}
-				error={formState.errors.ssid && t(formState.errors.ssid?.message as ParseKeys<'common'>)}
+				error={formState.errors.ssid && t(formState.errors.ssid?.message as TransKeys)}
 				required
 				autoComplete='off'
 			/>
@@ -84,7 +85,7 @@ export const WiFiConfigForm: FC = memo(() => {
 					{...register('password', {
 						onChange: (e) => setWifiDetails({ password: e.target.value }),
 					})}
-					error={formState.errors.password && t(formState.errors.password?.message as ParseKeys<'common'>)}
+					error={formState.errors.password && t(formState.errors.password?.message as TransKeys)}
 					required
 				/>
 			)}

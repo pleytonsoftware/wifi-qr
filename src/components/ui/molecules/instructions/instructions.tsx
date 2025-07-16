@@ -1,9 +1,10 @@
 import type { ParseKeys } from 'i18next'
 import type { FC } from 'react'
 
+import { Translation } from 'react-i18next'
+
 import { Badge } from '@atoms/badge'
 import { Card } from '@atoms/card'
-import { Translation } from 'react-i18next'
 
 type Step = {
 	title: ParseKeys<'common'>

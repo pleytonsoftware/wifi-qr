@@ -1,23 +1,27 @@
-import { Button } from '@atoms/button'
-import { Input } from '@atoms/input'
-import { useToast } from '@hooks/use-toast.hook'
+'use client'
+
+import { memo, useCallback, type FC } from 'react'
+
 import { Copy, Check } from 'lucide-react'
-import { memo, useCallback, useState, type FC } from 'react'
-import { useTranslation } from 'react-i18next'
+import { useTranslations } from 'next-intl'
 
 import { LOCALE_NAMESPACES } from '@/constants/languages'
-import { useWiFiQRStore } from '@/store/wifi-qr.store'
+import { Button } from '@atoms/button'
+import { Input } from '@atoms/input'
+import { useCopyToClipboard } from '@hooks/use-copy-to-clipboard.hook'
+import { useLanguage } from '@hooks/use-language'
+import { useToast } from '@hooks/use-toast.hook'
+import { useWiFiQRStore } from '@store/wifi-qr.store'
 
-export const WiFiStringCopy: FC = memo(() => {
-	const { t, i18n } = useTranslation(LOCALE_NAMESPACES.common)
-	const [copied, setCopied] = useState(false)
+export const WiFiStringCopy: FC = memo(function WiFiStringCopy() {
+	const t = useTranslations(LOCALE_NAMESPACES.common)
+	const language = useLanguage()
+	const [copied, copyToClipboard] = useCopyToClipboard({ defaultTimeoutMs: '2 seconds' })
 	const { showToast } = useToast()
 	const wifiString = useWiFiQRStore((state) => state.wifiString)
 	const copyWiFiString = useCallback(async () => {
 		try {
-			await navigator.clipboard.writeText(wifiString)
-			setCopied(true)
-			setTimeout(() => setCopied(false), 2000)
+			copyToClipboard(wifiString)
 
 			showToast({
 				title: t('wifi_string_copy.toast.copied.title'),
@@ -33,7 +37,7 @@ export const WiFiStringCopy: FC = memo(() => {
 				variant: 'error',
 			})
 		}
-	}, [wifiString, showToast, i18n.resolvedLanguage])
+	}, [wifiString, showToast, language])
 
 	return (
 		<Input

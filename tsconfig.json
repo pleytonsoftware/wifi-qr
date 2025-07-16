@@ -21,6 +21,7 @@
 		"paths": {
 			"@/*": ["./src/*"],
 			"@cn": ["./src/utils/cn.ts"],
+			"@app-types/*": ["./src/types/*"],
 			"@atoms/*": ["./src/components/ui/atoms/*"],
 			"@molecules/*": ["./src/components/ui/molecules/*"],
 			"@organism/*": ["./src/components/ui/organism/*"],
@@ -28,8 +29,11 @@
 			"@hooks/*": ["./src/components/hooks/*"],
 			"@contexts/*": ["./src/components/contexts/*"],
 			"@providers/*": ["./src/components/providers/*"],
+			"@layout/*": ["./src/components/layout/*"],
 			"@store/*": ["./src/store/*"],
-			"@assets/*": ["./src/assets/*"]
+			"@assets/*": ["./src/assets/*"],
+			"@navigation": ["./src/i18n/navigation.ts"],
+			"@locales/*": ["./locales/*"]
 		}
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

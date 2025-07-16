@@ -1,10 +1,15 @@
+'use client'
+
 import type { ReactNode, FC, HTMLAttributes } from 'react'
+
+import { useEffect, useRef } from 'react'
+
+import { X } from 'lucide-react'
+import { createPortal } from 'react-dom'
+import { useIsClient } from 'usehooks-ts'
 
 import { Button } from '@atoms/button'
 import { cn } from '@cn'
-import { X } from 'lucide-react'
-import { useEffect, useRef } from 'react'
-import { createPortal } from 'react-dom'
 
 type ModalSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 type ModalPosition = 'center' | 'bottom'
@@ -52,23 +57,25 @@ export const Modal: FC<ModalProps> = ({
 	...props
 }) => {
 	const dialogRef = useRef<HTMLDialogElement>(null)
+	const isClient = useIsClient()
 
 	// Open/close dialog imperatively
 	useEffect(() => {
+		if (!isClient) return
 		const dialog = dialogRef.current
 		if (!dialog) return
 		if (open && !dialog.open) dialog.showModal()
 		if (!open && dialog.open) dialog.close()
-	}, [open])
+	}, [open, isClient])
 
 	useEffect(() => {
-		if (!closeOnEsc) return
+		if (!isClient || !closeOnEsc) return
 		const handler = (e: KeyboardEvent) => {
 			if (e.key === 'Escape' && open) onClose()
 		}
 		window.addEventListener('keydown', handler)
 		return () => window.removeEventListener('keydown', handler)
-	}, [open, closeOnEsc, onClose])
+	}, [open, closeOnEsc, onClose, isClient])
 
 	const handleBackdropClick = (e: React.MouseEvent<HTMLDialogElement>) => {
 		if (!closeOnBackdrop) return
@@ -76,14 +83,17 @@ export const Modal: FC<ModalProps> = ({
 	}
 
 	useEffect(() => {
+		if (!isClient) return
 		if (open) document.body.style.overflow = 'hidden'
 		else document.body.style.overflow = ''
 		return () => {
 			document.body.style.overflow = ''
 		}
-	}, [open])
+	}, [open, isClient])
 
-	const portalTarget = typeof window !== 'undefined' ? document.body : null
+	if (!isClient) return null
+
+	const portalTarget = document.body
 
 	const dialog = (
 		<dialog
@@ -111,7 +121,6 @@ export const Modal: FC<ModalProps> = ({
 	)
 
 	if (usePortal) {
-		if (!portalTarget) return null
 		return createPortal(dialog, portalTarget)
 	}
 	return dialog

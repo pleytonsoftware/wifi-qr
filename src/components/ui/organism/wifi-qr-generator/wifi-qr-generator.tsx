@@ -1,16 +1,16 @@
 import type { FC } from 'react'
 
+import { useTranslations } from 'next-intl'
+
+import { LOCALE_NAMESPACES } from '@/constants/languages'
 import { Card } from '@atoms/card'
 import { Divider } from '@atoms/divider'
 import { WiFiConfigForm } from '@molecules/wifi-config-form'
 import { WiFiQRCodeDisplay } from '@molecules/wifi-qr-code-display'
 import { WiFiStringCopy } from '@molecules/wifi-string-copy'
-import { useTranslation } from 'react-i18next'
-
-import { LOCALE_NAMESPACES } from '@/constants/languages'
 
 export const WiFiQRGenerator: FC = () => {
-	const { t } = useTranslation(LOCALE_NAMESPACES.common)
+	const t = useTranslations(LOCALE_NAMESPACES.common)
 
 	return (
 		<>

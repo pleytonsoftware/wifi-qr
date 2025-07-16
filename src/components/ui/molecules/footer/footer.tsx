@@ -1,30 +1,32 @@
-import { useRef, type FC } from 'react'
-import { Trans, useTranslation } from 'react-i18next'
+import { getTranslations } from 'next-intl/server'
 
-import { DEFAULT_LANGUAGE, LOCALE_NAMESPACES } from '@/constants/languages'
+import { LOCALE_NAMESPACES } from '@/constants/languages'
+import { getAppName } from '@/utils/get-app-name'
 
-export const Footer: FC = () => {
-	const { t } = useTranslation(LOCALE_NAMESPACES.common)
-	const yearRef = useRef(new Date().getFullYear())
+export const Footer = async () => {
+	const t = await getTranslations(LOCALE_NAMESPACES.common)
+	const year = new Date().getFullYear()
+	const appTitle = getAppName()
 
 	return (
 		<footer className='mt-8 text-center py-6 border-t border-base-200 bg-transparent backdrop-blur-xs'>
 			<div className='text-sm text-footer-text'>
 				<p>
-					<Trans ns={LOCALE_NAMESPACES.common} i18nKey='footer.created_by'>
-						<a
-							href='https://pleyt.dev'
-							target='_blank'
-							rel='noopener noreferrer'
-							className='link btn-xs font-medium link-footer-text hover:text-primary'
-						></a>
-					</Trans>
+					{t.rich('footer.created_by', {
+						a: (chunks) => (
+							<a
+								href='https://pleyt.dev'
+								target='_blank'
+								rel='noopener noreferrer'
+								className='link btn-xs font-medium link-footer-text hover:text-primary'
+							>
+								{chunks}
+							</a>
+						),
+					})}
 				</p>
 				<p className='mt-1'>
-					{t('app.title', {
-						lng: DEFAULT_LANGUAGE,
-					})}{' '}
-					{t('footer.copyright', { year: yearRef.current })}
+					{appTitle} {t('footer.copyright', { year })}
 				</p>
 			</div>
 		</footer>

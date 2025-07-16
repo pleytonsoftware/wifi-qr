@@ -1,23 +1,40 @@
-import { Dropdown } from '@atoms/dropdown'
-import { LanguagesIcon } from 'lucide-react'
-import { useMemo } from 'react'
-import { useTranslation } from 'react-i18next'
+'use client'
 
-import { Languages, LOCALE_NAMESPACES, SUPPORTED_LANGUAGES } from '@/constants/languages'
+import { useMemo } from 'react'
+
+import { LanguagesIcon } from 'lucide-react'
+import { useSearchParams } from 'next/navigation'
+
+import { AVAILABLE_LANGUAGES, LOCALE_DICTIONARY } from '@/constants/languages'
+import { Dropdown } from '@atoms/dropdown'
+import { useLanguage } from '@hooks/use-language'
+import { redirect, usePathname } from '@navigation'
 
 export const LanguageSelector = () => {
-	const { t, i18n } = useTranslation(LOCALE_NAMESPACES.languages, {
-		lng: Languages.ENGLISH,
-	})
+	const language = useLanguage()
+	const path = usePathname()
+	const params = useSearchParams()
 
 	const languagesNode = useMemo(
 		() =>
-			SUPPORTED_LANGUAGES.map((lang) => (
-				<Dropdown.Item key={lang} onClick={() => i18n.changeLanguage(lang)} selected={i18n.resolvedLanguage === lang}>
-					<span>{t(`languages.${lang}`)}</span>
+			AVAILABLE_LANGUAGES.map((lang) => (
+				<Dropdown.Item
+					key={lang}
+					onClick={() =>
+						redirect({
+							href: {
+								pathname: path,
+								query: Object.fromEntries(params.entries()),
+							},
+							locale: lang,
+						})
+					}
+					selected={language === lang}
+				>
+					<span>{LOCALE_DICTIONARY[lang]}</span>
 				</Dropdown.Item>
 			)),
-		[i18n.languages],
+		[AVAILABLE_LANGUAGES],
 	)
 
 	return (
@@ -29,7 +46,7 @@ export const LanguageSelector = () => {
 			buttonContent={
 				<Dropdown.Item className='flex items-center gap-2 text-sm font-medium text-base-content'>
 					<LanguagesIcon className='text-primary w-4 h-4' />
-					{t(`languages.${i18n.resolvedLanguage}`)}
+					{LOCALE_DICTIONARY[language]}
 				</Dropdown.Item>
 			}
 		>

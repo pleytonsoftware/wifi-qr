@@ -26,6 +26,10 @@ export type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
 	onValueChange?: (value: string) => void
 }
 
+type SelectComponent = FC<SelectProps> & {
+	Option: FC<SelectOptionProps>
+}
+
 const colours = {
 	primary: 'select-primary',
 	secondary: 'select-secondary',
@@ -48,7 +52,7 @@ const sizes = {
 	lg: 'select-lg',
 }
 
-export const Select: FC<SelectProps> & { Option: FC<SelectOptionProps> } = ({
+export const Select: SelectComponent = ({
 	label,
 	helperText,
 	options,
@@ -81,6 +85,8 @@ export const Select: FC<SelectProps> & { Option: FC<SelectOptionProps> } = ({
 	</fieldset>
 )
 
-Select.Option = ({ label, ...option }: SelectOptionProps) => <option {...option}>{label}</option>
+Select.Option = function SelectOption({ label, ...option }: SelectOptionProps) {
+	return <option {...option}>{label}</option>
+}
 
 export const SelectOption = Select.Option

@@ -1,21 +1,24 @@
+'use client'
+
+import { useState, useCallback, type FC, useRef, memo } from 'react'
+
+import { Download, Printer, QrCode } from 'lucide-react'
+import ms from 'ms'
+import { useTranslations } from 'next-intl'
+import { QRCodeSVG } from 'qrcode.react'
+
+import { LOCALE_NAMESPACES } from '@/constants/languages'
+import { SecurityType } from '@/constants/wifi'
 import { Button } from '@atoms/button'
 import { cn } from '@cn'
 import { MiniLogo } from '@molecules/mini-logo'
 import { PrintSettingsModal } from '@molecules/print-settings-modal'
 import { useWiFiQRStore } from '@store/wifi-qr.store'
-import { Download, Printer, QrCode } from 'lucide-react'
-import ms from 'ms'
-import { QRCodeSVG } from 'qrcode.react'
-import { useState, useCallback, type FC, useRef, memo } from 'react'
-import { useTranslation } from 'react-i18next'
-
-import { LOCALE_NAMESPACES } from '@/constants/languages'
-import { SecurityType } from '@/constants/wifi'
 
 const CLOSE_PRINT_TIMEOUT_MS = ms('0.5 seconds')
 
-export const WiFiQRCodeDisplay: FC = memo(() => {
-	const { t } = useTranslation(LOCALE_NAMESPACES.common)
+export const WiFiQRCodeDisplay: FC = memo(function WiFiQRCodeDisplay() {
+	const t = useTranslations(LOCALE_NAMESPACES.common)
 	const [open, setOpen] = useState(false)
 	const [numberOfCards, setNumberOfCards] = useState<number>(1)
 	const [printWithSSID, setPrintWithSSID] = useState<boolean>(true)

@@ -1,3 +1,5 @@
+'use client'
+
 import type { ToastVariant } from '../providers/toast.provider'
 
 import { createContext, type ReactNode } from 'react'

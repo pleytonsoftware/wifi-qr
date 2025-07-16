@@ -6,7 +6,8 @@
 		"dev": "next dev --turbopack -p 5173",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"i18n:check": "i18n-check -l locales/ -s en"
 	},
 	"dependencies": {
 		"@hookform/resolvers": "^5.1.1",
@@ -28,6 +29,7 @@
 	"devDependencies": {
 		"@eslint/eslintrc": "^3",
 		"@eslint/js": "^9.31.0",
+		"@lingual/i18n-check": "^0.8.4",
 		"@serverless-guru/prettier-plugin-import-order": "^0.4.2",
 		"@tailwindcss/postcss": "^4",
 		"@types/ms": "^2.1.0",
@@ -43,6 +45,7 @@
 		"globals": "^16.3.0",
 		"prettier": "^3.6.2",
 		"prettier-plugin-tailwindcss": "^0.6.14",
+		"schema-dts": "^1.1.5",
 		"tailwindcss": "^4",
 		"typescript": "^5",
 		"typescript-eslint": "^8.36.0"

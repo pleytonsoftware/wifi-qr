@@ -1,10 +1,10 @@
 import type { FC } from 'react'
 
-import { MiniLogo } from '@molecules/mini-logo'
-import { useTranslation } from 'react-i18next'
+import { useTranslations } from 'next-intl'
 
+import indexCssUrl from '@/app/globals.css'
 import { LOCALE_NAMESPACES } from '@/constants/languages'
-import indexCssUrl from '@/index.css?url'
+import { MiniLogo } from '@molecules/mini-logo'
 
 import { WifiCard } from '../wifi-card/wifi-card'
 
@@ -15,12 +15,17 @@ type WifiQRCodePrinterProps = {
 	numberOfCards?: number
 }
 export const WifiQRCodePrinter: FC<WifiQRCodePrinterProps> = ({ ssid, password, dataUrl, numberOfCards = 1 }) => {
-	const { t } = useTranslation(LOCALE_NAMESPACES.common)
+	const t = useTranslations(LOCALE_NAMESPACES.common)
+
+	console.log({
+		indexCssUrl,
+	})
+
 	return (
 		<html>
 			<head>
 				<title>Wi-Fi QR Code - ${ssid}</title>
-				<link rel='stylesheet' href={indexCssUrl} />
+				{/* <link rel='stylesheet' href={indexCssUrl} /> */}
 				<style>
 					{`
           * {

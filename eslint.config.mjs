@@ -1,10 +1,11 @@
-import { FlatCompat } from '@eslint/eslintrc'
-import js from '@eslint/js'
 import prettier from 'eslint-plugin-prettier'
 import reactHooks from 'eslint-plugin-react-hooks'
 import globals from 'globals'
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
+
+import { FlatCompat } from '@eslint/eslintrc'
+import js from '@eslint/js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -29,12 +30,23 @@ const eslintConfig = [
 		},
 		rules: {
 			...reactHooks.configs.recommended.rules,
-			'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
 			'prettier/prettier': 'warn',
 			'no-console': 'warn',
 			'no-debugger': 'warn',
 			'@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
 			'react-hooks/exhaustive-deps': 'off',
+			'no-restricted-imports': [
+				'error',
+				{
+					name: 'next/link',
+					message: 'Please import from `@/i18n/navigation` instead.',
+				},
+				{
+					name: 'next/navigation',
+					importNames: ['redirect', 'permanentRedirect', 'useRouter', 'usePathname'],
+					message: 'Please import from `@/i18n/navigation` instead.',
+				},
+			],
 		},
 	},
 ]

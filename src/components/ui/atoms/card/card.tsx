@@ -1,4 +1,6 @@
-import type { FC, ReactNode, HTMLAttributes, ImgHTMLAttributes } from 'react'
+import type { FC, ReactNode, HTMLAttributes, ComponentProps } from 'react'
+
+import Image from 'next/image'
 
 import { cn } from '@cn'
 
@@ -8,7 +10,7 @@ type CardComponent = FC<CardProps> & {
 	Description: FC<HTMLAttributes<HTMLDivElement>>
 	Actions: FC<HTMLAttributes<HTMLDivElement>>
 	Image: FC<
-		ImgHTMLAttributes<HTMLImageElement> & {
+		ComponentProps<typeof Image> & {
 			figureClassName?: string
 		}
 	>
@@ -82,9 +84,9 @@ export const CardDescription: CardComponent['Description'] = ({ className, ...pr
 
 export const CardActions: CardComponent['Actions'] = ({ className, ...props }) => <div className={cn('card-actions', className)} {...props} />
 
-export const CardImage: CardComponent['Image'] = ({ figureClassName, ...props }) => (
+export const CardImage: CardComponent['Image'] = ({ figureClassName, alt = '', ...props }) => (
 	<figure className={cn(figureClassName)}>
-		<img {...props} />
+		<Image alt={alt} {...props} />
 	</figure>
 )
 

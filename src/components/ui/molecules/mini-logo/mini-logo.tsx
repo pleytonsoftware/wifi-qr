@@ -1,20 +1,12 @@
 import type { FC } from 'react'
 
-import { Trans } from 'react-i18next'
+import Image from 'next/image'
 
-import { DEFAULT_LANGUAGE, LOCALE_NAMESPACES } from '@/constants/languages'
+import { getAppName } from '@/utils/get-app-name'
 
 export const MiniLogo: FC = () => (
 	<p className='flex flex-col justify-center items-center text-center'>
-		<img src='/beefi.svg' alt='BeeFi Logo' className='size-8' />
-		<p className='text-[0.5rem] text-base-content-secondary'>
-			<Trans
-				ns={LOCALE_NAMESPACES.common}
-				lang={DEFAULT_LANGUAGE}
-				i18nKey='app.title'
-				components={{ strong: <strong /> }}
-				className='text-xs'
-			/>
-		</p>
+		<Image src='/beefi.svg' alt={`${getAppName()} Logo`} width={32} height={32} className='size-8' />
+		<p className='text-[0.5rem] text-base-content-secondary'>{getAppName()}</p>
 	</p>
 )
