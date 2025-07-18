@@ -1,14 +1,15 @@
 'use client'
 
+import { redirect, usePathname } from '@navigation'
+
+import { useSearchParams } from 'next/navigation'
 import { useMemo } from 'react'
 
 import { LanguagesIcon } from 'lucide-react'
-import { useSearchParams } from 'next/navigation'
 
-import { AVAILABLE_LANGUAGES, LOCALE_DICTIONARY } from '@/constants/languages'
 import { Dropdown } from '@atoms/dropdown'
+import { AVAILABLE_LANGUAGES, LOCALE_DICTIONARY } from '@const/languages'
 import { useLanguage } from '@hooks/use-language'
-import { redirect, usePathname } from '@navigation'
 
 export const LanguageSelector = () => {
 	const language = useLanguage()

@@ -53,8 +53,7 @@
 		},
 		"buttons": {
 			"cancel": "Cancel",
-			"print_cards_one": "Print {count} Card",
-			"print_cards_other": "Print {count} Cards"
+			"print_cards": "Print {count, plural, =1 {# Card} other {# Cards}}"
 		},
 		"steps": {
 			"title": "How to Use",
@@ -87,8 +86,8 @@
 		},
 		"qr_display": {
 			"buttons": {
-				"download": "Download QR Code",
-				"print": "Print QR Code"
+				"download": "Download QR",
+				"print": "Print QR"
 			},
 			"messages": {
 				"enter_details": "Please enter valid Wi-Fi details to generate a QR code.",

@@ -53,8 +53,7 @@
 		},
 		"buttons": {
 			"cancel": "Annuler",
-			"print_cards_one": "Imprimer {count} carte",
-			"print_cards_other": "Imprimer {count} cartes"
+			"print_cards": "Imprimer {count, plural, =1 {# carte} other {# cartes}}"
 		},
 		"steps": {
 			"title": "Comment ça marche",
@@ -87,8 +86,8 @@
 		},
 		"qr_display": {
 			"buttons": {
-				"download": "Télécharger le code QR",
-				"print": "Imprimer le code QR"
+				"download": "Télécharger le QR",
+				"print": "Imprimer le QR"
 			},
 			"messages": {
 				"enter_details": "Veuillez saisir des informations Wi-Fi valides pour générer un code QR.",

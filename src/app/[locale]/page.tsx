@@ -1,14 +1,14 @@
-import type { LayoutProps } from '@/types/global'
+import type { LayoutProps } from '@app-types/global'
 import type { Metadata, ResolvingMetadata } from 'next'
 import type { WebApplication, WithContext } from 'schema-dts'
 
 import { getTranslations } from 'next-intl/server'
 
-import { ToastProvider } from '@/components/providers/toast.provider'
-import { LOCALE_NAMESPACES, AVAILABLE_LANGUAGES, DEFAULT_LANGUAGE } from '@/constants/languages'
+import { LOCALE_NAMESPACES, AVAILABLE_LANGUAGES } from '@const/languages'
+import { WiFiQRGenerator } from '@organism/wifi-qr-generator'
+
 import { getAppName } from '@/utils/get-app-name'
 import { getUrl } from '@/utils/get-site'
-import { WiFiQRGenerator } from '@organism/wifi-qr-generator'
 
 export async function generateMetadata({ params }: LayoutProps, _parent: ResolvingMetadata): Promise<Metadata> {
 	const locale = (await params).locale
@@ -122,9 +122,7 @@ export default async function HomePage() {
 
 	return (
 		<>
-			<ToastProvider>
-				<WiFiQRGenerator />
-			</ToastProvider>
+			<WiFiQRGenerator />
 			<script type='application/ld+json' suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
 		</>
 	)

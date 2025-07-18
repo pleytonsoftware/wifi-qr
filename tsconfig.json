@@ -30,6 +30,7 @@
 			"@contexts/*": ["./src/components/contexts/*"],
 			"@providers/*": ["./src/components/providers/*"],
 			"@layout/*": ["./src/components/layout/*"],
+			"@const/*": ["./src/constants/*"],
 			"@store/*": ["./src/store/*"],
 			"@assets/*": ["./src/assets/*"],
 			"@navigation": ["./src/i18n/navigation.ts"],

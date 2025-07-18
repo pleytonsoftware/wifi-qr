@@ -1,13 +1,15 @@
+import Image from 'next/image'
 import { memo, type FC } from 'react'
+
+import { cn } from '@cn'
 
 import { Scissors, Wifi } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import Image from 'next/image'
 
-import { DEFAULT_LANGUAGE, LOCALE_NAMESPACES } from '@/constants/languages'
-import { getUrl } from '@/utils/get-site'
-import { cn } from '@cn'
+import { DEFAULT_LANGUAGE, LOCALE_NAMESPACES } from '@const/languages'
 import { useLanguage } from '@hooks/use-language'
+
+import { getUrl } from '@/utils/get-site'
 
 type WifiCardProps = {
 	ssid?: string
@@ -54,7 +56,11 @@ export const WifiCard: FC<WifiCardProps> = memo(
 					)}
 				</div>
 				<div className='card-footer'>
-					<div className='card-footer__scan-text'>{t('qr_code_printer.scan')}</div>
+					<div className='card-footer__scan-text'>
+						{t('qr_code_printer.scan', {
+							locale: language,
+						})}
+					</div>
 					{language !== DEFAULT_LANGUAGE && (
 						<div className='card-footer__scan-text smaller'>
 							{t('qr_code_printer.scan', {

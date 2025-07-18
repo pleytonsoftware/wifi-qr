@@ -1,7 +1,8 @@
 import type { ButtonHTMLAttributes, JSX, ElementType } from 'react'
 
-import { Loading } from '@atoms/loading'
 import { cn } from '@cn'
+
+import { Loading } from '@atoms/loading'
 
 type ButtonColour = 'base' | 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning' | 'error'
 type ButtonVariant = 'default' | 'outline' | 'soft' | 'dash' | 'ghost' | 'link'

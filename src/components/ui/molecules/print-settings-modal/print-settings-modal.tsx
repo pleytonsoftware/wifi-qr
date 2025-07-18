@@ -5,13 +5,14 @@ import { useId } from 'react'
 import { Printer } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
-import { LOCALE_NAMESPACES } from '@/constants/languages'
-import { useWiFiQRStore } from '@/store/wifi-qr.store'
 import { Button } from '@atoms/button'
 import { Input } from '@atoms/input'
 import { Modal } from '@atoms/modal'
 import { Toggle } from '@atoms/toggle'
 import { WifiCard } from '@atoms/wifi-card'
+import { LOCALE_NAMESPACES } from '@const/languages'
+
+import { useWiFiQRStore } from '@/store/wifi-qr.store'
 
 type PrintSettingsModalProps = {
 	open: boolean

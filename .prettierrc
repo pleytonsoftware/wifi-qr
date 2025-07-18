@@ -10,7 +10,7 @@
 	"plugins": ["prettier-plugin-tailwindcss", "@serverless-guru/prettier-plugin-import-order"],
 	"tailwindFunctions": ["clsx", "twMerge", "cn"],
 	"importOrderParserPlugins": ["typescript", "jsx"],
-	"importOrder": ["^(react|next)$", "^[a-zA-Z].*$", "^(pages?|routes?)/(.*)$", "^(@|#)(.*)$", "^@/(.*)$", "^#/(.*)$", "^[./]"],
+	"importOrder": ["^(react|next($|/.*))$", "^@cn$", "^[a-zA-Z].*$", "^(@|#)([^/]+)/(.*)$", "^(@|#)/(.*)$", "^[./]"],
 	"importOrderSeparation": true,
 	"importOrderTypeImportsToTop": true,
 	"importOrderMergeDuplicateImports": true,

@@ -7,11 +7,11 @@ import { Wifi } from 'lucide-react'
 import { TransKeys, useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 
-import { LOCALE_NAMESPACES } from '@/constants/languages'
-import { DEFAULT_SECURITY_TYPE, securityOptions, securityOptionsWithPick, SecurityType } from '@/constants/wifi'
 import { Input, PasswordInput } from '@atoms/input'
 import { Select } from '@atoms/select'
 import { Toggle } from '@atoms/toggle'
+import { LOCALE_NAMESPACES } from '@const/languages'
+import { DEFAULT_SECURITY_TYPE, securityOptions, securityOptionsWithPick, SecurityType } from '@const/wifi'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useWiFiQRStore } from '@store/wifi-qr.store'
 

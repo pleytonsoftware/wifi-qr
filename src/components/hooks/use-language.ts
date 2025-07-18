@@ -1,4 +1,4 @@
-import type { Languages } from '@/constants/languages'
+import type { Languages } from '@const/languages'
 
 import { useLocale } from 'next-intl'
 

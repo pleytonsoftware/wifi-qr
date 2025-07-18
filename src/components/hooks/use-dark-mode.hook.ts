@@ -3,7 +3,8 @@ import { useEffect } from 'react'
 import ms from 'ms'
 import { useLocalStorage, useMediaQuery } from 'usehooks-ts'
 
-import { COLOR_SCHEME_QUERY, DARK_MODE_COOKIE_KEY, DARK_MODE_LOCAL_STORAGE_KEY } from '@/constants/theme'
+import { COLOR_SCHEME_QUERY, DARK_MODE_COOKIE_KEY, DARK_MODE_LOCAL_STORAGE_KEY } from '@const/theme'
+
 import { getCookie, setCookie } from '@/utils/cookie'
 
 type DarkModeOptions = {

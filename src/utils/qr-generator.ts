@@ -1,6 +1,6 @@
 import type { WifiDetails } from '@/store/wifi-qr.store'
 
-import { SecurityType } from '@/constants/wifi'
+import { SecurityType } from '@const/wifi'
 
 type WiFiConfig = WifiDetails
 export type WifiString = string

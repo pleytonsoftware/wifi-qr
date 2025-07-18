@@ -5,7 +5,7 @@ type UseCookieStorageOptions<T> = {
 	cookieOptions?: Partial<{ path: string; expires: string | number; domain: string; secure: boolean }>
 }
 
-function setCookieClassic(name: string, value: string, options: UseCookieStorageOptions<any>['cookieOptions'] = {}) {
+function setCookieClassic(name: string, value: string, options: UseCookieStorageOptions<unknown>['cookieOptions'] = {}) {
 	let cookieStr = `${encodeURIComponent(name)}=${encodeURIComponent(value)}`
 	if (options.path) cookieStr += `;path=${options.path}`
 	if (options.expires) cookieStr += `;expires=${String(options.expires)}`
@@ -14,9 +14,9 @@ function setCookieClassic(name: string, value: string, options: UseCookieStorage
 	document.cookie = cookieStr
 }
 
-export function setCookie(name: string, value: string, options: UseCookieStorageOptions<any>['cookieOptions'] = {}) {
+export function setCookie(name: string, value: string, options: UseCookieStorageOptions<unknown>['cookieOptions'] = {}) {
 	if ('cookieStore' in window && typeof window.cookieStore.set === 'function') {
-		const cookieOptions: Record<string, any> = { name, value }
+		const cookieOptions: Record<string, unknown> = { name, value }
 		if (options.path) cookieOptions.path = options.path
 		if (options.domain) cookieOptions.domain = options.domain
 		if (options.secure) cookieOptions.secure = options.secure

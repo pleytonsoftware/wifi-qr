@@ -4,12 +4,13 @@ import type { ReactNode, FC, HTMLAttributes } from 'react'
 
 import { useEffect, useRef } from 'react'
 
+import { cn } from '@cn'
+
 import { X } from 'lucide-react'
 import { createPortal } from 'react-dom'
 import { useIsClient } from 'usehooks-ts'
 
 import { Button } from '@atoms/button'
-import { cn } from '@cn'
 
 type ModalSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 type ModalPosition = 'center' | 'bottom'

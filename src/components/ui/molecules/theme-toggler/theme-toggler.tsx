@@ -4,9 +4,9 @@ import { useEffect, type FC } from 'react'
 
 import { Moon, Sun } from 'lucide-react'
 
-import { Theme } from '@/constants/theme'
 import { Icon } from '@atoms/icon/icon'
 import { Swap } from '@atoms/swap/swap'
+import { Theme } from '@const/theme'
 import { useDarkMode } from '@hooks/use-dark-mode.hook'
 
 type ThemeTogglerProps = {

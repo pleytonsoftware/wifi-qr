@@ -46,6 +46,14 @@ const eslintConfig = [
 					importNames: ['redirect', 'permanentRedirect', 'useRouter', 'usePathname'],
 					message: 'Please import from `@/i18n/navigation` instead.',
 				},
+				{
+					name: 'tailwind-merge',
+					message: 'Please import from `@cn` instead.',
+				},
+				{
+					name: 'clsx',
+					message: 'Please import from `@cn` instead.',
+				},
 			],
 		},
 	},

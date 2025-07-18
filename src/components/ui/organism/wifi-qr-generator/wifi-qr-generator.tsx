@@ -2,9 +2,9 @@ import type { FC } from 'react'
 
 import { useTranslations } from 'next-intl'
 
-import { LOCALE_NAMESPACES } from '@/constants/languages'
 import { Card } from '@atoms/card'
 import { Divider } from '@atoms/divider'
+import { LOCALE_NAMESPACES } from '@const/languages'
 import { WiFiConfigForm } from '@molecules/wifi-config-form'
 import { WiFiQRCodeDisplay } from '@molecules/wifi-qr-code-display'
 import { WiFiStringCopy } from '@molecules/wifi-string-copy'

@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server'
 
-import { LOCALE_NAMESPACES } from '@/constants/languages'
+import { LOCALE_NAMESPACES } from '@const/languages'
+
 import { getAppName } from '@/utils/get-app-name'
 
 export const Footer = async () => {

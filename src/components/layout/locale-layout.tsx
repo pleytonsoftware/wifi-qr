@@ -1,10 +1,11 @@
 import type { LayoutProps } from '@app-types/global'
 import type { ComponentType, FC, HTMLProps, PropsWithChildren } from 'react'
 
-import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { notFound } from 'next/navigation'
 
-import { AVAILABLE_LANGUAGES } from '@/constants/languages'
+import { NextIntlClientProvider, hasLocale } from 'next-intl'
+
+import { AVAILABLE_LANGUAGES } from '@const/languages'
 
 type ResolvedLayoutParams = Awaited<LayoutProps['params']>
 type LocaleMiddleware = (params: ResolvedLayoutParams) => ResolvedLayoutParams | Promise<ResolvedLayoutParams>
