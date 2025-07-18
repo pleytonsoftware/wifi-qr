@@ -1,12 +1,14 @@
-import { Button, type ButtonProps } from '@atoms/button'
-import { cn } from '@cn'
 import { type FC, type ReactNode, type HTMLAttributes, useMemo } from 'react'
+
+import { cn } from '@cn'
+
+import { Button, type ButtonProps } from '@atoms/button'
 
 type DropdownHorizontal = 'center' | 'end' | 'left' | 'right'
 type DropdownVertical = 'top' | 'bottom'
 type DropdownModifier = 'hover' | 'open'
 
-type DropdownProps = HTMLAttributes<HTMLDivElement> & {
+type DropdownProps = HTMLAttributes<HTMLDetailsElement> & {
 	buttonContent: ReactNode
 	children: ReactNode
 	horizontal?: DropdownHorizontal
@@ -61,7 +63,7 @@ export const Dropdown: DropdownComponent = ({
 	const modifierClassNames = useMemo(() => openOn.map((m) => modifierClassMap[m]), [openOn])
 
 	return (
-		<div
+		<details
 			className={cn(
 				'dropdown',
 				horizontal && horizontalClassMap[horizontal],
@@ -71,20 +73,11 @@ export const Dropdown: DropdownComponent = ({
 			)}
 			{...props}
 		>
-			<Button
-				as='div'
-				role='button'
-				type='button'
-				colour='base'
-				className={cn('m-1', buttonClassName)}
-				tabIndex={0}
-				aria-label={ariaLabel}
-				{...buttonProps}
-			>
+			<Button as='summary' role='button' colour='base' className={cn('m-1', buttonClassName)} aria-label={ariaLabel} {...buttonProps}>
 				{buttonContent}
 			</Button>
 			<ul
-				className={cn('dropdown-content menu shadow-sm rounded-box w-52 bg-base-300', menuClassName)}
+				className={cn('menu dropdown-content shadow-sm rounded-box w-52 bg-base-300', menuClassName)}
 				tabIndex={0}
 				role='menu'
 				aria-label={ariaLabel}
@@ -92,12 +85,12 @@ export const Dropdown: DropdownComponent = ({
 			>
 				{children}
 			</ul>
-		</div>
+		</details>
 	)
 }
 
 export const DropdownItem: FC<DropdownItemProps> = ({ children, className, selected, ...props }) => (
-	<li className={cn(selected && 'bg-base-100 rounded-box', className)} aria-selected={selected} {...props}>
+	<li className={cn(selected && 'bg-base-100 rounded-box', className)} {...props}>
 		{children}
 	</li>
 )

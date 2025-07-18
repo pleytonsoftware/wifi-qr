@@ -41,12 +41,52 @@ export enum DisabledLanguages {
 	HEBREW = 'he', // Hebrew
 }
 
-export const SUPPORTED_LANGUAGES = [...Object.values(Languages)] as const
+export const AVAILABLE_LANGUAGES = [...Object.values(Languages)] as const
 export const DEFAULT_LANGUAGE = Languages.ENGLISH
 export const I18NEXT_IDENTIFIER = 'i18next'
 
 export const LOCALE_NAMESPACES = {
 	common: 'common',
-	languages: 'languages',
 	seo: 'seo',
 } as const
+
+type LANGUAGE_CODES = `${Languages}` | `${DisabledLanguages}`
+export const LOCALE_DICTIONARY: Record<LANGUAGE_CODES, string> = {
+	en: 'English',
+	de: 'Deutsch',
+	fr: 'Français',
+	es: 'Español',
+	it: 'Italiano',
+	pt: 'Português',
+	nl: 'Nederlands',
+	pl: 'Polski',
+	ru: 'Русский',
+	zh: '中文',
+	ja: '日本語',
+	ko: '한국어',
+	ar: 'العربية',
+	hi: 'हिन्दी',
+	tr: 'Türkçe',
+	vi: 'Tiếng Việt',
+	id: 'Bahasa Indonesia',
+	th: 'ไทย',
+	ms: 'Bahasa Melayu',
+	cs: 'Čeština',
+	hu: 'Magyar',
+	ro: 'Română',
+	sk: 'Slovenčina',
+	bg: 'Български',
+	hr: 'Hrvatski',
+	sr: 'Српски',
+	uk: 'Українська',
+	el: 'Ελληνικά',
+	fi: 'Suomi',
+	no: 'Norsk',
+	da: 'Dansk',
+	sv: 'Svenska',
+	lt: 'Lietuvių',
+	sl: 'Slovenščina',
+	et: 'Eesti',
+	lv: 'Latviešu',
+	he: 'עברית',
+} // as const

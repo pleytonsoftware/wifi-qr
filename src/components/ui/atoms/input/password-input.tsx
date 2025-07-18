@@ -1,8 +1,9 @@
 import type { FC, ComponentProps } from 'react'
 
-import { Button } from '@atoms/button'
 import { Eye, EyeClosed } from 'lucide-react'
 import { useToggle } from 'usehooks-ts'
+
+import { Button } from '@atoms/button'
 
 import { Input } from './input'
 

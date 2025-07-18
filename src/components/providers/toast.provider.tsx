@@ -1,10 +1,14 @@
+'use client'
+
+import { useCallback, useEffect, useRef, useState, type FC, type PropsWithChildren } from 'react'
+
+import { X } from 'lucide-react'
+import ms from 'ms'
+
 import { Alert, type AlertColour } from '@atoms/alert'
 import { Button } from '@atoms/button'
 import { Toast, type ToastHorizontal, type ToastVertical } from '@atoms/toast'
 import { ToastContext, type ToastContextType, type ToastMessage } from '@contexts/toast.context'
-import { X } from 'lucide-react'
-import ms from 'ms'
-import { useCallback, useEffect, useRef, useState, type FC, type PropsWithChildren } from 'react'
 
 export type ToastVariant = AlertColour
 
@@ -17,7 +21,7 @@ export type ToastProviderProps = PropsWithChildren<{
 const TOAST_DEFAULT_DURATION = ms('3 seconds')
 
 export const ToastProvider: FC<ToastProviderProps> = ({ defaultDuration, children, horizontalPosition, verticalPosition }) => {
-	const timeoutIds = useRef<ReturnType<typeof setTimeout>[]>([])
+	const timeoutIds = useRef<number[]>([])
 	const [toasts, setToasts] = useState<ToastMessage[]>([])
 	const defaultDurationMs = defaultDuration ? ms(defaultDuration) : TOAST_DEFAULT_DURATION
 
@@ -28,7 +32,7 @@ export const ToastProvider: FC<ToastProviderProps> = ({ defaultDuration, childre
 	const showToast = useCallback<ToastContextType['showToast']>(
 		(message) => {
 			const duration = message?.duration ?? defaultDurationMs
-			const timeoutId = setTimeout(() => {
+			const timeoutId = window.setTimeout(() => {
 				handleDismiss(toast.id)
 			}, duration)
 			const toast: ToastMessage = {

@@ -1,22 +1,31 @@
-import { Button } from '@atoms/button'
+'use client'
+
+import { useState, useCallback, type FC, useRef, memo } from 'react'
+
 import { cn } from '@cn'
+
+import { Download, Printer, QrCode } from 'lucide-react'
+import ms from 'ms'
+import { useTranslations } from 'next-intl'
+import { getMessages } from 'next-intl/server'
+import { QRCodeSVG } from 'qrcode.react'
+import { useBoolean } from 'usehooks-ts'
+
+import { Button } from '@atoms/button'
+import { LOCALE_NAMESPACES } from '@const/languages'
+import { SecurityType } from '@const/wifi'
 import { MiniLogo } from '@molecules/mini-logo'
 import { PrintSettingsModal } from '@molecules/print-settings-modal'
 import { useWiFiQRStore } from '@store/wifi-qr.store'
-import { Download, Printer, QrCode } from 'lucide-react'
-import ms from 'ms'
-import { QRCodeSVG } from 'qrcode.react'
-import { useState, useCallback, type FC, useRef, memo } from 'react'
-import { useTranslation } from 'react-i18next'
 
-import { LOCALE_NAMESPACES } from '@/constants/languages'
-import { SecurityType } from '@/constants/wifi'
+import { useLanguage } from '@/components/hooks/use-language'
 
 const CLOSE_PRINT_TIMEOUT_MS = ms('0.5 seconds')
 
-export const WiFiQRCodeDisplay: FC = memo(() => {
-	const { t } = useTranslation(LOCALE_NAMESPACES.common)
-	const [open, setOpen] = useState(false)
+export const WiFiQRCodeDisplay: FC = memo(function WiFiQRCodeDisplay() {
+	const t = useTranslations(LOCALE_NAMESPACES.common)
+	const language = useLanguage()
+	const { value: openModal, setTrue: setOpenModal, setFalse: closeModal } = useBoolean(false)
 	const [numberOfCards, setNumberOfCards] = useState<number>(1)
 	const [printWithSSID, setPrintWithSSID] = useState<boolean>(true)
 	const [printWithPassword, setPrintWithPassword] = useState<boolean>(false)
@@ -52,32 +61,49 @@ export const WiFiQRCodeDisplay: FC = memo(() => {
 
 	const handlePrintOpen = useCallback(async () => {
 		await generateAndSetWifiDataUrl()
-		setOpen(true)
+		setOpenModal()
 	}, [])
 	const handlePrint = useCallback(async () => {
 		if (!wifiDataUrl) return
 		const printWindow = window.open('', '_blank')
+		const cssHref = (document.querySelector("link[rel='stylesheet']") as HTMLLinkElement | undefined)?.href
 
-		if (printWindow) {
-			const [{ renderToStaticMarkup }, { WifiQRCodePrinter }] = await Promise.all([
+		if (printWindow && cssHref) {
+			const [{ renderToStaticMarkup }, { WifiQRCodePrinter }, { NextIntlClientProvider }, messages] = await Promise.all([
 				import('react-dom/server'),
 				import('@atoms/wifi-qr-code-printer'),
+				import('next-intl'),
+				getMessages({
+					locale: language,
+				}),
 			])
+
 			const ssidToDisplay = printWithSSID ? ssid : undefined
 			const password = printWithPassword ? useWiFiQRStore.getState().wifiDetails.password : undefined
 
 			const html = renderToStaticMarkup(
-				<WifiQRCodePrinter ssid={ssidToDisplay} password={password} dataUrl={wifiDataUrl} numberOfCards={numberOfCards} />,
+				<NextIntlClientProvider locale={language} messages={messages}>
+					<WifiQRCodePrinter
+						cssHref={cssHref}
+						ssid={ssidToDisplay}
+						password={password}
+						dataUrl={wifiDataUrl}
+						numberOfCards={numberOfCards}
+					/>
+				</NextIntlClientProvider>,
 			)
 			printWindow.document.writeln(html)
 			printWindow.document.close()
 			printWindow.focus()
-			setOpen(false)
+			closeModal()
 
 			setTimeout(() => {
 				printWindow.print()
 				printWindow.close()
 			}, CLOSE_PRINT_TIMEOUT_MS)
+		} else {
+			// eslint-disable-next-line no-console
+			console.error('Failed to print.')
 		}
 	}, [printWithSSID, ssid, printWithPassword, numberOfCards, wifiDataUrl])
 
@@ -108,8 +134,8 @@ export const WiFiQRCodeDisplay: FC = memo(() => {
 								<span className='truncate'>{t('qr_display.buttons.print')}</span>
 							</Button>
 							<PrintSettingsModal
-								open={open}
-								onClose={() => setOpen(false)}
+								open={openModal}
+								onClose={closeModal}
 								onPrint={handlePrint}
 								numberOfCards={numberOfCards}
 								printWithSSID={printWithSSID}

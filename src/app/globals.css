@@ -1,0 +1,6 @@
+@import 'tailwindcss';
+@import '../styles/daisyui.css';
+@import '../styles/theme-light.css';
+@import '../styles/theme-dark.css';
+@import '../styles/wifiqr-card.css';
+@import '../styles/divider-spacing.css';

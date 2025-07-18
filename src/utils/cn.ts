@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-imports */
 import type { ClassValue } from 'clsx'
 
 import clsx from 'clsx'

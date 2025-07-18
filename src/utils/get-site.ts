@@ -1,1 +1,2 @@
-export const getUrl = () => import.meta.env.VITE_BASE_HOST || `${window.location.protocol}//${window.location.host}`
+export const getUrl = () =>
+	process.env.NEXT_PUBLIC_BASE_URL || (typeof window !== 'undefined' ? `${window.location.protocol}//${window.location.host}` : undefined)

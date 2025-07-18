@@ -1,26 +1,27 @@
+/* eslint-disable @next/next/no-head-element */
 import type { FC } from 'react'
 
+import { useTranslations } from 'next-intl'
+
+import { WifiCard } from '@atoms/wifi-card'
+import { LOCALE_NAMESPACES } from '@const/languages'
 import { MiniLogo } from '@molecules/mini-logo'
-import { useTranslation } from 'react-i18next'
-
-import { LOCALE_NAMESPACES } from '@/constants/languages'
-import indexCssUrl from '@/index.css?url'
-
-import { WifiCard } from '../wifi-card/wifi-card'
 
 type WifiQRCodePrinterProps = {
 	ssid?: string
 	dataUrl: string
 	password?: string
 	numberOfCards?: number
+	cssHref: string
 }
-export const WifiQRCodePrinter: FC<WifiQRCodePrinterProps> = ({ ssid, password, dataUrl, numberOfCards = 1 }) => {
-	const { t } = useTranslation(LOCALE_NAMESPACES.common)
+export const WifiQRCodePrinter: FC<WifiQRCodePrinterProps> = ({ ssid, password, dataUrl, numberOfCards = 1, cssHref }) => {
+	const t = useTranslations(LOCALE_NAMESPACES.common)
+
 	return (
 		<html>
 			<head>
-				<title>Wi-Fi QR Code - ${ssid}</title>
-				<link rel='stylesheet' href={indexCssUrl} />
+				<title>{`Wi-Fi QR Code - ${ssid}`}</title>
+				<link rel='stylesheet' href={cssHref} />
 				<style>
 					{`
           * {

@@ -1,15 +1,17 @@
 import type { FC } from 'react'
 
+import { useId } from 'react'
+
+import { Printer } from 'lucide-react'
+import { useTranslations } from 'next-intl'
+
 import { Button } from '@atoms/button'
 import { Input } from '@atoms/input'
 import { Modal } from '@atoms/modal'
 import { Toggle } from '@atoms/toggle'
 import { WifiCard } from '@atoms/wifi-card'
-import { Printer } from 'lucide-react'
-import { useId } from 'react'
-import { useTranslation } from 'react-i18next'
+import { LOCALE_NAMESPACES } from '@const/languages'
 
-import { LOCALE_NAMESPACES } from '@/constants/languages'
 import { useWiFiQRStore } from '@/store/wifi-qr.store'
 
 type PrintSettingsModalProps = {
@@ -39,7 +41,7 @@ export const PrintSettingsModal: FC<PrintSettingsModalProps> = ({
 	onPrint,
 }) => {
 	const idPrefix = useId()
-	const { t } = useTranslation(LOCALE_NAMESPACES.common)
+	const t = useTranslations(LOCALE_NAMESPACES.common)
 	const wifiDataUrl = useWiFiQRStore((state) => state.wifiDataUrl)
 	const wifiDetails = useWiFiQRStore((state) => state.wifiDetails)
 
