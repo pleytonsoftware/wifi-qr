@@ -4,8 +4,6 @@ import type { LayoutProps } from '@app-types/app'
 import type { Metadata, ResolvingMetadata } from 'next'
 import type { ReactNode } from 'react'
 
-import { cn } from '@cn'
-
 import { getTranslations } from 'next-intl/server'
 
 import { LOCALE_NAMESPACES } from '@const/languages'
