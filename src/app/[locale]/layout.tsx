@@ -4,8 +4,6 @@ import type { LayoutProps } from '@app-types/app'
 import type { Metadata, ResolvingMetadata } from 'next'
 import type { ReactNode } from 'react'
 
-import { Montserrat, Quicksand } from 'next/font/google'
-
 import { cn } from '@cn'
 
 import { getTranslations } from 'next-intl/server'
@@ -21,18 +19,6 @@ import { ToastProvider } from '@providers/toast.provider'
 
 import { getPageTitle } from '@/utils/get-app-name'
 import { getServerSideTheme } from '@/utils/theme'
-
-const montserrat = Montserrat({
-	variable: '--font-montserrat',
-	subsets: ['latin'],
-	style: ['italic', 'normal'],
-})
-
-const quicksand = Quicksand({
-	variable: '--font-quicksand',
-	subsets: ['latin'],
-	display: 'swap',
-})
 
 export async function generateMetadata(_props: LayoutProps, _parent: ResolvingMetadata): Promise<Metadata> {
 	const t = await getTranslations(LOCALE_NAMESPACES.seo)
@@ -54,7 +40,7 @@ const RootLayout = async ({
 
 	return (
 		<ToastProvider>
-			<LocaleLayout {...props} className={cn(montserrat.className, quicksand.className)} htmlProps={{ ...themeDataAttributes }}>
+			<LocaleLayout {...props} htmlProps={{ ...themeDataAttributes }}>
 				<div className='min-h-dvh w-full bg-base dark:bg-base-100 relative'>
 					<div className='absolute inset-0 z-0 bg-wifiqr-gradient'>
 						<div className='h-full w-full bg-wifiqr-pattern-gradient' />

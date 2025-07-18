@@ -1,7 +1,10 @@
 import type { LayoutProps } from '@/types/app'
 import type { ComponentType, FC, HTMLProps, PropsWithChildren } from 'react'
 
+import { Montserrat, Quicksand } from 'next/font/google'
 import { notFound } from 'next/navigation'
+
+import { cn } from '@cn'
 
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
 
@@ -24,9 +27,21 @@ type LocaleLayoutProps<T = unknown> = ResolveLocaleLayoutProps<PropsWithChildren
 	htmlProps?: HTMLProps<HTMLHtmlElement> & Record<`data-${string}`, string>
 }
 
+const montserrat = Montserrat({
+	variable: '--font-montserrat',
+	subsets: ['latin'],
+	style: ['italic', 'normal'],
+})
+
+const quicksand = Quicksand({
+	variable: '--font-quicksand',
+	subsets: ['latin'],
+	display: 'swap',
+})
+
 export const LocaleLayout: FC<LocaleLayoutProps> = async ({ children, params: resolvedParams, htmlProps, ...props }) => {
 	return (
-		<html lang={resolvedParams.locale} {...htmlProps}>
+		<html lang={resolvedParams.locale} className={cn(montserrat.variable, quicksand.variable)} {...htmlProps}>
 			<body {...props}>
 				<NextIntlClientProvider>{children}</NextIntlClientProvider>
 			</body>
