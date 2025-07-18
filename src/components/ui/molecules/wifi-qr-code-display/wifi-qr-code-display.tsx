@@ -7,6 +7,7 @@ import { cn } from '@cn'
 import { Download, Printer, QrCode } from 'lucide-react'
 import ms from 'ms'
 import { useTranslations } from 'next-intl'
+import { getMessages } from 'next-intl/server'
 import { QRCodeSVG } from 'qrcode.react'
 import { useBoolean } from 'usehooks-ts'
 
@@ -72,8 +73,11 @@ export const WiFiQRCodeDisplay: FC = memo(function WiFiQRCodeDisplay() {
 				import('react-dom/server'),
 				import('@atoms/wifi-qr-code-printer'),
 				import('next-intl'),
-				import(`@locales/${language}.json`),
+				getMessages({
+					locale: language,
+				}),
 			])
+
 			const ssidToDisplay = printWithSSID ? ssid : undefined
 			const password = printWithPassword ? useWiFiQRStore.getState().wifiDetails.password : undefined
 

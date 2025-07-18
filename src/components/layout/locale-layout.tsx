@@ -1,4 +1,4 @@
-import type { LayoutProps } from '@app-types/global'
+import type { LayoutProps } from '@/types/app'
 import type { ComponentType, FC, HTMLProps, PropsWithChildren } from 'react'
 
 import { notFound } from 'next/navigation'

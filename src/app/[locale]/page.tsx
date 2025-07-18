@@ -1,4 +1,4 @@
-import type { LayoutProps } from '@app-types/global'
+import type { LayoutProps } from '@/types/app'
 import type { Metadata, ResolvingMetadata } from 'next'
 import type { WebApplication, WithContext } from 'schema-dts'
 
@@ -73,7 +73,7 @@ export async function generateMetadata({ params }: LayoutProps, _parent: Resolvi
 	}
 }
 
-export async function getWebsiteSchema(): Promise<WithContext<WebApplication>> {
+async function getWebsiteSchema(): Promise<WithContext<WebApplication>> {
 	const t = await getTranslations(LOCALE_NAMESPACES.seo)
 	const baseUrl = getUrl()
 

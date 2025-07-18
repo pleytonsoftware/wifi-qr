@@ -1,5 +1,6 @@
 import '@/app/globals.css'
 
+import type { LayoutProps } from '@app-types/app'
 import type { Metadata, ResolvingMetadata } from 'next'
 import type { ReactNode } from 'react'
 
@@ -9,7 +10,6 @@ import { cn } from '@cn'
 
 import { getTranslations } from 'next-intl/server'
 
-import { LayoutProps } from '@app-types/global'
 import { LOCALE_NAMESPACES } from '@const/languages'
 import { Theme } from '@const/theme'
 import { LocaleLayout, type ResolveLocaleLayoutProps, withLocale } from '@layout/locale-layout'

@@ -1,5 +1,5 @@
+import type LocaleKeys from '@locales/en.json'
 import type { MessageKeys, NamespaceKeys, NestedKeyOf, NestedValueOf } from 'next-intl'
-import type LocaleKeys from '../../locales/en.json'
 
 import { formats } from '@/i18n/request'
 import { routing } from '@/i18n/routing'
