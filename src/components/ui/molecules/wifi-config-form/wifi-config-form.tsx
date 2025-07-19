@@ -24,6 +24,8 @@ type WifiConfigFormType = {
 
 export const WiFiConfigForm: FC = memo(function WiFiConfigForm() {
 	const t = useTranslations(LOCALE_NAMESPACES.common)
+	const wifiDetails = useWiFiQRStore((state) => state.wifiDetails)
+	const setWifiDetails = useWiFiQRStore((state) => state.setWifiDetails)
 	const schema = useMemo(
 		() =>
 			yup.object({
@@ -45,15 +47,14 @@ export const WiFiConfigForm: FC = memo(function WiFiConfigForm() {
 	)
 	const { register, formState, watch, getValues, setValue } = useForm<WifiConfigFormType>({
 		defaultValues: {
-			ssid: '',
-			securityType: DEFAULT_SECURITY_TYPE,
-			password: '',
-			hiddenNetwork: false,
+			ssid: wifiDetails.ssid || '',
+			securityType: wifiDetails.securityType || DEFAULT_SECURITY_TYPE,
+			password: wifiDetails.password || '',
+			hiddenNetwork: wifiDetails.hiddenNetwork || false,
 		},
 		mode: 'all',
 		resolver: yupResolver(schema),
 	})
-	const setWifiDetails = useWiFiQRStore((state) => state.setWifiDetails)
 
 	return (
 		<form onSubmit={(e) => e.preventDefault()} className='space-y-2'>
