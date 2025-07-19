@@ -29,7 +29,7 @@ export const WiFiQRCodeDisplay: FC = memo(function WiFiQRCodeDisplay() {
 	const [numberOfCards, setNumberOfCards] = useState<number>(1)
 	const [printWithSSID, setPrintWithSSID] = useState<boolean>(true)
 	const [printWithPassword, setPrintWithPassword] = useState<boolean>(false)
-	const { ssid, password, securityType } = useWiFiQRStore((state) => state.wifiDetails)
+	const { ssid, accessPassword: password, securityType } = useWiFiQRStore((state) => state.wifiDetails)
 	const wifiString = useWiFiQRStore((state) => state.wifiString)
 	const wifiDataUrl = useWiFiQRStore((state) => state.wifiDataUrl)
 	const setWifiDataUrl = useWiFiQRStore((state) => state.setWifiDataUrl)
@@ -79,7 +79,7 @@ export const WiFiQRCodeDisplay: FC = memo(function WiFiQRCodeDisplay() {
 			])
 
 			const ssidToDisplay = printWithSSID ? ssid : undefined
-			const password = printWithPassword ? useWiFiQRStore.getState().wifiDetails.password : undefined
+			const password = printWithPassword ? useWiFiQRStore.getState().wifiDetails.accessPassword : undefined
 
 			const html = renderToStaticMarkup(
 				<NextIntlClientProvider locale={language} messages={messages}>

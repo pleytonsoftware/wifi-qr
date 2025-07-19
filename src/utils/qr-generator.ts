@@ -5,7 +5,7 @@ import { SecurityType } from '@const/wifi'
 type WiFiConfig = WifiDetails
 export type WifiString = string
 
-export const getWiFiString = ({ ssid, password, securityType, hiddenNetwork }: WiFiConfig): WifiString => {
+export const getWiFiString = ({ ssid, accessPassword: password, securityType, hiddenNetwork }: WiFiConfig): WifiString => {
 	if (securityType === SecurityType.NO_PASS || !securityType) {
 		return `WIFI:T:nopass;S:${ssid};H:${hiddenNetwork};;`
 	}

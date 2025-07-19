@@ -13,14 +13,7 @@ import { Toggle } from '@atoms/toggle'
 import { LOCALE_NAMESPACES } from '@const/languages'
 import { DEFAULT_SECURITY_TYPE, securityOptions, securityOptionsWithPick, SecurityType } from '@const/wifi'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useWiFiQRStore } from '@store/wifi-qr.store'
-
-type WifiConfigFormType = {
-	ssid: string
-	securityType: SecurityType
-	password: string
-	hiddenNetwork: boolean
-}
+import { useWiFiQRStore, type WifiDetails } from '@store/wifi-qr.store'
 
 export const WiFiConfigForm: FC = memo(function WiFiConfigForm() {
 	const t = useTranslations(LOCALE_NAMESPACES.common)
@@ -37,19 +30,19 @@ export const WiFiConfigForm: FC = memo(function WiFiConfigForm() {
 						'wifi_config.fields.security_type.error.invalid' as TransKeys,
 					)
 					.required('wifi_config.fields.security_type.error.invalid' as TransKeys),
-				password: yup.string().when('securityType', {
+				accessPassword: yup.string().when('securityType', {
 					is: (securityType: SecurityType) => securityType !== SecurityType.NO_PASS,
 					then: (schema) => schema.required('wifi_config.fields.password.error.required' as TransKeys),
 					otherwise: (schema) => schema,
 				}),
-			}) as yup.ObjectSchema<WifiConfigFormType>,
+			}) as yup.ObjectSchema<WifiDetails>,
 		[],
 	)
-	const { register, formState, watch, getValues, setValue } = useForm<WifiConfigFormType>({
+	const { register, formState, watch, getValues, setValue } = useForm<WifiDetails>({
 		defaultValues: {
 			ssid: wifiDetails.ssid || '',
 			securityType: wifiDetails.securityType || DEFAULT_SECURITY_TYPE,
-			password: wifiDetails.password || '',
+			accessPassword: wifiDetails.accessPassword || '',
 			hiddenNetwork: wifiDetails.hiddenNetwork || false,
 		},
 		mode: 'all',
@@ -83,10 +76,10 @@ export const WiFiConfigForm: FC = memo(function WiFiConfigForm() {
 				<PasswordInput
 					legend={t('wifi_config.fields.password.label')}
 					placeholder={t('wifi_config.fields.password.placeholder')}
-					{...register('password', {
-						onChange: (e) => setWifiDetails({ password: e.target.value }),
+					{...register('accessPassword', {
+						onChange: (e) => setWifiDetails({ accessPassword: e.target.value }),
 					})}
-					error={formState.errors.password && t(formState.errors.password?.message as TransKeys)}
+					error={formState.errors.accessPassword && t(formState.errors.accessPassword?.message as TransKeys)}
 					required
 				/>
 			)}

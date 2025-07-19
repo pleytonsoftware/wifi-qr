@@ -109,7 +109,7 @@ export const PrintSettingsModal: FC<PrintSettingsModalProps> = ({
 					<WifiCard
 						shadow
 						ssid={printWithSSID ? wifiDetails.ssid : undefined}
-						password={printWithPassword ? wifiDetails.password : undefined}
+						password={printWithPassword ? wifiDetails.accessPassword : undefined}
 						dataUrl={wifiDataUrl || ''}
 					/>
 				</div>

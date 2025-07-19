@@ -6,7 +6,7 @@ import { getWiFiString, type WifiString } from '@/utils/qr-generator'
 
 export type WifiDetails = {
 	ssid: string
-	password: string
+	accessPassword: string
 	securityType: SecurityType
 	hiddenNetwork: boolean
 }
@@ -19,7 +19,7 @@ export type WiFiQRState = {
 }
 const initialWifiDetails: WifiDetails = {
 	ssid: '',
-	password: '',
+	accessPassword: '',
 	securityType: DEFAULT_SECURITY_TYPE,
 	hiddenNetwork: false,
 }
@@ -28,11 +28,11 @@ export const useWiFiQRStore = create<WiFiQRState>((set) => ({
 	wifiDetails: initialWifiDetails,
 	wifiString: getWiFiString(initialWifiDetails),
 	wifiDataUrl: undefined,
-	setWifiDetails: ({ ssid, password, securityType, hiddenNetwork }) =>
+	setWifiDetails: ({ ssid, accessPassword, securityType, hiddenNetwork }) =>
 		set(({ wifiDetails }) => {
 			const updatedDetails = {
 				ssid: ssid ?? wifiDetails.ssid,
-				password: password ?? wifiDetails.password,
+				accessPassword: accessPassword ?? wifiDetails.accessPassword,
 				securityType: securityType ?? wifiDetails.securityType,
 				hiddenNetwork: hiddenNetwork ?? wifiDetails.hiddenNetwork,
 			}
