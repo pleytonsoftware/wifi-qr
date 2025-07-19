@@ -8,6 +8,7 @@ export enum Languages {
 	CATALAN = 'ca', // Catalan
 	BASQUE = 'eu', // Basque
 	GALICIAN = 'gl', // Galician
+	ARABIC = 'ar', // Arabic
 }
 
 export enum DisabledLanguages {
@@ -17,7 +18,6 @@ export enum DisabledLanguages {
 	CHINESE = 'zh', // Chinese
 	JAPANESE = 'ja', // Japanese
 	KOREAN = 'ko', // Korean
-	ARABIC = 'ar', // Arabic
 	HINDI = 'hi', // Hindi
 	TURKISH = 'tr', // Turkish
 	VIETNAMESE = 'vi', // Vietnamese
@@ -47,6 +47,7 @@ export enum DisabledLanguages {
 export const AVAILABLE_LANGUAGES = [...Object.values(Languages)] as const
 export const DEFAULT_LANGUAGE = Languages.ENGLISH
 export const I18NEXT_IDENTIFIER = 'i18next'
+export const RTL_LANGUAGES = [Languages.ARABIC, DisabledLanguages.HEBREW] as const
 
 export const LOCALE_NAMESPACES = {
 	common: 'common',

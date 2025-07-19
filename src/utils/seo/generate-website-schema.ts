@@ -2,10 +2,10 @@ import type { WebApplication, WithContext } from 'schema-dts'
 
 import { getTranslations } from 'next-intl/server'
 
-import { LOCALE_NAMESPACES } from '@/constants/languages'
+import { LOCALE_DICTIONARY, LOCALE_NAMESPACES } from '@const/languages'
 
-import { getAppName } from '../get-app-name'
-import { getUrl } from '../get-site'
+import { getAppName } from '@/utils/get-app-name'
+import { getUrl } from '@/utils/get-site'
 
 export async function getWebsiteSchema(): Promise<WithContext<WebApplication>> {
 	const t = await getTranslations(LOCALE_NAMESPACES.seo)
@@ -21,32 +21,17 @@ export async function getWebsiteSchema(): Promise<WithContext<WebApplication>> {
 		url: baseUrl,
 		applicationCategory: 'UtilityApplication',
 		operatingSystem: 'All',
-		offers: {
-			'@type': 'Offer',
-			price: '0',
-			priceCurrency: 'USD',
-		},
 		author: {
 			'@type': 'Person',
 			name: 'Pablo Leyton',
 			url: 'https://pleyt.dev',
 		},
-		inLanguage: [
-			{ '@type': 'Language', name: 'English', alternateName: 'en' },
-			{ '@type': 'Language', name: 'Spanish', alternateName: 'es' },
-		],
-		featureList: [
-			'Generate WiFi QR codes',
-			'Secure password handling',
-			'Multiple WiFi security types support',
-			'Instant QR code generation',
-			'Mobile and desktop friendly',
-		],
-		screenshot: `${baseUrl}/screenshots/app-preview.jpg`,
-		aggregateRating: {
-			'@type': 'AggregateRating',
-			ratingValue: '4.8',
-			ratingCount: '127',
-		},
+		inLanguage: (await import('@const/languages')).AVAILABLE_LANGUAGES.map((lang) => {
+			return {
+				'@type': 'Language',
+				name: LOCALE_DICTIONARY[lang],
+				alternateName: lang,
+			}
+		}),
 	}
 }

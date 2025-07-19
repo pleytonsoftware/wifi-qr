@@ -4,7 +4,7 @@ import { cn } from '@cn'
 
 import { Button, type ButtonProps } from '@atoms/button'
 
-type DropdownHorizontal = 'center' | 'end' | 'left' | 'right'
+type DropdownHorizontal = 'center' | 'end' | 'left' | 'right' | 'start'
 type DropdownVertical = 'top' | 'bottom'
 type DropdownModifier = 'hover' | 'open'
 
@@ -33,10 +33,12 @@ type DropdownComponent = FC<DropdownProps> & {
 
 const horizontalClassMap: Record<DropdownHorizontal, string> = {
 	center: 'dropdown-center',
-	end: 'dropdown-end',
-	left: 'dropdown-left',
-	right: 'dropdown-right',
+	end: 'dropdown-end rtl:dropdown-start',
+	start: 'dropdown-start rtl:dropdown-end',
+	left: 'dropdown-left rtl:dropdown-right',
+	right: 'dropdown-right rtl:dropdown-left',
 }
+
 const verticalClassMap: Record<DropdownVertical, string> = {
 	top: 'dropdown-top',
 	bottom: 'dropdown-bottom',

@@ -59,7 +59,7 @@ export const ToastProvider: FC<ToastProviderProps> = ({ defaultDuration, childre
 			<Toast horizontal={horizontalPosition} vertical={verticalPosition} className='z-50 pointer-events-none'>
 				{toasts.map((toast) => (
 					<Alert key={toast.id} colour={toast.variant} className='shadow-lg pointer-events-auto flex items-start gap-2 relative'>
-						<div className='flex-1 pr-6'>
+						<div className='flex-1 pr-6 rtl:pl-6'>
 							<p className='text-lg font-semibold'>{toast.title}</p>
 							{toast.description && <p className='text-sm'>{toast.description}</p>}
 						</div>

@@ -79,7 +79,7 @@ export const Input: FC<InputProps> = ({
 				)}
 			>
 				{shouldRenderSimpleLabel && labelPlacement === 'left' && labelNode}
-				{icon && <span className='mr-2 flex items-center'>{icon}</span>}
+				{icon && <span className='mr-2 rtl:ml-2 flex items-center'>{icon}</span>}
 				<input
 					className={cn(
 						'placeholder:text-base-content-secondary/50 grow',

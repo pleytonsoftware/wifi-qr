@@ -8,7 +8,7 @@ import { cn } from '@cn'
 
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
 
-import { AVAILABLE_LANGUAGES } from '@const/languages'
+import { AVAILABLE_LANGUAGES, RTL_LANGUAGES } from '@const/languages'
 
 type ResolvedLayoutParams = Awaited<LayoutProps['params']>
 type LocaleMiddleware = (params: ResolvedLayoutParams) => ResolvedLayoutParams | Promise<ResolvedLayoutParams>
@@ -41,7 +41,12 @@ const quicksand = Quicksand({
 
 export const LocaleLayout: FC<LocaleLayoutProps> = async ({ children, params: resolvedParams, htmlProps, ...props }) => {
 	return (
-		<html lang={resolvedParams.locale} className={cn(montserrat.variable, quicksand.variable)} {...htmlProps}>
+		<html
+			lang={resolvedParams.locale}
+			dir={RTL_LANGUAGES.includes(resolvedParams.locale as (typeof RTL_LANGUAGES)[number]) ? 'rtl' : 'ltr'}
+			className={cn(montserrat.variable, quicksand.variable)}
+			{...htmlProps}
+		>
 			<body {...props}>
 				<NextIntlClientProvider>{children}</NextIntlClientProvider>
 			</body>

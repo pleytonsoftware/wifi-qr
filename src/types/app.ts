@@ -1,3 +1,5 @@
+import type { Languages } from '@const/languages'
+
 export type LayoutProps<T = object> = {
-	params: Promise<{ locale: string }>
+	params: Promise<{ locale: Languages }>
 } & Readonly<T>

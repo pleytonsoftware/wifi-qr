@@ -4,8 +4,7 @@ import { TransKeys, useTranslations } from 'next-intl'
 
 import { Badge } from '@atoms/badge'
 import { Card } from '@atoms/card'
-
-import { LOCALE_NAMESPACES } from '@/constants/languages'
+import { LOCALE_NAMESPACES } from '@const/languages'
 
 type Step = {
 	title: TransKeys

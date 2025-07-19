@@ -6,13 +6,11 @@ import type { ReactNode } from 'react'
 
 import { getTranslations } from 'next-intl/server'
 
+import { FloatingControls } from '@atoms/floating-controls'
 import { AVAILABLE_LANGUAGES, LOCALE_NAMESPACES } from '@const/languages'
-import { Theme } from '@const/theme'
 import { LocaleLayout, type ResolveLocaleLayoutProps, withLocale } from '@layout/locale-layout'
 import { Footer } from '@molecules/footer'
 import { Header } from '@molecules/header'
-import { LanguageSelector } from '@molecules/language-selector'
-import { ThemeToggler } from '@molecules/theme-toggler'
 import { ToastProvider } from '@providers/toast.provider'
 
 import { getAppName, getPageTitle } from '@/utils/get-app-name'
@@ -97,10 +95,7 @@ const RootLayout = async ({
 							<div className='min-h-[calc(100dvh-calc(var(--spacing)*24))] md:mt-[calc(var(--spacing)*-8)] flex flex-col justify-center p-4'>
 								<div className='max-w-4xl 3xl:max-w-7xl w-full mx-auto flex flex-col space-y-6'>
 									{children}
-									<div className='fixed bottom-4 right-4 flex items-center gap-2 z-50'>
-										<LanguageSelector />
-										<ThemeToggler defaultIsDarkMode={theme === Theme.dark} />
-									</div>
+									<FloatingControls theme={theme} />
 								</div>
 							</div>
 							<Footer />
