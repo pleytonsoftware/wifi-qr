@@ -1,0 +1,116 @@
+{
+    "common": {
+        "app": {
+            "subtitle": "Sortu Wi-Fi QR kodeak erraz"
+        },
+        "wifi_config": {
+            "title": "Wi-Fi Konfigurazioa",
+            "description": "Sartu zure Wi-Fi-ren datuak QR kode bat sortzeko",
+            "fields": {
+                "network_name": {
+                    "label": "Sarearen Izena (SSID)",
+                    "placeholder": "Sartu Wi-Fi sarearen izena",
+                    "error": {
+                        "required": "Sarearen izena beharrezkoa da"
+                    }
+                },
+                "security_type": {
+                    "label": "Segurtasun Mota",
+                    "options": {
+                        "pick": "Aukeratu segurtasun mota",
+                        "WPA": "WPA/WPA2/WPA3",
+                        "WEP": "WEP",
+                        "nopass": "Pasahitzik Gabe"
+                    },
+                    "error": {
+                        "invalid": "Segurtasun mota baliogabea aukeratuta"
+                    }
+                },
+                "password": {
+                    "label": "Pasahitza",
+                    "placeholder": "Sartu Wi-Fi pasahitza",
+                    "error": {
+                        "required": "Pasahitza beharrezkoa da WPA/WEP motetan"
+                    }
+                },
+                "hidden_network": {
+                    "label": "Sare Ezkutua?"
+                }
+            }
+        },
+        "generated_qr": {
+            "title": "QR Kodea Sortua",
+            "description": "Eskaneatu kode hau Wi-Fi sarera konektatzeko"
+        },
+        "footer": {
+            "created_by": "Sortua 💛 <a>@pleyt.dev</a>-(e)k",
+            "copyright": "© {year}"
+        },
+        "qr_code_printer": {
+            "title": "Wi-Fi Sarbide Txartelak",
+            "instructions": "Moztu marra etenetatik Wi-Fi txartelak sortzeko",
+            "scan": "{locale, select, en {Scan to connect to Wi-Fi} other {Eskaneatu Wi-Fi-ra konektatzeko}}"
+        },
+        "buttons": {
+            "cancel": "Utzi",
+            "print_cards": "Inprimatu {count, plural, =1 {# Txartela} other {# Txartelak}}"
+        },
+        "steps": {
+            "title": "Nola funtzionatzen du",
+            "description": "Jarraitu urrats hauek zure Wi-Fi QR kodea sortu eta partekatzeko",
+            "1": {
+                "title": "Konfiguratu Wi-Fi",
+                "description": "Sartu sarearen izena, aukeratu segurtasun mota eta gehitu pasahitza beharrezkoa bada."
+            },
+            "2": {
+                "title": "Sortu QR kodea",
+                "description": "QR kodea automatikoki sortzen da Wi-Fi datuak idazten dituzun heinean."
+            },
+            "3": {
+                "title": "Partekatu eta konektatu",
+                "description": "Deskargatu, inprimatu edo partekatu QR kodea. Besteek eskaneatu dezakete berehala konektatzeko."
+            }
+        },
+        "print_setup": {
+            "title": "Inprimatzeko Konfigurazioa",
+            "description": "Konfiguratu Wi-Fi QR kode txartelen inprimaketa aukerak.",
+            "number_of_cards": {
+                "legend": "Txartel Kopurua",
+                "label": "Inprimatu {min} eta {max} txartel artean"
+            },
+            "card_content": {
+                "title": "Txartelaren Edukia",
+                "display_ssid": "Erakutsi sarearen izena (SSID)",
+                "display_password": "Erakutsi pasahitza"
+            }
+        },
+        "qr_display": {
+            "buttons": {
+                "download": "Deskargatu QR",
+                "print": "Inprimatu QR"
+            },
+            "messages": {
+                "enter_details": "Sartu baliozko Wi-Fi datuak QR kodea sortzeko.",
+                "ensure_requirements": "Ziurtatu SSID emanda dagoela eta, beharrezkoa bada, pasahitza ezarrita dagoela WPA edo WEP motetan."
+            }
+        },
+        "wifi_string_copy": {
+            "toast": {
+                "copied": {
+                    "title": "Kopiatu arbelean",
+                    "description": "Wi-Fi konfigurazio katea ongi kopiatu da."
+                },
+                "copy_failed": {
+                    "title": "Kopiatzeko errorea",
+                    "description": "Ezin izan da arbelean kopiatu."
+                }
+            },
+            "legend": "Wi-Fi Konfigurazio Katea"
+        }
+    },
+    "seo": {
+        "title": "Sortu WiFi QR Kodeak Erraz",
+        "description": "Sortu WiFi QR kodeak erraz gure WiFi QR Kode Sortzailearekin. Partekatu zure WiFi datuak modu seguruan eta erosoan.",
+        "keywords": "WiFi QR Kodea, WiFi QR Kode Sortzailea, WiFi QR Kode Sortu, WiFi QR Kode Sortzailea Online"
+    }
+}

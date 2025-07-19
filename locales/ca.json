@@ -1,0 +1,116 @@
+{
+    "common": {
+        "app": {
+            "subtitle": "Genera codis QR de Wi-Fi fàcilment"
+        },
+        "wifi_config": {
+            "title": "Configuració de Wi-Fi",
+            "description": "Introdueix les dades del teu Wi-Fi per generar un codi QR",
+            "fields": {
+                "network_name": {
+                    "label": "Nom de la Xarxa (SSID)",
+                    "placeholder": "Introdueix el nom de la xarxa Wi-Fi",
+                    "error": {
+                        "required": "El nom de la xarxa és obligatori"
+                    }
+                },
+                "security_type": {
+                    "label": "Tipus de Seguretat",
+                    "options": {
+                        "pick": "Selecciona el tipus de seguretat",
+                        "WPA": "WPA/WPA2/WPA3",
+                        "WEP": "WEP",
+                        "nopass": "Sense Contrasenya"
+                    },
+                    "error": {
+                        "invalid": "Tipus de seguretat seleccionat no vàlid"
+                    }
+                },
+                "password": {
+                    "label": "Contrasenya",
+                    "placeholder": "Introdueix la contrasenya del Wi-Fi",
+                    "error": {
+                        "required": "La contrasenya és obligatòria per a tipus de seguretat WPA/WEP"
+                    }
+                },
+                "hidden_network": {
+                    "label": "Xarxa Oculta?"
+                }
+            }
+        },
+        "generated_qr": {
+            "title": "Codi QR Generat",
+            "description": "Escaneja aquest codi per connectar-te a la xarxa Wi-Fi"
+        },
+        "footer": {
+            "created_by": "Creat amb 💛 per <a>@pleyt.dev</a>",
+            "copyright": "© {year}"
+        },
+        "qr_code_printer": {
+            "title": "Targetes d'accés Wi-Fi",
+            "instructions": "Retalla per les línies discontínues per crear targetes Wi-Fi individuals",
+            "scan": "{locale, select, en {Scan to connect to Wi-Fi} other {Escaneja per connectar-te al Wi-Fi}}"
+        },
+        "buttons": {
+            "cancel": "Cancel·la",
+            "print_cards": "Imprimeix {count, plural, =1 {# Targeta} other {# Targetes}}"
+        },
+        "steps": {
+            "title": "Com funciona",
+            "description": "Segueix aquests passos per generar i compartir el teu codi QR de Wi-Fi",
+            "1": {
+                "title": "Configura el Wi-Fi",
+                "description": "Introdueix el nom de la xarxa, selecciona el tipus de seguretat i afegeix la contrasenya si cal."
+            },
+            "2": {
+                "title": "Genera el codi QR",
+                "description": "El codi QR es genera automàticament a mesura que escrius les dades del Wi-Fi."
+            },
+            "3": {
+                "title": "Comparteix i connecta",
+                "description": "Descarrega, imprimeix o comparteix el codi QR. Altres poden escanejar-lo per connectar-se instantàniament."
+            }
+        },
+        "print_setup": {
+            "title": "Configuració d'Impressió",
+            "description": "Configura les opcions d'impressió per a les targetes de codi QR Wi-Fi.",
+            "number_of_cards": {
+                "legend": "Nombre de Targetes",
+                "label": "Imprimeix entre {min} i {max} targetes"
+            },
+            "card_content": {
+                "title": "Contingut de la Targeta",
+                "display_ssid": "Mostra el nom de la xarxa (SSID)",
+                "display_password": "Mostra la contrasenya"
+            }
+        },
+        "qr_display": {
+            "buttons": {
+                "download": "Descarrega QR",
+                "print": "Imprimeix QR"
+            },
+            "messages": {
+                "enter_details": "Si us plau, introdueix dades vàlides de Wi-Fi per generar un codi QR.",
+                "ensure_requirements": "Assegura't que el SSID està proporcionat i, si cal, la contrasenya està configurada per a tipus de seguretat WPA o WEP."
+            }
+        },
+        "wifi_string_copy": {
+            "toast": {
+                "copied": {
+                    "title": "Copiat al Porta-retalls",
+                    "description": "Cadena de configuració Wi-Fi copiada amb èxit."
+                },
+                "copy_failed": {
+                    "title": "Error en copiar",
+                    "description": "No s'ha pogut copiar al porta-retalls."
+                }
+            },
+            "legend": "Cadena de configuració Wi-Fi"
+        }
+    },
+    "seo": {
+        "title": "Genera Codis QR WiFi Fàcilment",
+        "description": "Genera codis QR WiFi fàcilment amb el nostre Generador de Codis QR WiFi. Comparteix les teves credencials WiFi de manera segura i còmoda.",
+        "keywords": "Codi QR WiFi, Generador de Codis QR WiFi, Creador de Codis QR WiFi, Generador de Codis QR WiFi Online"
+    }
+}

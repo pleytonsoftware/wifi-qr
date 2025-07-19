@@ -1,0 +1,116 @@
+{
+    "common": {
+        "app": {
+            "subtitle": "Xera códigos QR de Wi-Fi facilmente"
+        },
+        "wifi_config": {
+            "title": "Configuración de Wi-Fi",
+            "description": "Introduce os datos do teu Wi-Fi para xerar un código QR",
+            "fields": {
+                "network_name": {
+                    "label": "Nome da Rede (SSID)",
+                    "placeholder": "Introduce o nome da rede Wi-Fi",
+                    "error": {
+                        "required": "O nome da rede é obrigatorio"
+                    }
+                },
+                "security_type": {
+                    "label": "Tipo de Seguridade",
+                    "options": {
+                        "pick": "Selecciona o tipo de seguridade",
+                        "WPA": "WPA/WPA2/WPA3",
+                        "WEP": "WEP",
+                        "nopass": "Sen Contrasinal"
+                    },
+                    "error": {
+                        "invalid": "Tipo de seguridade seleccionado non válido"
+                    }
+                },
+                "password": {
+                    "label": "Contrasinal",
+                    "placeholder": "Introduce o contrasinal do Wi-Fi",
+                    "error": {
+                        "required": "O contrasinal é obrigatorio para tipos de seguridade WPA/WEP"
+                    }
+                },
+                "hidden_network": {
+                    "label": "Rede Oculta?"
+                }
+            }
+        },
+        "generated_qr": {
+            "title": "Código QR Xerado",
+            "description": "Escanea este código para conectarte á rede Wi-Fi"
+        },
+        "footer": {
+            "created_by": "Creado con 💛 por <a>@pleyt.dev</a>",
+            "copyright": "© {year}"
+        },
+        "qr_code_printer": {
+            "title": "Tarxetas de acceso Wi-Fi",
+            "instructions": "Corta polas liñas discontinuas para crear tarxetas Wi-Fi individuais",
+            "scan": "{locale, select, en {Scan to connect to Wi-Fi} other {Escanea para conectarte á Wi-Fi}}"
+        },
+        "buttons": {
+            "cancel": "Cancelar",
+            "print_cards": "Imprimir {count, plural, =1 {# Tarxeta} other {# Tarxetas}}"
+        },
+        "steps": {
+            "title": "Como funciona",
+            "description": "Sigue estes pasos para xerar e compartir o teu código QR de Wi-Fi",
+            "1": {
+                "title": "Configura o Wi-Fi",
+                "description": "Introduce o nome da rede, selecciona o tipo de seguridade e engade o contrasinal se é necesario."
+            },
+            "2": {
+                "title": "Xera o código QR",
+                "description": "O código QR xerárase automaticamente a medida que introduces os datos do Wi-Fi."
+            },
+            "3": {
+                "title": "Comparte e conecta",
+                "description": "Descarga, imprime ou comparte o código QR. Outros poden escanealo para conectarse ao instante."
+            }
+        },
+        "print_setup": {
+            "title": "Configuración de Impresión",
+            "description": "Configura as opcións de impresión para as tarxetas de código QR Wi-Fi.",
+            "number_of_cards": {
+                "legend": "Número de Tarxetas",
+                "label": "Imprimir entre {min} e {max} tarxetas"
+            },
+            "card_content": {
+                "title": "Contido da Tarxeta",
+                "display_ssid": "Mostrar nome da rede (SSID)",
+                "display_password": "Mostrar contrasinal"
+            }
+        },
+        "qr_display": {
+            "buttons": {
+                "download": "Descargar QR",
+                "print": "Imprimir QR"
+            },
+            "messages": {
+                "enter_details": "Por favor, introduce datos válidos de Wi-Fi para xerar un código QR.",
+                "ensure_requirements": "Asegúrate de que o SSID está proporcionado e, se é aplicable, o contrasinal está configurado para tipos de seguridade WPA ou WEP."
+            }
+        },
+        "wifi_string_copy": {
+            "toast": {
+                "copied": {
+                    "title": "Copiado ao Portapapeis",
+                    "description": "Cadea de configuración Wi-Fi copiada correctamente."
+                },
+                "copy_failed": {
+                    "title": "Erro ao Copiar",
+                    "description": "Non se puido copiar ao portapapeis."
+                }
+            },
+            "legend": "Cadea de configuración Wi-Fi"
+        }
+    },
+    "seo": {
+        "title": "Xera Códigos QR WiFi Facilmente",
+        "description": "Xera códigos QR WiFi facilmente co noso Xerador de Códigos QR WiFi. Comparte as túas credenciais WiFi de forma segura e cómoda.",
+        "keywords": "Código QR WiFi, Xerador de Códigos QR WiFi, Creador de Códigos QR WiFi, Xerador de Códigos QR WiFi Online"
+    }
+}

@@ -5,6 +5,9 @@ export enum Languages {
 	FRENCH = 'fr', // French
 	ITALIAN = 'it', // Italian
 	PORTUGUESE = 'pt', // Portuguese
+	CATALAN = 'ca', // Catalan
+	BASQUE = 'eu', // Basque
+	GALICIAN = 'gl', // Galician
 }
 
 export enum DisabledLanguages {
@@ -89,4 +92,7 @@ export const LOCALE_DICTIONARY: Record<LANGUAGE_CODES, string> = {
 	et: 'Eesti',
 	lv: 'Latviešu',
 	he: 'עברית',
+	ca: 'Català',
+	eu: 'Euskara',
+	gl: 'Galego',
 } // as const
