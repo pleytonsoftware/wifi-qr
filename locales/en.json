@@ -53,7 +53,8 @@
 		},
 		"buttons": {
 			"cancel": "Cancel",
-			"print_cards": "Print {count, plural, =1 {# Card} other {# Cards}}"
+			"print_cards": "Print {count, plural, =1 {# Card} other {# Cards}}",
+			"clear": "Clear"
 		},
 		"steps": {
 			"title": "How to Use",

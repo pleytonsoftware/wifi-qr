@@ -53,7 +53,8 @@
 		},
 		"buttons": {
 			"cancel": "Abbrechen",
-			"print_cards": "{count, plural, =1 {# Karte drucken} other {# Karten drucken}}"
+			"print_cards": "{count, plural, =1 {# Karte drucken} other {# Karten drucken}}",
+			"clear": "Löschen"
 		},
 		"steps": {
 			"title": "So funktioniert's",

@@ -52,8 +52,9 @@
 			"scan": "{locale, select, en {Scan to connect to Wi-Fi} other {Escanea para conectarte al Wi-Fi}}"
 		},
 		"buttons": {
-			"cancel": "Cancelar",
-			"print_cards": "Imprimir {count, plural, =1 {# Tarjeta} other {# Tarjetas}}"
+	  "cancel": "Cancelar",
+	  "print_cards": "Imprimir {count, plural, =1 {# Tarjeta} other {# Tarjetas}}",
+	  "clear": "Limpiar"
 		},
 		"steps": {
 			"title": "Cómo funciona",

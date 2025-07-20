@@ -53,7 +53,8 @@
 		},
 		"buttons": {
 			"cancel": "Cancelar",
-			"print_cards": "Imprimir {count, plural, =1 {# Cartão} other {# Cartões}}"
+			"print_cards": "Imprimir {count, plural, =1 {# Cartão} other {# Cartões}}",
+			"clear": "Limpar"
 		},
 		"steps": {
 			"title": "Como funciona",
