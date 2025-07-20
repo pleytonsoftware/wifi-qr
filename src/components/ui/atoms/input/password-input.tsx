@@ -4,6 +4,7 @@ import { Eye, EyeClosed } from 'lucide-react'
 import { useToggle } from 'usehooks-ts'
 
 import { Button } from '@atoms/button'
+import { Icon } from '@atoms/icon'
 
 import { Input } from './input'
 
@@ -16,7 +17,7 @@ export const PasswordInput: FC<Omit<ComponentProps<typeof Input>, 'type' | 'Butt
 			type={showPassword ? 'text' : 'password'}
 			Button={Button}
 			buttonProps={{
-				icon: <ShowPasswordIcon className='w-4 h-4' />,
+				icon: <Icon IconComponent={ShowPasswordIcon} size='sm' />,
 				onClick: toggle.bind(null),
 				variant: 'outline',
 			}}
