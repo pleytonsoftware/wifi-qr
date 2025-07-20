@@ -92,7 +92,7 @@ export const Dropdown: DropdownComponent = ({
 }
 
 export const DropdownItem: FC<DropdownItemProps> = ({ children, className, selected, ...props }) => (
-	<li className={cn(selected && 'bg-base-100 rounded-box', className)} {...props}>
+	<li className={cn('rounded-box [&>*]:rounded-box', selected && 'bg-base-100', className)} {...props}>
 		{children}
 	</li>
 )

@@ -54,7 +54,9 @@ export const LOCALE_NAMESPACES = {
 	seo: 'seo',
 } as const
 
-type LANGUAGE_CODES = `${Languages}` | `${DisabledLanguages}`
+export type AVAILABLE_LANGUAGE_CODES = `${Languages}`
+export type DISABLED_LANGUAGE_CODES = `${DisabledLanguages}`
+export type LANGUAGE_CODES = AVAILABLE_LANGUAGE_CODES | DISABLED_LANGUAGE_CODES
 export const LOCALE_DICTIONARY: Record<LANGUAGE_CODES, string> = {
 	en: 'English',
 	de: 'Deutsch',
@@ -96,4 +98,4 @@ export const LOCALE_DICTIONARY: Record<LANGUAGE_CODES, string> = {
 	ca: 'Català',
 	eu: 'Euskara',
 	gl: 'Galego',
-} // as const
+}
