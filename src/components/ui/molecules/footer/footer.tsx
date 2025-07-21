@@ -10,7 +10,7 @@ export const Footer = async () => {
 	const appTitle = getAppName()
 
 	return (
-		<footer className='mt-8 text-center py-6 border-t border-base-200 bg-transparent backdrop-blur-xs'>
+		<footer className='mb-16 md:mb-0 mt-8 text-center py-6 border-t border-base-200 bg-transparent backdrop-blur-xs'>
 			<div className='text-sm text-footer-text'>
 				<p>
 					{t.rich('footer.created_by', {

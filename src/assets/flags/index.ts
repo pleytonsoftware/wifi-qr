@@ -1,6 +1,5 @@
 import type { AVAILABLE_LANGUAGE_CODES, DISABLED_LANGUAGE_CODES, LANGUAGE_CODES } from '@const/languages'
 import type { ImageProps } from 'next/image'
-import type { ComponentType, SVGProps } from 'react'
 
 import arab from './arab.svg'
 import bg from './bg.svg'

@@ -9,7 +9,7 @@ type FloatingControlsProps = {
 }
 export const FloatingControls: FC<FloatingControlsProps> = ({ theme }) => {
 	return (
-		<div className='fixed bottom-4 right-4 flex items-center gap-2 z-50 rtl:flex-row-reverse flex-row'>
+		<div className='fixed bottom-4 right-4 hidden md:flex items-center gap-2 z-50 rtl:flex-row-reverse flex-row'>
 			<LanguageSelector />
 			<ThemeToggler defaultIsDarkMode={theme === Theme.dark} />
 		</div>

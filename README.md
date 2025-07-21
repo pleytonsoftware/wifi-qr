@@ -16,14 +16,16 @@ Generate QR codes for easy Wi-Fi sharing. Instantly create, download, print, and
 
 - [x] **Dark/Light Theme**: User preference theme switching
 - [x] **Form Validation & Clear Button**: Add input validation with error messages and a clear button to reset all fields
-- [ ] **Multi-language Support**: Expand beyond current i18n setup (more languages) and add flag icons
+- [x] **Multi-language Support**: Expand beyond current i18n setup (more languages), rtl support and add flag icons
 - [ ] **Save WiFi Cards**: Store your frequently used WiFi networks locally (localStorage)
 - [ ] **Color Palette**: Customize WiFi card colors and themes for better organization
 - [ ] **Multi-step form**: Break the WiFi card creation process into multiple steps for a cleaner, guided user experience (e.g., Step 1: Network details, Step 2: Security, Step 3: Customize & Generate)
 - [ ] **Google OAuth**: Sync your saved WiFi cards across devices with Google authentication
+- [ ] **Add languages**: Make disabled languages to be active languages.
 
 ### 🚀 Future Enhancements
 
+- **Theme Creator**: Build and customize your own themes for WiFi cards, including colors, fonts, and layout options. Users will be able to save, edit, and apply custom themes to personalize their QR cards for different contexts or branding needs.
 - **Bulk QR Generation**: Generate multiple QR codes at once from a CSV/JSON file
 - **Export Options**:
     - Export as PDF with multiple cards per page

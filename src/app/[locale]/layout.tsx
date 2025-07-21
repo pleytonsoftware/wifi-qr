@@ -11,6 +11,7 @@ import { AVAILABLE_LANGUAGES, LOCALE_NAMESPACES } from '@const/languages'
 import { LocaleLayout, type ResolveLocaleLayoutProps, withLocale } from '@layout/locale-layout'
 import { Footer } from '@molecules/footer'
 import { Header } from '@molecules/header'
+import { NavigationDock } from '@molecules/navigation-dock/navigation-dock'
 import { ToastProvider } from '@providers/toast.provider'
 
 import { getAppName, getPageTitle } from '@/utils/get-app-name'
@@ -99,6 +100,7 @@ const RootLayout = async ({
 								</div>
 							</div>
 							<Footer />
+							<NavigationDock theme={theme} />
 						</div>
 					</div>
 					<script type='application/ld+json' suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />

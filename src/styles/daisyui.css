@@ -13,6 +13,11 @@
 	--breakpoint-3xl: 120rem;
 }
 
+.menu {
+	--menu-active-bg: var(--color-base-100);
+	--menu-active-fg: light-dark(var(--color-base-content), var(--color-base-content-secondary));
+}
+
 .bg-wifiqr-gradient {
 	background-image:
 		radial-gradient(circle at 50% 100%, var(--color-bg-gradient-1) 0%, transparent 60%),
