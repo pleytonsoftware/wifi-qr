@@ -107,6 +107,11 @@
 				}
 			},
 			"legend": "Chaîne de configuration Wi-Fi"
+		},
+		"main_drawer": {
+			"menu_button": "Menu",
+			"home": "Accueil",
+			"wifi_cards": "Mes BeeFis enregistrés"
 		}
 	},
 	"seo": {

@@ -107,6 +107,11 @@
 				}
 			},
 			"legend": "سلسلة إعداد Wi-Fi"
+		},
+		"main_drawer": {
+			"menu_button": "القائمة",
+			"home": "الصفحة الرئيسية",
+			"wifi_cards": "بطاقات Wi-Fi الخاصة بي"
 		}
 	},
 	"seo": {

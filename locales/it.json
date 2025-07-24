@@ -107,6 +107,11 @@
 				}
 			},
 			"legend": "Stringa di configurazione Wi-Fi"
+		},
+		"main_drawer": {
+			"menu_button": "Menu",
+			"home": "Home",
+			"wifi_cards": "I miei BeeFis salvati"
 		}
 	},
 	"seo": {

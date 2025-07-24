@@ -107,6 +107,11 @@
 				}
 			},
 			"legend": "Cadena de configuració Wi-Fi"
+		},
+		"main_drawer": {
+			"menu_button": "Menú",
+			"home": "Inici",
+			"wifi_cards": "Les meves BeeFis desades"
 		}
 	},
 	"seo": {

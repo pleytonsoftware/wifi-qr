@@ -107,6 +107,11 @@
 				}
 			},
 			"legend": "Wi-Fi Konfigurazio Katea"
+		},
+		"main_drawer": {
+			"menu_button": "Menu",
+			"home": "Hasiera",
+			"wifi_cards": "Nire gordetako BeeFis"
 		}
 	},
 	"seo": {

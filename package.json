@@ -11,6 +11,7 @@
 	},
 	"dependencies": {
 		"@hookform/resolvers": "^5.1.1",
+		"@lucide/lab": "^0.1.2",
 		"clsx": "^2.1.1",
 		"html-to-image": "^1.11.13",
 		"lucide-react": "^0.525.0",
@@ -31,6 +32,7 @@
 		"@eslint/js": "^9.31.0",
 		"@lingual/i18n-check": "^0.8.4",
 		"@serverless-guru/prettier-plugin-import-order": "^0.4.2",
+		"@svgr/webpack": "^8.1.0",
 		"@tailwindcss/postcss": "^4",
 		"@types/ms": "^2.1.0",
 		"@types/node": "^20",

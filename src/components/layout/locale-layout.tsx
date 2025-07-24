@@ -41,16 +41,16 @@ const quicksand = Quicksand({
 
 export const LocaleLayout: FC<LocaleLayoutProps> = async ({ children, params: resolvedParams, htmlProps, ...props }) => {
 	return (
-		<html
-			lang={resolvedParams.locale}
-			dir={RTL_LANGUAGES.includes(resolvedParams.locale as (typeof RTL_LANGUAGES)[number]) ? 'rtl' : 'ltr'}
-			className={cn(montserrat.variable, quicksand.variable)}
-			{...htmlProps}
-		>
-			<body {...props}>
-				<NextIntlClientProvider>{children}</NextIntlClientProvider>
-			</body>
-		</html>
+		<NextIntlClientProvider>
+			<html
+				lang={resolvedParams.locale}
+				dir={RTL_LANGUAGES.includes(resolvedParams.locale as (typeof RTL_LANGUAGES)[number]) ? 'rtl' : 'ltr'}
+				className={cn(montserrat.variable, quicksand.variable)}
+				{...htmlProps}
+			>
+				<body {...props}>{children}</body>
+			</html>
+		</NextIntlClientProvider>
 	)
 }
 

@@ -107,6 +107,11 @@
 				}
 			},
 			"legend": "Cadea de configuración Wi-Fi"
+		},
+		"main_drawer": {
+			"menu_button": "Menú",
+			"home": "Inicio",
+			"wifi_cards": "As miñas BeeFis gardadas"
 		}
 	},
 	"seo": {

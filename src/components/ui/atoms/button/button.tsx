@@ -44,6 +44,16 @@ const sizes: Record<ButtonSize, string | null> = {
 	xl: 'btn-xl',
 }
 
+export function createBtnStyles({
+	colour = 'primary',
+	variant = 'default',
+	size = 'md',
+	icon,
+	disabled,
+}: Pick<ButtonProps, 'colour' | 'variant' | 'size' | 'disabled'> & { icon?: boolean }): string {
+	return cn('btn', variants[variant], colours[colour], sizes[size], icon && 'btn-square', disabled && 'btn-disabled')
+}
+
 export const Button = <E extends ElementType = 'button'>({
 	colour = 'primary',
 	size = 'md',
@@ -57,7 +67,7 @@ export const Button = <E extends ElementType = 'button'>({
 	...props
 }: ButtonProps<E>) => (
 	<Component
-		className={cn('btn', variants[variant], colours[colour], sizes[size], icon && 'btn-square', props.disabled && 'btn-disabled', className)}
+		className={cn(createBtnStyles({ colour, variant, size, icon: Boolean(icon), disabled: props.disabled }), className)}
 		role={role}
 		{...props}
 	>

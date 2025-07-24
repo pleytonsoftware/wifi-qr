@@ -107,6 +107,11 @@
 				}
 			},
 			"legend": "Wi-Fi-Konfigurationszeichenfolge"
+		},
+		"main_drawer": {
+			"menu_button": "Menü",
+			"home": "Startseite",
+			"wifi_cards": "Meine gespeicherten BeeFis"
 		}
 	},
 	"seo": {
