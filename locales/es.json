@@ -111,7 +111,21 @@
 		"main_drawer": {
 			"menu_button": "Menú",
 			"home": "Inicio",
-			"wifi_cards": "Mis BeeFis guardados"
+			"wifi_cards": "Mis BeeFis guardadas"
+		},
+		"dock": {
+			"home": "Inicio",
+			"wifi_cards": "Mis BeeFis",
+			"language": "Idioma",
+			"theme": "Tema"
+		},
+		"saved": {
+			"toast": {
+				"success": {
+					"title": "¡Bee-rillantemente Guardado!",
+					"description": "Tu configuración de BeeFi ha sido guardada de forma segura en la colmena."
+				}
+			}
 		}
 	},
 	"seo": {

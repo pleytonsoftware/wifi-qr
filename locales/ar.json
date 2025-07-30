@@ -111,7 +111,13 @@
 		"main_drawer": {
 			"menu_button": "القائمة",
 			"home": "الصفحة الرئيسية",
-			"wifi_cards": "بطاقات Wi-Fi الخاصة بي"
+			"wifi_cards": "BeeFis المحفوظة"
+		},
+		"dock": {
+			"home": "الصفحة الرئيسية",
+			"wifi_cards": "بلدي BeeFis",
+			"language": "اللغة",
+			"theme": "السمة"
 		}
 	},
 	"seo": {

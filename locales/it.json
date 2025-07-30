@@ -110,8 +110,14 @@
 		},
 		"main_drawer": {
 			"menu_button": "Menu",
-			"home": "Home",
+			"home": "Inizio",
 			"wifi_cards": "I miei BeeFis salvati"
+		},
+		"dock": {
+			"home": "Inizio",
+			"wifi_cards": "I miei BeeFis",
+			"language": "Lingua",
+			"theme": "Tema"
 		}
 	},
 	"seo": {

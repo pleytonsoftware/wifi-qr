@@ -9,6 +9,7 @@ import { cn } from '@cn'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
 
 import { AVAILABLE_LANGUAGES, RTL_LANGUAGES } from '@const/languages'
+import { NProgressProvider } from '@providers/nprogress.provider'
 
 type ResolvedLayoutParams = Awaited<LayoutProps['params']>
 type LocaleMiddleware = (params: ResolvedLayoutParams) => ResolvedLayoutParams | Promise<ResolvedLayoutParams>
@@ -48,7 +49,10 @@ export const LocaleLayout: FC<LocaleLayoutProps> = async ({ children, params: re
 				className={cn(montserrat.variable, quicksand.variable)}
 				{...htmlProps}
 			>
-				<body {...props}>{children}</body>
+				<body {...props}>
+					<NProgressProvider />
+					{children}
+				</body>
 			</html>
 		</NextIntlClientProvider>
 	)

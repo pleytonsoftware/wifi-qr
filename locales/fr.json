@@ -112,6 +112,12 @@
 			"menu_button": "Menu",
 			"home": "Accueil",
 			"wifi_cards": "Mes BeeFis enregistrés"
+		},
+		"dock": {
+			"home": "Accueil",
+			"wifi_cards": "Mes BeeFis",
+			"language": "Langue",
+			"theme": "Thème"
 		}
 	},
 	"seo": {

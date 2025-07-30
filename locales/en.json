@@ -112,6 +112,20 @@
 			"menu_button": "Menu",
 			"home": "Home",
 			"wifi_cards": "My saved BeeFis"
+		},
+		"dock": {
+			"home": "Home",
+			"wifi_cards": "My BeeFis",
+			"language": "Language",
+			"theme": "Theme"
+		},
+		"saved": {
+			"toast": {
+				"success": {
+					"title": "Bee-rilliantly Saved!",
+					"description": "Your BeeFi configuration has been safely tucked away in the hive."
+				}
+			}
 		}
 	},
 	"seo": {

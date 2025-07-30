@@ -10,6 +10,10 @@ export type ToastMessage = {
 	description?: ReactNode
 	duration?: number // ms, default 3000
 	variant?: ToastVariant
+	/**
+	 * whether to show a progress bar
+	 */
+	withProgress?: boolean
 }
 export type ToastContextType = {
 	showToast: (message: Omit<ToastMessage, 'id'>) => void

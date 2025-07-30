@@ -112,6 +112,12 @@
 			"menu_button": "Menu",
 			"home": "Hasiera",
 			"wifi_cards": "Nire gordetako BeeFis"
+		},
+		"dock": {
+			"home": "Hasiera",
+			"wifi_cards": "Nire BeeFis",
+			"language": "Hizkuntza",
+			"theme": "Gaia"
 		}
 	},
 	"seo": {

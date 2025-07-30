@@ -99,20 +99,21 @@ export const Menu: MenuComponent = ({
 }
 
 export const MenuItem: FC<MenuItemProps> = ({ children, active, disabled, focus, href, onClick, className, ...props }) => {
+	const commonClasses = 'w-full'
 	const content = href ? (
-		<a href={href} className={cn(active && 'menu-active', focus && 'menu-focus')} onClick={onClick}>
+		<a href={href} className={cn(commonClasses, active && 'menu-active', focus && 'menu-focus')} onClick={onClick}>
 			{children}
 		</a>
 	) : onClick ? (
-		<button type='button' className={cn(active && 'menu-active', focus && 'menu-focus')} onClick={onClick}>
+		<button type='button' className={cn(commonClasses, active && 'menu-active', focus && 'menu-focus')} onClick={onClick}>
 			{children}
 		</button>
 	) : (
-		<span className={cn(active && 'menu-active', focus && 'menu-focus')}>{children}</span>
+		<span className={cn(commonClasses, active && 'menu-active', focus && 'menu-focus')}>{children}</span>
 	)
 
 	return (
-		<li className={cn(disabled && 'menu-disabled', className)} {...props}>
+		<li className={cn(commonClasses, disabled && 'menu-disabled', className)} {...props}>
 			{content}
 		</li>
 	)

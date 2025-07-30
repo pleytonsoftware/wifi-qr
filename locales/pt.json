@@ -109,8 +109,14 @@
 			"legend": "String de configuração Wi-Fi"
 		},
 		"main_drawer": {
-			"home": "Início",
+			"home": "Lar",
 			"wifi_cards": "Meus BeeFis salvos"
+		},
+		"dock": {
+			"home": "Lar",
+			"wifi_cards": "Meus BeeFis",
+			"language": "Línguagem",
+			"theme": "Tema"
 		}
 	},
 	"seo": {

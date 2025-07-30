@@ -93,12 +93,10 @@ const RootLayout = async ({
 						</div>
 						<div className='min-h-dvh bg-transparent relative'>
 							<Header />
-							<div className='min-h-[calc(100dvh-calc(var(--spacing)*24))] md:mt-[calc(var(--spacing)*-8)] flex flex-col justify-center p-4'>
-								<div className='max-w-4xl 3xl:max-w-7xl w-full mx-auto flex flex-col space-y-6'>
-									{children}
-									<FloatingControls theme={theme} />
-								</div>
+							<div className='min-h-app justify-center p-4'>
+								<div className='max-w-4xl 3xl:max-w-7xl w-full mx-auto flex flex-col space-y-6'>{children}</div>
 							</div>
+							<FloatingControls theme={theme} />
 							<Footer />
 							<NavigationDock theme={theme} />
 						</div>

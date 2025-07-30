@@ -1,8 +1,7 @@
 'use client'
 
-import { redirect, usePathname } from '@navigation'
+import { usePathname } from '@navigation'
 
-import Image from 'next/image'
 import { useSearchParams } from 'next/navigation'
 import { useMemo } from 'react'
 
@@ -14,6 +13,10 @@ import { useLanguage } from '@hooks/use-language'
 
 import { AVAILABLE_LANGUAGE_FLAGS_DICTIONARY } from '@/assets/flags'
 
+import { LanguageSelectorItem } from './language-selector-item'
+
+type LanguageKey = keyof typeof AVAILABLE_LANGUAGE_FLAGS_DICTIONARY
+
 export const LanguageSelector = () => {
 	const language = useLanguage()
 	const path = usePathname()
@@ -21,34 +24,17 @@ export const LanguageSelector = () => {
 
 	const languagesNode = useMemo(
 		() =>
-			AVAILABLE_LANGUAGES.map((lang) => {
-				const flagProps = AVAILABLE_LANGUAGE_FLAGS_DICTIONARY[lang]
-				const langName = LOCALE_DICTIONARY[lang]
-				const { src, width, height } = flagProps || {}
-
-				return (
-					<Dropdown.Item
-						key={lang}
-						onClick={() =>
-							redirect({
-								href: {
-									pathname: path,
-									query: Object.fromEntries(params.entries()),
-								},
-								locale: lang,
-							})
-						}
-						selected={language === lang}
-						className='max-w-1/2'
-					>
-						<div>
-							{flagProps && <Image {...{ src, width, height }} className='size-3' alt={langName} />}
-							<span className='truncate'>{langName}</span>
-						</div>
-					</Dropdown.Item>
-				)
-			}),
-		[AVAILABLE_LANGUAGES],
+			AVAILABLE_LANGUAGES.map((lang) => (
+				<LanguageSelectorItem
+					key={lang}
+					lang={lang as LanguageKey}
+					selected={language === lang}
+					path={path}
+					params={params}
+					ParentComponent={Dropdown.Item}
+				/>
+			)),
+		[AVAILABLE_LANGUAGES, language, path, params],
 	)
 
 	return (
@@ -59,7 +45,7 @@ export const LanguageSelector = () => {
 			menuClassName='w-64 max-h-60 overflow-y-auto'
 			buttonContent={
 				<Dropdown.Item className='flex items-center gap-2 text-sm font-medium text-base-content'>
-					<LanguagesIcon className='text-primary w-4 h-4' />
+					<LanguagesIcon className='text-primary size-4' />
 					{LOCALE_DICTIONARY[language]}
 				</Dropdown.Item>
 			}

@@ -1,6 +1,10 @@
 @import 'tailwindcss';
+@import 'tailwindcss-animated';
 @import '../styles/daisyui.css';
 @import '../styles/theme-light.css';
 @import '../styles/theme-dark.css';
 @import '../styles/wifiqr-card.css';
 @import '../styles/divider-spacing.css';
+@import '../styles/nprogress.css';
+@import '../styles/gradients.css';
+@import '../styles/animations.css';

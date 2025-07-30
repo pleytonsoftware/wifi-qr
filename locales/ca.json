@@ -112,6 +112,12 @@
 			"menu_button": "Menú",
 			"home": "Inici",
 			"wifi_cards": "Les meves BeeFis desades"
+		},
+		"dock": {
+			"home": "Inici",
+			"wifi_cards": "Meus BeeFis",
+			"language": "Idioma",
+			"theme": "Tema"
 		}
 	},
 	"seo": {

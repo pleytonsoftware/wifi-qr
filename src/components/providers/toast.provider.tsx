@@ -58,7 +58,11 @@ export const ToastProvider: FC<ToastProviderProps> = ({ defaultDuration, childre
 			{children}
 			<Toast horizontal={horizontalPosition} vertical={verticalPosition} className='z-50 pointer-events-none'>
 				{toasts.map((toast) => (
-					<Alert key={toast.id} colour={toast.variant} className='shadow-lg pointer-events-auto flex items-start gap-2 relative'>
+					<Alert
+						key={toast.id}
+						colour={toast.variant}
+						className='shadow-lg pointer-events-auto flex items-start gap-2 relative rounded-lg overflow-hidden'
+					>
 						<div className='flex-1 pr-6 rtl:pl-6'>
 							<p className='text-lg font-semibold'>{toast.title}</p>
 							{toast.description && <p className='text-sm'>{toast.description}</p>}
@@ -75,6 +79,17 @@ export const ToastProvider: FC<ToastProviderProps> = ({ defaultDuration, childre
 						>
 							<span aria-hidden='true' className='hidden' />
 						</Button>
+						{toast.withProgress && (
+							<div className='w-full h-1 absolute left-0 bottom-0'>
+								<div
+									className='h-full bg-primary rounded-lg'
+									style={{
+										width: '100%',
+										animation: `toast-progress ${toast.duration}ms linear forwards`,
+									}}
+								/>
+							</div>
+						)}
 					</Alert>
 				))}
 			</Toast>

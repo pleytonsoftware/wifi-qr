@@ -111,7 +111,13 @@
 		"main_drawer": {
 			"menu_button": "Menú",
 			"home": "Inicio",
-			"wifi_cards": "As miñas BeeFis gardadas"
+			"wifi_cards": "Os meus BeeFis gardados"
+		},
+		"dock": {
+			"home": "Inicio",
+			"wifi_cards": "Meus BeeFis",
+			"language": "Idioma",
+			"theme": "Tema"
 		}
 	},
 	"seo": {

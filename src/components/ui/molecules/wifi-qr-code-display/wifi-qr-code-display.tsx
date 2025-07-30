@@ -10,10 +10,10 @@ import { useTranslations } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { QRCodeSVG } from 'qrcode.react'
 import { useBoolean } from 'usehooks-ts'
+import { useShallow } from 'zustand/shallow'
 
 import { Button } from '@atoms/button'
 import { LOCALE_NAMESPACES } from '@const/languages'
-import { SecurityType } from '@const/wifi'
 import { MiniLogo } from '@molecules/mini-logo'
 import { PrintSettingsModal } from '@molecules/print-settings-modal'
 import { useWiFiQRStore } from '@store/wifi-qr.store'
@@ -29,15 +29,16 @@ export const WiFiQRCodeDisplay: FC = memo(function WiFiQRCodeDisplay() {
 	const [numberOfCards, setNumberOfCards] = useState<number>(1)
 	const [printWithSSID, setPrintWithSSID] = useState<boolean>(true)
 	const [printWithPassword, setPrintWithPassword] = useState<boolean>(false)
-	const { ssid, accessPassword: password, securityType } = useWiFiQRStore((state) => state.wifiDetails)
-	const wifiString = useWiFiQRStore((state) => state.wifiString)
-	const wifiDataUrl = useWiFiQRStore((state) => state.wifiDataUrl)
-	const setWifiDataUrl = useWiFiQRStore((state) => state.setWifiDataUrl)
+	const { ssid, wifiString, wifiDataUrl, setWifiDataUrl, isWifiValid } = useWiFiQRStore(
+		useShallow((state) => ({
+			ssid: state.wifiDetails.ssid,
+			wifiString: state.wifiString,
+			wifiDataUrl: state.wifiDataUrl,
+			setWifiDataUrl: state.setWifiDataUrl,
+			isWifiValid: state.isWifiValid,
+		})),
+	)
 	const qrRef = useRef<HTMLDivElement>(null)
-	const isReadyQR =
-		Boolean(ssid.trim()) &&
-		(securityType === SecurityType.NO_PASS ||
-			((securityType === SecurityType.WPA || securityType === SecurityType.WEP) && Boolean(password.trim())))
 
 	const generateAndSetWifiDataUrl = useCallback(async () => {
 		if (!qrRef?.current) return
@@ -110,7 +111,7 @@ export const WiFiQRCodeDisplay: FC = memo(function WiFiQRCodeDisplay() {
 	return (
 		<div className='w-full h-full justify-around flex flex-col items-center self-center space-y-4'>
 			<div className={cn('bg-white rounded-lg shadow-sm border aspect-square w-full px-2 md:w-2/3 md:px-0 h-auto')}>
-				{isReadyQR ? (
+				{isWifiValid ? (
 					<div className='relative inline-block w-full h-full p-4' ref={qrRef}>
 						<QRCodeSVG value={wifiString} level='H' className='w-full h-full' />
 						<div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 text-primary bg-white rounded-lg flex items-center justify-center'>
@@ -122,7 +123,7 @@ export const WiFiQRCodeDisplay: FC = memo(function WiFiQRCodeDisplay() {
 				)}
 			</div>
 			<div className='flex space-y-3 justify-self-end min-h-12 w-full px-2 lg:max-w-none'>
-				{isReadyQR ? (
+				{isWifiValid ? (
 					<>
 						<div className='flex flex-1 gap-2 flex-col lg:flex-row items-center justify-around flex-wrap'>
 							<Button colour='primary' onClick={handleDownload} className='flex lg:flex-1 items-center gap-2 w-full'>
