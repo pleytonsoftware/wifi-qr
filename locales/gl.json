@@ -118,11 +118,46 @@
 			"wifi_cards": "Meus BeeFis",
 			"language": "Idioma",
 			"theme": "Tema"
+		},
+		"saved": {
+			"toast": {
+				"success": {
+					"title": "BeeFi gardado con éxito!",
+					"description": "A túa configuración BeeFi foi gardada de forma segura na colmea."
+				},
+				"error": {
+					"title": "Abe-rtencia! Erro ao Gardar",
+					"description": "As abellas perderon o camiño á colmea. Non se puido gardar a túa configuración BeeFi. Por favor, inténtao de novo."
+				}
+			}
+		},
+		"wifi_details_table": {
+			"qr_code": "Código QR",
+			"ssid": "Nome da Rede (SSID)",
+			"security": "Seguridade",
+			"hidden": "Oculta",
+			"visible": "Visible",
+			"created": "Creado",
+			"actions": "Accións",
+			"details": "Detalles",
+			"delete": "Eliminar",
+			"unnamed_network": "Rede sen nome",
+			"password": "Contrasinal",
+			"qr_code_aria": "Ver código QR de {ssid}",
+			"more_actions": "Máis Accions"
 		}
 	},
 	"seo": {
 		"title": "Xera Códigos QR WiFi Facilmente",
 		"description": "Xera códigos QR WiFi facilmente co noso Xerador de Códigos QR WiFi. Comparte as túas credenciais WiFi de forma segura e cómoda.",
 		"keywords": "Código QR WiFi, Xerador de Códigos QR WiFi, Creador de Códigos QR WiFi, Xerador de Códigos QR WiFi Online"
+	},
+	"not-found": {
+		"seo": {
+			"title": "Página Non Encontrada",
+			"description": "A páxina que estás buscando non existe. Se us plau, comproba a URL ou torna á páxina de inicio."
+		},
+		"back_to_home": "Volver á colmea",
+		"message": "Entraches nunha zona descoñecida. ¡Coidado coas abellas!"
 	}
 }

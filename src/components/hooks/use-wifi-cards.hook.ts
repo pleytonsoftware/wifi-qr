@@ -27,6 +27,7 @@ export function useWifiCards() {
 				...card,
 				id: crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
 				createdAt: Date.now(),
+				accessPassword: card.securityType === 'nopass' ? undefined : card.accessPassword,
 			}
 			setCards((prev) => [newCard, ...prev].slice(0, MAX_CARDS))
 		},

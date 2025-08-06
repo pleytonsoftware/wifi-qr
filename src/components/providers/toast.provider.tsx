@@ -61,7 +61,7 @@ export const ToastProvider: FC<ToastProviderProps> = ({ defaultDuration, childre
 					<Alert
 						key={toast.id}
 						colour={toast.variant}
-						className='shadow-lg pointer-events-auto flex items-start gap-2 relative rounded-lg overflow-hidden'
+						className='shadow-lg pointer-events-auto flex items-start gap-2 relative rounded-lg overflow-hidden max-w-sm'
 					>
 						<div className='flex-1 pr-6 rtl:pl-6'>
 							<p className='text-lg font-semibold'>{toast.title}</p>

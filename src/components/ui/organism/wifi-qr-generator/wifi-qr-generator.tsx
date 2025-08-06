@@ -1,4 +1,6 @@
-import type { FC } from 'react'
+'use client'
+
+import { useRef, type FC } from 'react'
 
 import { useTranslations } from 'next-intl'
 
@@ -7,12 +9,13 @@ import { Divider } from '@atoms/divider'
 import { Section } from '@atoms/section'
 import { LOCALE_NAMESPACES } from '@const/languages'
 import { SaveWifiButton } from '@molecules/save-wifi-button'
-import { WiFiConfigForm } from '@molecules/wifi-config-form'
+import { WiFiConfigForm, type WiFiConfigFormRef } from '@molecules/wifi-config-form'
 import { WiFiQRCodeDisplay } from '@molecules/wifi-qr-code-display'
 import { WiFiStringCopy } from '@molecules/wifi-string-copy'
 
 export const WiFiQRGenerator: FC = () => {
 	const t = useTranslations(LOCALE_NAMESPACES.common)
+	const ref = useRef<WiFiConfigFormRef>(null)
 
 	return (
 		<>
@@ -24,10 +27,10 @@ export const WiFiQRGenerator: FC = () => {
 						<Card.Body className='space-y-2'>
 							<div className='flex items-center justify-between gap-2'>
 								<Card.Title>{t('wifi_config.title')} </Card.Title>
-								<SaveWifiButton />
+								<SaveWifiButton onClear={(evt) => ref.current?.clearForm(evt)} />
 							</div>
 							<Card.Description>{t('wifi_config.description')}</Card.Description>
-							<WiFiConfigForm />
+							<WiFiConfigForm ref={ref} />
 							<Divider spacing='xs' />
 							<div className='space-y-2'>
 								<WiFiStringCopy />

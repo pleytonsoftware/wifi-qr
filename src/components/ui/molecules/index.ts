@@ -1,1 +1,1 @@
-export * from './wifi-cards-list'
+export * from '../organism/wifi-cards-list/wifi-cards-list'

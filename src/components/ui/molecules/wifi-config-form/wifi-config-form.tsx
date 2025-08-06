@@ -1,6 +1,6 @@
 'use client'
 
-import { memo, type MouseEventHandler, useCallback, useMemo, type FC } from 'react'
+import { memo, type MouseEventHandler, useCallback, useMemo, type FC, useImperativeHandle } from 'react'
 
 import * as yup from 'yup'
 import { Eraser, Wifi } from 'lucide-react'
@@ -18,7 +18,15 @@ import { DEFAULT_SECURITY_TYPE, securityOptions, securityOptionsWithPick, Securi
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useWiFiQRStore, type WifiDetails } from '@store/wifi-qr.store'
 
-export const WiFiConfigForm: FC = memo(function WiFiConfigForm() {
+export type WiFiConfigFormRef = {
+	clearForm: MouseEventHandler<HTMLButtonElement>
+}
+
+type WifiConfigFormProps = {
+	ref?: React.ForwardedRef<WiFiConfigFormRef>
+}
+
+export const WiFiConfigForm: FC<WifiConfigFormProps> = memo(function WiFiConfigForm({ ref }) {
 	const t = useTranslations(LOCALE_NAMESPACES.common)
 	const wifiDetails = useWiFiQRStore((state) => state.wifiDetails)
 	const setWifiDetails = useWiFiQRStore((state) => state.setWifiDetails)
@@ -56,6 +64,10 @@ export const WiFiConfigForm: FC = memo(function WiFiConfigForm() {
 		resetWifiDetails()
 		reset()
 	}, [resetWifiDetails, reset])
+
+	useImperativeHandle(ref, () => ({
+		clearForm: handleClear,
+	}))
 
 	return (
 		<form onSubmit={(e) => e.preventDefault()} className='space-y-2'>

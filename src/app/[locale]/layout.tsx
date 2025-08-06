@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: LayoutProps, _parent: Resolvi
 			url: baseUrl,
 			type: 'website',
 			siteName: appTitle,
-			locale: locale === 'es' ? 'es_ES' : 'en_US',
+			locale: locale === 'es' ? 'es_ES' : 'en_US', // TODO implement rest of locales
 			images: [
 				{
 					url: `${baseUrl}/beefi.webp`,

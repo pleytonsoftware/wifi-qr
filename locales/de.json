@@ -118,11 +118,46 @@
 			"wifi_cards": "Meine BeeFis",
 			"language": "Sprache",
 			"theme": "Thema"
+		},
+		"saved": {
+			"toast": {
+				"success": {
+					"title": "BeeFi erfolgreich gespeichert!",
+					"description": "Ihre BeeFi-Konfiguration wurde sicher im Bienenstock abgelegt."
+				},
+				"error": {
+					"title": "Bienen-Alarm! Speichern fehlgeschlagen",
+					"description": "Die Bienen haben den Weg zum Bienenstock verloren. Ihre BeeFi-Konfiguration konnte nicht gespeichert werden. Bitte versuchen Sie es erneut."
+				}
+			}
+		},
+		"wifi_details_table": {
+			"qr_code": "QR-Code",
+			"ssid": "Netzwerkname (SSID)",
+			"security": "Sicherheit",
+			"hidden": "Versteckt",
+			"visible": "Sichtbar",
+			"created": "Erstellt",
+			"actions": "Aktionen",
+			"details": "Details",
+			"delete": "Löschen",
+			"unnamed_network": "Unbenanntes Netzwerk",
+			"password": "Passwort",
+			"qr_code_aria": "QR-Code für {ssid} anzeigen",
+			"more_actions": "Weitere Aktionen"
 		}
 	},
 	"seo": {
 		"title": "Wi-Fi QR Generator",
 		"description": "Erstellen Sie QR-Codes, um Wi-Fi einfach zu teilen. Generieren, drucken und teilen Sie Wi-Fi-QR-Codes für schnellen Zugang.",
 		"keywords": "Wi-Fi, QR Code, Generator, Teilen, Zugang, Netzwerk, WLAN, Drucken, Verbinden"
+	},
+	"not-found": {
+		"seo": {
+			"title": "Seite Nicht Gefunden",
+			"description": "Die von Ihnen gesuchte Seite existiert nicht. Bitte überprüfen Sie die URL oder kehren Sie zur Startseite zurück."
+		},
+		"back_to_home": "Zurück zum Bienenstock",
+		"message": "Sie haben eine nicht gefundene Zone betreten. Hüten Sie sich vor den Bienen!"
 	}
 }

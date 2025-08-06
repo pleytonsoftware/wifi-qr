@@ -40,7 +40,7 @@ export const NavigationDock: FC<NavigationDockProps> = ({ theme }) => {
 			/>
 			<Dock.Item
 				icon={
-					<Link href={ROUTES.wifiCards}>
+					<Link href={ROUTES.wifiCards.index}>
 						<Icon IconComponent={Bee} />
 					</Link>
 				}

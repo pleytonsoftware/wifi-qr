@@ -1,6 +1,6 @@
 'use client'
 
-import type { FC } from 'react'
+import { useCallback, type FC, type MouseEventHandler } from 'react'
 
 import { Save } from 'lucide-react'
 import ms from 'ms'
@@ -16,7 +16,10 @@ import { useWiFiQRStore } from '@store/wifi-qr.store'
 import { useToast } from '@/components/hooks'
 
 const SAVED_TOAST_MS = ms('8s')
-export const SaveWifiButton: FC = () => {
+type SaveWifiButtonProps = {
+	onClear?: MouseEventHandler<HTMLButtonElement>
+}
+export const SaveWifiButton: FC<SaveWifiButtonProps> = ({ onClear }) => {
 	const t = useTranslations(LOCALE_NAMESPACES.common)
 	const { addCard } = useWifiCards()
 	const { showToast } = useToast()
@@ -27,31 +30,34 @@ export const SaveWifiButton: FC = () => {
 			wifiString: state.wifiString,
 		})),
 	)
+	const handleSave: MouseEventHandler<HTMLButtonElement> = useCallback(async (evt) => {
+		try {
+			addCard({
+				...wifiDetails,
+				wifiString,
+			})
+			showToast({
+				title: t('saved.toast.success.title'),
+				description: t('saved.toast.success.description'),
+				variant: 'success',
+				duration: SAVED_TOAST_MS,
+				withProgress: true,
+			})
+			onClear?.(evt)
+		} catch (error) {
+			showToast({
+				title: t('saved.toast.error.title'),
+				description: t('saved.toast.error.description'),
+				variant: 'error',
+			})
+			// eslint-disable-next-line no-console
+			console.error('Error saving WiFi configuration:', error)
+		}
+	}, [])
 
 	return (
 		<Button
-			onClick={() => {
-				try {
-					addCard({
-						...wifiDetails,
-						wifiString,
-					})
-					showToast({
-						title: t('saved.toast.success.title'),
-						description: t('saved.toast.success.description'),
-						variant: 'success',
-						duration: SAVED_TOAST_MS,
-						withProgress: true,
-					})
-				} catch (error) {
-					// showToast({
-					//   title: t('error'),
-					//   description: t('saved.toast.error.description'),
-					//   variant: 'error',
-					// })
-					console.error('Error saving WiFi configuration:', error)
-				}
-			}}
+			onClick={handleSave}
 			colour='accent'
 			variant='soft'
 			size='sm'

@@ -1,11 +1,11 @@
-import type { ButtonHTMLAttributes, JSX, ElementType } from 'react'
+import type { ButtonHTMLAttributes, JSX, ElementType, Ref } from 'react'
 
 import { cn } from '@cn'
 
 import { Loading } from '@atoms/loading'
 
 type ButtonColour = 'base' | 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning' | 'error' | 'neutral'
-type ButtonVariant = 'default' | 'outline' | 'soft' | 'dash' | 'ghost' | 'link'
+type ButtonVariant = 'default' | 'outline' | 'soft' | 'dash' | 'ghost' | 'ghost2' | 'link'
 type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 type ButtonShape = 'none' | 'square' | 'wide' | 'block' | 'circle'
 export type ButtonProps<E extends ElementType = 'button'> = ButtonHTMLAttributes<E extends 'button' ? HTMLButtonElement : HTMLElement> & {
@@ -17,6 +17,7 @@ export type ButtonProps<E extends ElementType = 'button'> = ButtonHTMLAttributes
 	shape?: ButtonShape
 	as?: ElementType
 	role?: HTMLElement['role']
+	ref?: Ref<E extends 'button' ? HTMLButtonElement : HTMLElement>
 }
 
 const colours: Record<ButtonColour, string | null> = {
@@ -31,6 +32,18 @@ const colours: Record<ButtonColour, string | null> = {
 	neutral: 'btn-neutral',
 }
 
+const ghost2Colours: Record<ButtonColour, string | null> = {
+	base: null,
+	primary: 'text-primary hover:text-inherit',
+	secondary: 'text-secondary hover:text-inherit',
+	accent: 'text-accent hover:text-inherit',
+	info: 'text-info hover:text-inherit',
+	success: 'text-success hover:text-inherit',
+	warning: 'text-warning hover:text-inherit',
+	error: 'text-error hover:text-inherit',
+	neutral: 'text-neutral hover:text-inherit',
+}
+
 const variants: Record<ButtonVariant, string | null> = {
 	default: null,
 	outline: 'btn-outline',
@@ -38,6 +51,7 @@ const variants: Record<ButtonVariant, string | null> = {
 	dash: 'btn-dash',
 	ghost: 'btn-ghost',
 	link: 'btn-link',
+	ghost2: 'btn-ghost',
 }
 const sizes: Record<ButtonSize, string | null> = {
 	xs: 'btn-xs',
@@ -64,7 +78,12 @@ export function createBtnStyles({
 	icon,
 	disabled,
 }: Pick<ButtonProps, 'colour' | 'variant' | 'size' | 'disabled' | 'shape'> & { icon?: boolean }): string {
-	return cn('btn', colours[colour], variants[variant], sizes[size], shapes[shape], icon && 'btn-square', disabled && 'btn-disabled')
+	let complexVariant: string | null = null
+	if (variant === 'ghost2') {
+		complexVariant = ghost2Colours[colour]
+	}
+
+	return cn('btn', colours[colour], variants[variant], sizes[size], shapes[shape], icon && 'btn-square', disabled && 'btn-disabled', complexVariant)
 }
 
 export const Button = <E extends ElementType = 'button'>({

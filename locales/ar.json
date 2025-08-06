@@ -118,11 +118,46 @@
 			"wifi_cards": "بلدي BeeFis",
 			"language": "اللغة",
 			"theme": "السمة"
+		},
+		"saved": {
+			"toast": {
+				"success": {
+					"title": "تم حفظ BeeFi بنجاح!",
+					"description": "تم حفظ إعدادات BeeFi الخاصة بك بأمان في الخلية."
+				},
+				"error": {
+					"title": "انتبه! فشل الحفظ",
+					"description": "تاهت النحل في طريقها إلى الخلية. لم يتمكن حفظ إعدادات BeeFi الخاصة بك. يرجى المحاولة مرة أخرى."
+				}
+			}
+		},
+		"wifi_details_table": {
+			"qr_code": "رمز QR",
+			"ssid": "اسم الشبكة (SSID)",
+			"security": "الحماية",
+			"hidden": "مخفي",
+			"visible": "مرئي",
+			"created": "تاريخ الإنشاء",
+			"actions": "الإجراءات",
+			"details": "تفاصيل",
+			"delete": "حذف",
+			"unnamed_network": "شبكة بدون اسم",
+			"password": "كلمة المرور",
+			"qr_code_aria": "عرض رمز QR لـ {ssid}",
+			"more_actions": "إجراءات إضافية"
 		}
 	},
 	"seo": {
 		"title": "أنشئ رموز QR لشبكة WiFi بسهولة",
 		"description": "أنشئ رموز QR لشبكة WiFi بسهولة باستخدام مولد رموز QR الخاص بنا. شارك بيانات WiFi الخاصة بك بأمان وسهولة.",
 		"keywords": "رمز QR WiFi, مولد رمز QR WiFi, صانع رمز QR WiFi, منشئ رمز QR WiFi, مولد رمز QR WiFi عبر الإنترنت"
+	},
+	"not-found": {
+		"seo": {
+			"title": "الصفحة غير موجودة",
+			"description": "الصفحة التي تبحث عنها غير موجودة. يرجى التحقق من عنوان URL أو العودة إلى الصفحة الرئيسية."
+		},
+		"back_to_home": "العودة إلى الصفحة الرئيسية",
+		"message": "لقد دخلت منطقة غير موجودة. احذر من النحل!"
 	}
 }

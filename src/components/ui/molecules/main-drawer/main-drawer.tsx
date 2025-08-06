@@ -47,7 +47,7 @@ export const MainDrawer: FC = () => {
 						</Link>
 						<Link
 							onClick={closeDrawer}
-							href={ROUTES.wifiCards}
+							href={ROUTES.wifiCards.index}
 							aria-label={t('main_drawer.wifi_cards')}
 							className='flex items-center gap-2'
 						>

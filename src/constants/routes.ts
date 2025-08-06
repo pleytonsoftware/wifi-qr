@@ -1,4 +1,7 @@
 export const ROUTES = {
 	home: '/',
-	wifiCards: '/my-beefis',
+	wifiCards: {
+		index: '/my-beefis',
+		edit: (id: string) => `/my-beefis/${id}`,
+	},
 } as const

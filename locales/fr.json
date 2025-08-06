@@ -118,11 +118,46 @@
 			"wifi_cards": "Mes BeeFis",
 			"language": "Langue",
 			"theme": "Thème"
+		},
+		"saved": {
+			"toast": {
+				"success": {
+					"title": "BeeFi enregistré avec succès !",
+					"description": "Votre configuration BeeFi a été soigneusement rangée dans la ruche."
+				},
+				"error": {
+					"title": "Abeille-rt ! Échec de l’enregistrement",
+					"description": "Les abeilles se sont égarées en chemin vers la ruche. Votre configuration BeeFi n’a pas pu être enregistrée. Veuillez réessayer."
+				}
+			}
+		},
+		"wifi_details_table": {
+			"qr_code": "Code QR",
+			"ssid": "Nom du réseau (SSID)",
+			"security": "Sécurité",
+			"hidden": "Caché",
+			"visible": "Visible",
+			"created": "Créé",
+			"actions": "Actions",
+			"details": "Détails",
+			"delete": "Supprimer",
+			"unnamed_network": "Réseau sans nom",
+			"password": "Mot de passe",
+			"qr_code_aria": "Voir le code QR pour {ssid}",
+			"more_actions": "Autres actions"
 		}
 	},
 	"seo": {
 		"title": "Générateur de QR Wi-Fi",
 		"description": "Créez des codes QR pour partager facilement le Wi-Fi. Générez, imprimez et partagez des QR codes Wi-Fi pour un accès rapide.",
 		"keywords": "Wi-Fi, QR Code, Générateur, Partager, Accès, Réseau, Imprimer, Connexion"
+	},
+	"not-found": {
+		"seo": {
+			"title": "Page non trouvée",
+			"description": "La page que vous recherchez n'existe pas. Veuillez vérifier l'URL ou revenir à la page d'accueil."
+		},
+		"back_to_home": "Retour à la ruche",
+		"message": "Vous êtes entré dans une zone inconnue. Attention aux abeilles !"
 	}
 }

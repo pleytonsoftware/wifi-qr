@@ -118,11 +118,46 @@
 			"wifi_cards": "Meus BeeFis",
 			"language": "Idioma",
 			"theme": "Tema"
+		},
+		"saved": {
+			"toast": {
+				"success": {
+					"title": "BeeFi desat amb èxit!",
+					"description": "La configuració BeeFi s'ha guardat de manera segura al rusc."
+				},
+				"error": {
+					"title": "Compte! Error en desar",
+					"description": "Les abelles s'han perdut de camí al rusc. No s'ha pogut desar la teva configuració BeeFi. Torna-ho a intentar, si us plau."
+				}
+			}
+		},
+		"wifi_details_table": {
+			"qr_code": "Codi QR",
+			"ssid": "Nom de la Xarxa (SSID)",
+			"security": "Seguretat",
+			"hidden": "Oculta",
+			"visible": "Visible",
+			"created": "Creat",
+			"actions": "Accions",
+			"details": "Detalls",
+			"delete": "Elimina",
+			"unnamed_network": "Xarxa sense nom",
+			"password": "Contrasenya",
+			"qr_code_aria": "Veure el codi QR de {ssid}",
+			"more_actions": "Més Accions"
 		}
 	},
 	"seo": {
 		"title": "Genera Codis QR WiFi Fàcilment",
 		"description": "Genera codis QR WiFi fàcilment amb el nostre Generador de Codis QR WiFi. Comparteix les teves credencials WiFi de manera segura i còmoda.",
 		"keywords": "Codi QR WiFi, Generador de Codis QR WiFi, Creador de Codis QR WiFi, Generador de Codis QR WiFi Online"
+	},
+	"not-found": {
+		"seo": {
+			"title": "Pàgina No Trobat",
+			"description": "La pàgina que estàs buscant no existeix. Si us plau, comprova l'URL o torna a la pàgina d'inici."
+		},
+		"back_to_home": "Torna a la rusc",
+		"message": "Has entrat en una zona no trobada. Vigila amb les abelles!"
 	}
 }

@@ -52,6 +52,7 @@ export const RTL_LANGUAGES = [Languages.ARABIC, DisabledLanguages.HEBREW] as con
 export const LOCALE_NAMESPACES = {
 	common: 'common',
 	seo: 'seo',
+	notFound: 'not-found',
 } as const
 
 export type AVAILABLE_LANGUAGE_CODES = `${Languages}`

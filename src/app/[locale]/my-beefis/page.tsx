@@ -1,4 +1,4 @@
-import { WifiCardsList } from '@molecules/wifi-cards-list'
+import { WifiCardsList } from '@/components/ui/organism/wifi-cards-list/wifi-cards-list'
 
 export default function WifiCardsPage() {
 	return (

@@ -124,13 +124,40 @@
 				"success": {
 					"title": "¡Bee-rillantemente Guardado!",
 					"description": "Tu configuración de BeeFi ha sido guardada de forma segura en la colmena."
+				},
+				"error": {
+					"title": "¡Abe-rtencia! Error al Guardar",
+					"description": "Las abejas se perdieron de camino a la colmena. Tu configuración de BeeFi no pudo ser guardada. Por favor, inténtalo de nuevo."
 				}
 			}
+		},
+		"wifi_details_table": {
+			"qr_code": "Código QR",
+			"ssid": "Nombre de la Red (SSID)",
+			"security": "Seguridad",
+			"hidden": "Oculta",
+			"visible": "Visible",
+			"created": "Creado",
+			"actions": "Acciones",
+			"details": "Detalles",
+			"delete": "Eliminar",
+			"unnamed_network": "Red sin nombre",
+			"password": "Contraseña",
+			"qr_code_aria": "Ver código QR para {ssid}",
+			"more_actions": "Más Acciones"
 		}
 	},
 	"seo": {
 		"title": "Genera Códigos QR WiFi Fácilmente",
 		"description": "Genera códigos QR WiFi fácilmente con nuestro Generador de Códigos QR WiFi. Comparte tus credenciales WiFi de forma segura y conveniente.",
 		"keywords": "Código QR WiFi, Generador de Códigos QR WiFi, Creador de Códigos QR WiFi, Generador de Códigos QR WiFi Online"
+	},
+	"not-found": {
+		"seo": {
+			"title": "Página No Encontrada",
+			"description": "La página que estás buscando no existe. Si us plau, comprova l'URL o torna a la pàgina d'inici."
+		},
+		"back_to_home": "Vuelve a la colmena",
+		"message": "Has entrado en una zona desconocida. ¡Cuidado con las abejas!"
 	}
 }
