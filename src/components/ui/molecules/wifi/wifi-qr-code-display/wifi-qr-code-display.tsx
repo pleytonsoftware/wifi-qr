@@ -14,8 +14,8 @@ import { useShallow } from 'zustand/shallow'
 
 import { Button } from '@atoms/button'
 import { LOCALE_NAMESPACES } from '@const/languages'
-import { MiniLogo } from '@molecules/mini-logo'
-import { PrintSettingsModal } from '@molecules/print-settings-modal'
+import { PrintSettingsModal } from '@molecules/modals/print-settings-modal'
+import { MiniLogo } from '@molecules/ui/mini-logo'
 import { useWiFiQRStore } from '@store/wifi-qr.store'
 
 import { useLanguage } from '@/components/hooks/use-language'

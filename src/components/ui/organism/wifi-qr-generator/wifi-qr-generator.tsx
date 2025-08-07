@@ -3,9 +3,9 @@
 import { useRef, type FC } from 'react'
 
 import { Section } from '@atoms/section'
-import { WiFiConfigCard } from '@molecules/wifi-config-card'
-import { type WiFiConfigFormRef } from '@molecules/wifi-config-form'
-import { WiFiQRCard } from '@molecules/wifi-qr-card'
+import { WiFiConfigCard } from '@molecules/wifi/wifi-config-card'
+import { type WiFiConfigFormRef } from '@molecules/wifi/wifi-config-form'
+import { WiFiQRCard } from '@molecules/wifi/wifi-qr-card'
 
 export const WiFiQRGenerator: FC = () => {
 	const ref = useRef<WiFiConfigFormRef>(null)

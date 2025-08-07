@@ -11,9 +11,9 @@ import { LOCALE_NAMESPACES } from '@const/languages'
 import { ROUTES } from '@const/routes'
 import { Theme } from '@const/theme'
 import { useLanguage } from '@hooks/use-language'
+import { ThemeToggler } from '@molecules/ui/theme-toggler'
 
 import { Icon } from '@/components/ui/atoms'
-import { ThemeToggler } from '@/components/ui/molecules/theme-toggler'
 import { Link, redirect } from '@/i18n/navigation'
 
 import { DockLanguageSelector } from './dock-language-selector'

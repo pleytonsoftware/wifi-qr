@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl'
 
 import { Card } from '@atoms/card'
 import { LOCALE_NAMESPACES } from '@const/languages'
-import { WiFiQRCodeDisplay } from '@molecules/wifi-qr-code-display'
+import { WiFiQRCodeDisplay } from '@molecules/wifi/wifi-qr-code-display'
 
 export const WiFiQRCard: FC = () => {
 	const t = useTranslations(LOCALE_NAMESPACES.common)

@@ -1,8 +1,8 @@
 import type { FC } from 'react'
 
 import { Theme } from '@const/theme'
-import { LanguageSelector } from '@molecules/language-selector'
-import { ThemeToggler } from '@molecules/theme-toggler'
+import { LanguageSelector } from '@molecules/ui/language-selector'
+import { ThemeToggler } from '@molecules/ui/theme-toggler'
 
 type FloatingControlsProps = {
 	theme: string

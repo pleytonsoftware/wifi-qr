@@ -9,7 +9,7 @@ import { Button } from '@atoms/button'
 import { Icon } from '@atoms/icon'
 import { Modal } from '@atoms/modal'
 import { useWifiCards, type WifiCard } from '@hooks/use-wifi-cards.hook'
-import { WifiCardTable } from '@molecules/wifi-details-table'
+import { WifiCardTable } from '@molecules/wifi/wifi-details-table'
 
 export const WifiCardsList: FC = () => {
 	const { cards, removeCard } = useWifiCards()

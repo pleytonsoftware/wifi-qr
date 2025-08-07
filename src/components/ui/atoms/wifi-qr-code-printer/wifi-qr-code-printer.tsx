@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl'
 
 import { WifiCard } from '@atoms/wifi-card'
 import { LOCALE_NAMESPACES } from '@const/languages'
-import { MiniLogo } from '@molecules/mini-logo'
+import { MiniLogo } from '@molecules/ui/mini-logo'
 
 type WifiQRCodePrinterProps = {
 	ssid?: string

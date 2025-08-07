@@ -18,13 +18,7 @@ export const WifiDetailsQRDisplayModal: FC<WifiDetailsQRDisplayModalProps> = ({ 
 	return (
 		<BackdropModal showBackdrop={Boolean(selectedQRCard)} onClose={onCloseModal}>
 			{selectedQRCard && (
-				<div
-					className='relative bg-transparent rounded-lg shadow-lg p-8 flex flex-col items-center'
-					style={{
-						width: 'min(90vw, 600px)',
-						maxWidth: '100vw',
-					}}
-				>
+				<div className='relative max-w-dvw bg-transparent rounded-lg shadow-lg flex flex-col items-center'>
 					<div
 						className='flex items-center justify-center w-full'
 						style={{

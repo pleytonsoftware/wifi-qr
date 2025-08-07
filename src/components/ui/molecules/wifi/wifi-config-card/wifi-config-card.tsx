@@ -7,9 +7,9 @@ import { useTranslations } from 'next-intl'
 import { Card } from '@atoms/card'
 import { Divider } from '@atoms/divider'
 import { LOCALE_NAMESPACES } from '@const/languages'
-import { SaveWifiButton } from '@molecules/save-wifi-button'
-import { WiFiConfigForm, type WiFiConfigFormRef } from '@molecules/wifi-config-form'
-import { WiFiStringCopy } from '@molecules/wifi-string-copy'
+import { SaveWifiButton } from '@molecules/wifi/save-wifi-button'
+import { WiFiConfigForm, type WiFiConfigFormRef } from '@molecules/wifi/wifi-config-form'
+import { WiFiStringCopy } from '@molecules/wifi/wifi-string-copy'
 
 interface WiFiConfigCardProps {
 	onClear?: (evt: any) => void

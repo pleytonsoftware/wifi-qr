@@ -11,7 +11,7 @@ import { Icon } from '@atoms/icon'
 import { Menu } from '@atoms/menu'
 import { AVAILABLE_LANGUAGES, LOCALE_NAMESPACES } from '@const/languages'
 import { useLanguage } from '@hooks/use-language'
-import { LanguageSelectorItem } from '@molecules/language-selector'
+import { LanguageSelectorItem } from '@molecules/ui/language-selector'
 
 import { usePathname } from '@/i18n/navigation'
 

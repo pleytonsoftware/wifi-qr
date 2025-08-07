@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { getTranslations } from 'next-intl/server'
 
 import { LOCALE_NAMESPACES } from '@const/languages'
-import { MainDrawer } from '@molecules/main-drawer'
+import { MainDrawer } from '@molecules/navigation/main-drawer'
 
 import { Link, redirect } from '@/i18n/navigation'
 import { getAppName } from '@/utils/get-app-name'

@@ -16,7 +16,7 @@ import { ROUTES } from '@const/routes'
 import { LOCALE_NAMESPACES } from '@/constants/languages'
 import { useRouter } from '@/i18n/navigation'
 
-import { Menu } from '../../atoms/menu'
+import { Menu } from '../../../atoms/menu'
 import { WifiDetailsQRDisplayModal } from './wifi-details-qr-display-modal'
 import { WifiDetailsRow } from './wifi-details-row'
 
@@ -44,7 +44,7 @@ export const WifiCardTable: FC<WifiCardTableProps> = ({
 	const t = useTranslations(LOCALE_NAMESPACES.common)
 	const language = useLocale()
 	const [selectedQRCard, setSelectedQRCard] = useState<WifiCard | undefined>(undefined)
-	const router = useRouter()
+	// const router = useRouter()
 
 	const handleQRClick = useCallback(
 		(wifiCard: WifiCard) => {
