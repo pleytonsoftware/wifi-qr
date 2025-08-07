@@ -122,8 +122,9 @@
 		"saved": {
 			"toast": {
 				"success": {
-					"title": "BeeFi desat amb èxit!",
-					"description": "La configuració BeeFi s'ha guardat de manera segura al rusc."
+					"title": "Desat amb abellessa!",
+					"description": "El teu BeeFi ha arribat sa i estalvi al rusc.",
+					"button": "Veure BeeFis"
 				},
 				"error": {
 					"title": "Compte! Error en desar",

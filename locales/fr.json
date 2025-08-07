@@ -123,7 +123,8 @@
 			"toast": {
 				"success": {
 					"title": "BeeFi enregistré avec succès !",
-					"description": "Votre configuration BeeFi a été soigneusement rangée dans la ruche."
+					"description": "Votre configuration BeeFi a été soigneusement rangée dans la ruche.",
+					"button": "Voir BeeFis"
 				},
 				"error": {
 					"title": "Abeille-rt ! Échec de l’enregistrement",

@@ -122,8 +122,9 @@
 		"saved": {
 			"toast": {
 				"success": {
-					"title": "Bee-rilliantly Saved!",
-					"description": "Your BeeFi configuration has been safely tucked away in the hive."
+					"title": "Bee-autifully Saved!",
+					"description": "Your BeeFi has buzzed safely into the hive.",
+					"button": "Check BeeFis"
 				},
 				"error": {
 					"title": "Bee-ware! Save Failed",

@@ -123,7 +123,8 @@
 			"toast": {
 				"success": {
 					"title": "BeeFi gardado con éxito!",
-					"description": "A túa configuración BeeFi foi gardada de forma segura na colmea."
+					"description": "A túa configuración BeeFi foi gardada de forma segura na colmea.",
+					"button": "Ver BeeFis"
 				},
 				"error": {
 					"title": "Abe-rtencia! Erro ao Gardar",

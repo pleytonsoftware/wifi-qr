@@ -122,8 +122,9 @@
 		"saved": {
 			"toast": {
 				"success": {
-					"title": "تم حفظ BeeFi بنجاح!",
-					"description": "تم حفظ إعدادات BeeFi الخاصة بك بأمان في الخلية."
+					"title": "تم الحفظ بنجاح ",
+					"description": "وصلت BeeFi الخاصة بك إلى الخلية بأمان.",
+					"button": "عرض BeeFis الخاصة بي"
 				},
 				"error": {
 					"title": "انتبه! فشل الحفظ",

@@ -2,7 +2,12 @@
 
 import type { ToastVariant } from '../providers/toast.provider'
 
-import { createContext, type ReactNode } from 'react'
+import { createContext, type MouseEvent, type ReactNode } from 'react'
+
+type ToastMessageButton = {
+	label: ReactNode
+	onClick: (evt: MouseEvent<HTMLButtonElement>, dismiss: () => void) => void
+}
 
 export type ToastMessage = {
 	id: number
@@ -14,6 +19,7 @@ export type ToastMessage = {
 	 * whether to show a progress bar
 	 */
 	withProgress?: boolean
+	button?: ToastMessageButton
 }
 export type ToastContextType = {
 	showToast: (message: Omit<ToastMessage, 'id'>) => void

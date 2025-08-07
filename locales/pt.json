@@ -123,7 +123,8 @@
 			"toast": {
 				"success": {
 					"title": "BeeFi salvo com sucesso!",
-					"description": "Sua configuração BeeFi foi guardada com segurança na colmeia."
+					"description": "Sua configuração BeeFi foi guardada com segurança na colmeia.",
+					"button": "Ver Meus BeeFis"
 				},
 				"error": {
 					"title": "Cuidado-bzz! Falha ao salvar",

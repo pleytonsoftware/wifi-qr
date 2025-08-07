@@ -123,7 +123,8 @@
 			"toast": {
 				"success": {
 					"title": "BeeFi salvato con successo!",
-					"description": "La tua configurazione BeeFi è stata conservata al sicuro nell'alveare."
+					"description": "La tua configurazione BeeFi è stata conservata al sicuro nell'alveare.",
+					"button": "Visualizza BeeFis"
 				},
 				"error": {
 					"title": "Bee-attento! Salvataggio fallito",
