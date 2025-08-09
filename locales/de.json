@@ -36,11 +36,13 @@
 				"hidden_network": {
 					"label": "Verstecktes Netzwerk?"
 				}
-			}
+			},
+			"submit": "QR zum Summen bringen!"
 		},
 		"generated_qr": {
 			"title": "Generierter QR-Code",
-			"description": "Scannen Sie diesen Code, um sich mit dem Wi-Fi zu verbinden"
+			"description": "Scannen Sie diesen Code, um sich mit dem Wi-Fi zu verbinden",
+			"back_config": "Zurück zur Bienenkorb Konfiguration"
 		},
 		"footer": {
 			"created_by": "Erstellt mit 💛 von <a>@pleyt.dev</a>",
@@ -54,7 +56,8 @@
 		"buttons": {
 			"cancel": "Abbrechen",
 			"print_cards": "{count, plural, =1 {# Karte drucken} other {# Karten drucken}}",
-			"clear": "Löschen"
+			"clear": "Löschen",
+			"save": "Speichern"
 		},
 		"steps": {
 			"title": "So funktioniert's",

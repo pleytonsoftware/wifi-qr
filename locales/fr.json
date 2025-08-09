@@ -36,11 +36,13 @@
 				"hidden_network": {
 					"label": "Réseau caché ?"
 				}
-			}
+			},
+			"submit": "Faites le buzz autour du QR !"
 		},
 		"generated_qr": {
 			"title": "Code QR généré",
-			"description": "Scannez ce code pour vous connecter au réseau Wi-Fi"
+			"description": "Scannez ce code pour vous connecter au réseau Wi-Fi",
+			"back_config": "Retour à la configuration de la ruche"
 		},
 		"footer": {
 			"created_by": "Créé avec 💛 par <a>@pleyt.dev</a>",
@@ -54,7 +56,8 @@
 		"buttons": {
 			"cancel": "Annuler",
 			"print_cards": "Imprimer {count, plural, =1 {# carte} other {# cartes}}",
-			"clear": "Effacer"
+			"clear": "Effacer",
+			"save": "Enregistrer"
 		},
 		"steps": {
 			"title": "Comment ça marche",

@@ -36,11 +36,13 @@
 				"hidden_network": {
 					"label": "Rede Oculta?"
 				}
-			}
+			},
+			"submit": "Faça vibrar o QR!"
 		},
 		"generated_qr": {
 			"title": "Código QR Gerado",
-			"description": "Escaneie este código para se conectar à rede Wi-Fi"
+			"description": "Escaneie este código para se conectar à rede Wi-Fi",
+			"back_config": "Voltar à configuração da colmeia"
 		},
 		"footer": {
 			"created_by": "Criado com 💛 por <a>@pleyt.dev</a>",
@@ -54,7 +56,8 @@
 		"buttons": {
 			"cancel": "Cancelar",
 			"print_cards": "Imprimir {count, plural, =1 {# Cartão} other {# Cartões}}",
-			"clear": "Limpar"
+			"clear": "Limpar",
+			"save": "Salvar"
 		},
 		"steps": {
 			"title": "Como funciona",

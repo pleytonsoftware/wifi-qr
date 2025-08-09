@@ -36,11 +36,13 @@
 				"hidden_network": {
 					"label": "Rete Nascosta?"
 				}
-			}
+			},
+			"submit": "Fai vibrare il QR!"
 		},
 		"generated_qr": {
 			"title": "Codice QR Generato",
-			"description": "Scansiona questo codice per connetterti alla rete Wi-Fi"
+			"description": "Scansiona questo codice per connetterti alla rete Wi-Fi",
+			"back_config": "Ritorna alla configurazione dell'alveare"
 		},
 		"footer": {
 			"created_by": "Creato con 💛 da <a>@pleyt.dev</a>",
@@ -54,7 +56,8 @@
 		"buttons": {
 			"cancel": "Annulla",
 			"print_cards": "Stampa {count, plural, =1 {# Carta} other {# Carte}}",
-			"clear": "Pulisci"
+			"clear": "Pulisci",
+			"save": "Salva"
 		},
 		"steps": {
 			"title": "Come funziona",

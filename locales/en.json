@@ -4,43 +4,45 @@
 			"subtitle": "Generate WiFi QR easily"
 		},
 		"wifi_config": {
-			"title": "Wi-Fi Configuration",
-			"description": "Enter your Wi-Fi details to generate a QR code",
+			"title": "BeeFi Configuration",
+			"description": "Enter your BeeFi details to generate a buzzworthy QR code",
 			"fields": {
 				"network_name": {
-					"label": "Network Name (SSID)",
-					"placeholder": "Enter Wi-Fi network name",
+					"label": "Hive Name (SSID)",
+					"placeholder": "Enter your hive's name",
 					"error": {
-						"required": "Network name is required"
+						"required": "Hive name is required for the bees to find it"
 					}
 				},
 				"security_type": {
-					"label": "Security Type",
+					"label": "Hive Security Type",
 					"options": {
-						"pick": "Select security type",
-						"WPA": "WPA/WPA2/WPA3",
-						"WEP": "WEP",
-						"nopass": "No Password"
+						"pick": "Select hive security type",
+						"WPA": "WPA/WPA2/WPA3 (Bee Guarded)",
+						"WEP": "WEP (Bee Shield)",
+						"nopass": "No Password (Open Hive)"
 					},
 					"error": {
-						"invalid": "Invalid security type selected"
+						"invalid": "Invalid hive security type selected"
 					}
 				},
 				"password": {
-					"label": "Password",
-					"placeholder": "Enter Wi-Fi password",
+					"label": "Hive Password",
+					"placeholder": "Enter your hive's secret nectar",
 					"error": {
-						"required": "Password is required for WPA/WEP security types"
+						"required": "Secret nectar is required for Bee Guarded/Shield hives"
 					}
 				},
 				"hidden_network": {
-					"label": "Hidden Network?"
+					"label": "Hidden Hive?"
 				}
-			}
+			},
+			"submit": "Make the QR buzz!"
 		},
 		"generated_qr": {
 			"title": "Generated QR Code",
-			"description": "Scan this code to connect to the Wi-Fi network"
+			"description": "Scan this code to connect to the Wi-Fi network",
+			"back_config": "Back to Hive config"
 		},
 		"footer": {
 			"created_by": "Created with 💛 by <a>@pleyt.dev</a>",
@@ -54,7 +56,8 @@
 		"buttons": {
 			"cancel": "Cancel",
 			"print_cards": "Print {count, plural, =1 {# Card} other {# Cards}}",
-			"clear": "Clear"
+			"clear": "Clear",
+			"save": "Save"
 		},
 		"steps": {
 			"title": "How to Use",

@@ -36,11 +36,13 @@
 				"hidden_network": {
 					"label": "Xarxa Oculta?"
 				}
-			}
+			},
+			"submit": "Fes zumbar el QR!"
 		},
 		"generated_qr": {
 			"title": "Codi QR Generat",
-			"description": "Escaneja aquest codi per connectar-te a la xarxa Wi-Fi"
+			"description": "Escaneja aquest codi per connectar-te a la xarxa Wi-Fi",
+			"back_config": "Tornar a la configuració del rusc"
 		},
 		"footer": {
 			"created_by": "Creat amb 💛 per <a>@pleyt.dev</a>",
@@ -54,7 +56,8 @@
 		"buttons": {
 			"cancel": "Cancel·la",
 			"print_cards": "Imprimeix {count, plural, =1 {# Targeta} other {# Targetes}}",
-			"clear": "Esborra"
+			"clear": "Esborra",
+			"save": "Desa"
 		},
 		"steps": {
 			"title": "Com funciona",

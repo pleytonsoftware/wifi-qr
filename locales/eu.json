@@ -36,11 +36,13 @@
 				"hidden_network": {
 					"label": "Sare Ezkutua?"
 				}
-			}
+			},
+			"submit": "Egin QR burrunba!"
 		},
 		"generated_qr": {
 			"title": "QR Kodea Sortua",
-			"description": "Eskaneatu kode hau Wi-Fi sarera konektatzeko"
+			"description": "Eskaneatu kode hau Wi-Fi sarera konektatzeko",
+			"back_config": "Itzuli erlauntzaren konfiguraziora"
 		},
 		"footer": {
 			"created_by": "Sortua 💛 <a>@pleyt.dev</a>-(e)k",
@@ -54,7 +56,8 @@
 		"buttons": {
 			"cancel": "Utzi",
 			"print_cards": "Inprimatu {count, plural, =1 {# Txartela} other {# Txartelak}}",
-			"clear": "Garbitu"
+			"clear": "Garbitu",
+			"save": "Gorde"
 		},
 		"steps": {
 			"title": "Nola funtzionatzen du",
