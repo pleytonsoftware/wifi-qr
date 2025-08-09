@@ -15,6 +15,7 @@ import { useWifiCards } from '@hooks/use-wifi-cards.hook'
 import { useWiFiQRStore, type WifiDetails } from '@store/wifi-qr.store'
 
 import { useToast } from '@/components/hooks'
+import { Tooltip } from '@/components/ui/atoms/tooltip/tooltip'
 import { useRouter } from '@/i18n/navigation'
 
 const SAVED_TOAST_MS = ms('8s')
@@ -69,17 +70,19 @@ export const SaveWifiButton: FC<SaveWifiButtonProps> = ({ onClear }) => {
 	)
 
 	return (
-		<Button
-			onClick={handleSave(wifiDetails, wifiString)}
-			colour='accent'
-			variant='soft'
-			size='sm'
-			shape='square'
-			className='outline-0'
-			aria-label='save'
-			disabled={!isWifiValid}
-		>
-			<Icon IconComponent={Save} size='md' />
-		</Button>
+		<Tooltip content={t('buttons.save')}>
+			<Button
+				onClick={handleSave(wifiDetails, wifiString)}
+				colour='accent'
+				variant='soft'
+				size='sm'
+				shape='square'
+				className='outline-0'
+				aria-label={t('buttons.save')}
+				disabled={!isWifiValid}
+			>
+				<Icon IconComponent={Save} size='md' />
+			</Button>
+		</Tooltip>
 	)
 }

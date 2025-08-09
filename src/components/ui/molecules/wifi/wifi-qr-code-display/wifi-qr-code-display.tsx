@@ -7,18 +7,18 @@ import { cn } from '@cn'
 import { Download, Printer, QrCode } from 'lucide-react'
 import ms from 'ms'
 import { useTranslations } from 'next-intl'
-import { getMessages } from 'next-intl/server'
 import { QRCodeSVG } from 'qrcode.react'
 import { useBoolean } from 'usehooks-ts'
 import { useShallow } from 'zustand/shallow'
 
 import { Button } from '@atoms/button'
 import { LOCALE_NAMESPACES } from '@const/languages'
+import { useLanguage } from '@hooks/use-language'
 import { PrintSettingsModal } from '@molecules/modals/print-settings-modal'
 import { MiniLogo } from '@molecules/ui/mini-logo'
 import { useWiFiQRStore } from '@store/wifi-qr.store'
 
-import { useLanguage } from '@/components/hooks/use-language'
+import { getMessages } from '@/actions/get-messages'
 
 const CLOSE_PRINT_TIMEOUT_MS = ms('0.5 seconds')
 
@@ -109,7 +109,7 @@ export const WiFiQRCodeDisplay: FC = memo(function WiFiQRCodeDisplay() {
 	}, [printWithSSID, ssid, printWithPassword, numberOfCards, wifiDataUrl])
 
 	return (
-		<div className='w-full h-full justify-around flex flex-col items-center self-center space-y-4'>
+		<div className='w-full h-full justify-around flex flex-col items-center self-center gap-y-4'>
 			<div className={cn('bg-white rounded-lg shadow-sm border aspect-square w-full px-2 md:w-2/3 md:px-0 h-auto')}>
 				{isWifiValid ? (
 					<div className='relative inline-block w-full h-full p-4' ref={qrRef}>
