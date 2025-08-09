@@ -69,7 +69,7 @@ export const ToastProvider: FC<ToastProviderProps> = ({ defaultDuration, childre
 							<p className='text-lg font-semibold'>{toast.title}</p>
 							{(toast.description || toast.button) && (
 								<div className='flex place-self-end gap-2'>
-									{toast.description && <p className='flex-1 text-sm'>{toast.description}</p>}
+									{toast.description && <p className='flex-1 text-sm content-center'>{toast.description}</p>}
 									{toast.button && (
 										<Button
 											variant='soft'
