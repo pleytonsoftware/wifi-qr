@@ -1,6 +1,6 @@
 'use client'
 
-import { forwardRef, type FC } from 'react'
+import { forwardRef, type MouseEventHandler } from 'react'
 
 import { useTranslations } from 'next-intl'
 
@@ -12,7 +12,7 @@ import { WiFiConfigForm, type WiFiConfigFormRef } from '@molecules/wifi/wifi-con
 import { WiFiStringCopy } from '@molecules/wifi/wifi-string-copy'
 
 interface WiFiConfigCardProps {
-	onClear?: (evt: any) => void
+	onClear?: MouseEventHandler<HTMLButtonElement>
 }
 
 export const WiFiConfigCard = forwardRef<WiFiConfigFormRef, WiFiConfigCardProps>(({ onClear }, ref) => {

@@ -1,6 +1,6 @@
 'use client'
 
-import { forwardRef, useEffect, useRef, useState } from 'react'
+import { forwardRef, type MouseEventHandler, useCallback, useState } from 'react'
 
 import { cn } from '@cn'
 
@@ -20,7 +20,7 @@ import { WiFiStringCopy } from '@molecules/wifi/wifi-string-copy'
 import { useWiFiQRStore } from '@/store/wifi-qr.store'
 
 interface WiFiFlipCardProps {
-	onClear?: (evt: any) => void
+	onClear?: MouseEventHandler<HTMLButtonElement>
 }
 
 export const WiFiFlipCard = forwardRef<WiFiConfigFormRef, WiFiFlipCardProps>(({ onClear }, ref) => {
@@ -28,18 +28,21 @@ export const WiFiFlipCard = forwardRef<WiFiConfigFormRef, WiFiFlipCardProps>(({ 
 	const [isFlipped, setIsFlipped] = useState(false)
 	const isWifiValid = useWiFiQRStore((state) => state.isWifiValid)
 
-	const handleShowQR = () => {
+	const handleShowQR = useCallback(() => {
 		setIsFlipped(true)
-	}
+	}, [])
 
-	const handleBackToForm = () => {
+	const handleBackToForm = useCallback(() => {
 		setIsFlipped(false)
-	}
+	}, [])
 
-	const handleClear = (evt: any) => {
-		onClear?.(evt)
-		setIsFlipped(false)
-	}
+	const handleClear: MouseEventHandler<HTMLButtonElement> = useCallback(
+		(evt) => {
+			onClear?.(evt)
+			setIsFlipped(false)
+		},
+		[onClear],
+	)
 
 	return (
 		<div className={cn('relative w-full mx-auto transition-transform duration-700 transform-style-preserve-3d', isFlipped && '-rotate-y-180')}>

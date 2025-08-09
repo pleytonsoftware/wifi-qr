@@ -8,15 +8,11 @@ import { useCallback, useMemo, useState } from 'react'
 import { cn } from '@cn'
 
 import { useLocale, useTranslations } from 'next-intl'
-import { useBoolean } from 'usehooks-ts'
 
 import { Table } from '@atoms/table'
-import { ROUTES } from '@const/routes'
 
 import { LOCALE_NAMESPACES } from '@/constants/languages'
-import { useRouter } from '@/i18n/navigation'
 
-import { Menu } from '../../../atoms/menu'
 import { WifiDetailsQRDisplayModal } from './wifi-details-qr-display-modal'
 import { WifiDetailsRow } from './wifi-details-row'
 

@@ -5,7 +5,7 @@ import { getTranslations } from 'next-intl/server'
 import { LOCALE_NAMESPACES } from '@const/languages'
 import { MainDrawer } from '@molecules/navigation/main-drawer'
 
-import { Link, redirect } from '@/i18n/navigation'
+import { Link } from '@/i18n/navigation'
 import { getAppName } from '@/utils/get-app-name'
 
 export const Header = async () => {

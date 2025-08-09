@@ -1,20 +1,18 @@
 'use client'
 
-import { type FC, MouseEventHandler, useMemo, useState } from 'react'
+import { type FC, MouseEventHandler, useCallback, useMemo, useState } from 'react'
 
-import { Trash2 } from 'lucide-react'
 import { useDebounceValue } from 'usehooks-ts'
 
 import { Button } from '@atoms/button'
-import { Icon } from '@atoms/icon'
 import { Modal } from '@atoms/modal'
 import { useWifiCards, type WifiCard } from '@hooks/use-wifi-cards.hook'
 import { WifiCardTable } from '@molecules/wifi/wifi-details-table'
 
 export const WifiCardsList: FC = () => {
 	const { cards, removeCard } = useWifiCards()
-	const [search, setSearch] = useDebounceValue('', 300)
-	const [view, setView] = useState<'list' | 'card'>('list')
+	const [search, _setSearch] = useDebounceValue('', 300)
+	const [view, _setView] = useState<'list' | 'card'>('list')
 	const [selectedCard, setSelectedCard] = useState<WifiCard | null>(null)
 
 	const filtered = useMemo(() => {
@@ -25,11 +23,11 @@ export const WifiCardsList: FC = () => {
 	const onClose = () => {
 		setSelectedCard(null)
 	}
-	const handleDelete: MouseEventHandler<HTMLButtonElement> = (e) => {
+	const handleDelete: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
 		if (!selectedCard) return
 		removeCard(selectedCard.id)
 		setSelectedCard(null)
-	}
+	}, [removeCard, selectedCard])
 
 	return (
 		<>
