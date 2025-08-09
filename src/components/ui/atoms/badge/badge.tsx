@@ -2,7 +2,7 @@ import type { FC, ReactNode, HTMLAttributes } from 'react'
 
 import { cn } from '@cn'
 
-type BadgeColour = 'neutral' | 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning' | 'error'
+export type BadgeColour = 'neutral' | 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning' | 'error'
 
 type BadgeVariant = 'default' | 'soft' | 'outline' | 'dash' | 'ghost'
 type BadgeSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'

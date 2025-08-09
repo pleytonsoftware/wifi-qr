@@ -4,43 +4,45 @@
 			"subtitle": "Generate WiFi QR easily"
 		},
 		"wifi_config": {
-			"title": "Wi-Fi Configuration",
-			"description": "Enter your Wi-Fi details to generate a QR code",
+			"title": "BeeFi Configuration",
+			"description": "Enter your BeeFi details to generate a buzzworthy QR code",
 			"fields": {
 				"network_name": {
-					"label": "Network Name (SSID)",
-					"placeholder": "Enter Wi-Fi network name",
+					"label": "Hive Name (SSID)",
+					"placeholder": "Enter your hive's name",
 					"error": {
-						"required": "Network name is required"
+						"required": "Hive name is required for the bees to find it"
 					}
 				},
 				"security_type": {
-					"label": "Security Type",
+					"label": "Hive Security Type",
 					"options": {
-						"pick": "Select security type",
-						"WPA": "WPA/WPA2/WPA3",
-						"WEP": "WEP",
-						"nopass": "No Password"
+						"pick": "Select hive security type",
+						"WPA": "WPA/WPA2/WPA3 (Bee Guarded)",
+						"WEP": "WEP (Bee Shield)",
+						"nopass": "No Password (Open Hive)"
 					},
 					"error": {
-						"invalid": "Invalid security type selected"
+						"invalid": "Invalid hive security type selected"
 					}
 				},
 				"password": {
-					"label": "Password",
-					"placeholder": "Enter Wi-Fi password",
+					"label": "Hive Password",
+					"placeholder": "Enter your hive's secret nectar",
 					"error": {
-						"required": "Password is required for WPA/WEP security types"
+						"required": "Secret nectar is required for Bee Guarded/Shield hives"
 					}
 				},
 				"hidden_network": {
-					"label": "Hidden Network?"
+					"label": "Hidden Hive?"
 				}
-			}
+			},
+			"submit": "Make the QR buzz!"
 		},
 		"generated_qr": {
 			"title": "Generated QR Code",
-			"description": "Scan this code to connect to the Wi-Fi network"
+			"description": "Scan this code to connect to the Wi-Fi network",
+			"back_config": "Back to Hive config"
 		},
 		"footer": {
 			"created_by": "Created with 💛 by <a>@pleyt.dev</a>",
@@ -54,7 +56,8 @@
 		"buttons": {
 			"cancel": "Cancel",
 			"print_cards": "Print {count, plural, =1 {# Card} other {# Cards}}",
-			"clear": "Clear"
+			"clear": "Clear",
+			"save": "Save"
 		},
 		"steps": {
 			"title": "How to Use",
@@ -107,11 +110,58 @@
 				}
 			},
 			"legend": "Wi-Fi Configuration String"
+		},
+		"main_drawer": {
+			"menu_button": "Menu",
+			"home": "Home",
+			"wifi_cards": "My saved BeeFis"
+		},
+		"dock": {
+			"home": "Home",
+			"wifi_cards": "My BeeFis",
+			"language": "Language",
+			"theme": "Theme"
+		},
+		"saved": {
+			"toast": {
+				"success": {
+					"title": "Bee-autifully Saved!",
+					"description": "Your BeeFi has buzzed safely into the hive.",
+					"button": "Check BeeFis"
+				},
+				"error": {
+					"title": "Bee-ware! Save Failed",
+					"description": "The bees got lost on their way to the hive. Your BeeFi configuration couldn't be saved. Please try again."
+				}
+			}
+		},
+		"wifi_details_table": {
+			"qr_code": "QR Code",
+			"ssid": "Network Name (SSID)",
+			"security": "Security",
+			"hidden": "Hidden",
+			"visible": "Visible",
+			"created": "Created",
+			"actions": "Actions",
+			"details": "Details",
+			"delete": "Delete",
+			"unnamed_network": "Unnamed Network",
+			"password": "Password",
+			"qr_code_aria": "View QR code for {ssid}",
+			"more_actions": "More Actions"
 		}
 	},
 	"seo": {
 		"title": "Generate WiFi QR Codes Easily",
 		"description": "Generate WiFi QR codes easily with our WiFi QR Code Generator. Share your WiFi credentials securely and conveniently.",
 		"keywords": "WiFi QR Code, WiFi QR Code Generator, WiFi QR Code Maker, WiFi QR Code Creator, WiFi QR Code Generator Online"
+	},
+	"not-found": {
+		"seo": {
+			"title": "Page Not Found",
+			"description": "The page you are looking for does not exist. Please check the URL or return to the home page."
+		},
+		"back_to_home": "Buzz back to the hive",
+		"message": "You have trespassed into a not found zone. Beware of the bees!"
 	}
 }

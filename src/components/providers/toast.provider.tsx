@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState, type FC, type PropsWithChildren } from 'react'
 
+import { cn } from '@cn'
+
 import { X } from 'lucide-react'
 import ms from 'ms'
 
@@ -58,10 +60,31 @@ export const ToastProvider: FC<ToastProviderProps> = ({ defaultDuration, childre
 			{children}
 			<Toast horizontal={horizontalPosition} vertical={verticalPosition} className='z-50 pointer-events-none'>
 				{toasts.map((toast) => (
-					<Alert key={toast.id} colour={toast.variant} className='shadow-lg pointer-events-auto flex items-start gap-2 relative'>
-						<div className='flex-1 pr-6 rtl:pl-6'>
+					<Alert
+						key={toast.id}
+						colour={toast.variant}
+						className='shadow-lg pointer-events-auto flex items-start gap-2 relative rounded-lg overflow-hidden max-w-md'
+					>
+						<div className={cn('flex-1', !toast.button && 'pr-6 rtl:pl-6')}>
 							<p className='text-lg font-semibold'>{toast.title}</p>
-							{toast.description && <p className='text-sm'>{toast.description}</p>}
+							{(toast.description || toast.button) && (
+								<div className='flex place-self-end gap-2'>
+									{toast.description && <p className='flex-1 text-sm content-center'>{toast.description}</p>}
+									{toast.button && (
+										<Button
+											variant='soft'
+											colour={toast.variant}
+											type='button'
+											aria-label={toast.button.label?.toString()}
+											onClick={(evt) => toast.button?.onClick?.(evt, () => handleDismiss(toast.id))}
+											className='max-w-1/3 whitespace-nowrap overflow-hidden text-ellipsis self-end justify-self-end'
+											size='sm'
+										>
+											{toast.button.label}
+										</Button>
+									)}
+								</div>
+							)}
 						</div>
 						<Button
 							type='button'
@@ -75,6 +98,17 @@ export const ToastProvider: FC<ToastProviderProps> = ({ defaultDuration, childre
 						>
 							<span aria-hidden='true' className='hidden' />
 						</Button>
+						{toast.withProgress && (
+							<div className='w-full h-1 absolute left-0 bottom-0'>
+								<div
+									className='h-full bg-primary rounded-lg'
+									style={{
+										width: '100%',
+										animation: `toast-progress ${toast.duration}ms linear forwards`,
+									}}
+								/>
+							</div>
+						)}
 					</Alert>
 				))}
 			</Toast>

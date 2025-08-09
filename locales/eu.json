@@ -36,11 +36,13 @@
 				"hidden_network": {
 					"label": "Sare Ezkutua?"
 				}
-			}
+			},
+			"submit": "Egin QR burrunba!"
 		},
 		"generated_qr": {
 			"title": "QR Kodea Sortua",
-			"description": "Eskaneatu kode hau Wi-Fi sarera konektatzeko"
+			"description": "Eskaneatu kode hau Wi-Fi sarera konektatzeko",
+			"back_config": "Itzuli erlauntzaren konfiguraziora"
 		},
 		"footer": {
 			"created_by": "Sortua 💛 <a>@pleyt.dev</a>-(e)k",
@@ -54,7 +56,8 @@
 		"buttons": {
 			"cancel": "Utzi",
 			"print_cards": "Inprimatu {count, plural, =1 {# Txartela} other {# Txartelak}}",
-			"clear": "Garbitu"
+			"clear": "Garbitu",
+			"save": "Gorde"
 		},
 		"steps": {
 			"title": "Nola funtzionatzen du",
@@ -107,11 +110,58 @@
 				}
 			},
 			"legend": "Wi-Fi Konfigurazio Katea"
+		},
+		"main_drawer": {
+			"menu_button": "Menu",
+			"home": "Hasiera",
+			"wifi_cards": "Nire gordetako BeeFis"
+		},
+		"dock": {
+			"home": "Hasiera",
+			"wifi_cards": "Nire BeeFis",
+			"language": "Hizkuntza",
+			"theme": "Gaia"
+		},
+		"saved": {
+			"toast": {
+				"success": {
+					"title": "BeeFi arrakastaz gorde da!",
+					"description": "Zure BeeFi konfigurazioa segurtasunez gorde da erlauntzan.",
+					"button": "Ikusi BeeFis"
+				},
+				"error": {
+					"title": "Bee-ware! Gordetzeak huts egin du",
+					"description": "Erleak galdu egin dira erlauntzera bidean. Zure BeeFi konfigurazioa ezin izan da gorde. Saiatu berriro mesedez."
+				}
+			}
+		},
+		"wifi_details_table": {
+			"qr_code": "QR kodea",
+			"ssid": "Sarearen izena (SSID)",
+			"security": "Segurtasuna",
+			"hidden": "Ezkutua",
+			"visible": "Ikusgai",
+			"created": "Sortua",
+			"actions": "Ekintzak",
+			"details": "Xehetasunak",
+			"delete": "Ezabatu",
+			"unnamed_network": "Izengabeko sarea",
+			"password": "Pasahitza",
+			"qr_code_aria": "{ssid} QR kodea ikusi",
+			"more_actions": "Ekintza Gehigarriak"
 		}
 	},
 	"seo": {
 		"title": "Sortu WiFi QR Kodeak Erraz",
 		"description": "Sortu WiFi QR kodeak erraz gure WiFi QR Kode Sortzailearekin. Partekatu zure WiFi datuak modu seguruan eta erosoan.",
 		"keywords": "WiFi QR Kodea, WiFi QR Kode Sortzailea, WiFi QR Kode Sortu, WiFi QR Kode Sortzailea Online"
+	},
+	"not-found": {
+		"seo": {
+			"title": "Orri Ez Aurkitu",
+			"description": "Bilatzen ari zaren orria ez dago. Mesedez, egiaztatu URL-a edo itzuli hasierako orrira."
+		},
+		"back_to_home": "Itzuli erlauntzara",
+		"message": "Ezagutzen ez den eremura sartu zara. Kontuz erleen aurrean!"
 	}
 }

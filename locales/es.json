@@ -36,11 +36,13 @@
 				"hidden_network": {
 					"label": "¿Red Oculta?"
 				}
-			}
+			},
+			"submit": "¡Haz zumbar el QR!"
 		},
 		"generated_qr": {
 			"title": "Código QR Generado",
-			"description": "Escanea este código para conectarte a la red Wi-Fi"
+			"description": "Escanea este código para conectarte a la red Wi-Fi",
+			"back_config": "Volver al panal de configuración"
 		},
 		"footer": {
 			"created_by": "Creado con 💛 por <a>@pleyt.dev</a>",
@@ -52,9 +54,10 @@
 			"scan": "{locale, select, en {Scan to connect to Wi-Fi} other {Escanea para conectarte al Wi-Fi}}"
 		},
 		"buttons": {
-	  "cancel": "Cancelar",
-	  "print_cards": "Imprimir {count, plural, =1 {# Tarjeta} other {# Tarjetas}}",
-	  "clear": "Limpiar"
+			"cancel": "Cancelar",
+			"print_cards": "Imprimir {count, plural, =1 {# Tarjeta} other {# Tarjetas}}",
+			"clear": "Limpiar",
+			"save": "Guardar"
 		},
 		"steps": {
 			"title": "Cómo funciona",
@@ -107,11 +110,58 @@
 				}
 			},
 			"legend": "Cadena de configuración Wi-Fi"
+		},
+		"main_drawer": {
+			"menu_button": "Menú",
+			"home": "Inicio",
+			"wifi_cards": "Mis BeeFis guardadas"
+		},
+		"dock": {
+			"home": "Inicio",
+			"wifi_cards": "Mis BeeFis",
+			"language": "Idioma",
+			"theme": "Tema"
+		},
+		"saved": {
+			"toast": {
+				"success": {
+					"title": "¡Bee-rillantemente Guardado!",
+					"description": "Tu BeeFi ha llegado sano y salvo a la colmena.",
+					"button": "Ver BeeFis"
+				},
+				"error": {
+					"title": "¡Abe-rtencia! Error al Guardar",
+					"description": "Las abejas se perdieron de camino a la colmena. Tu configuración de BeeFi no pudo ser guardada. Por favor, inténtalo de nuevo."
+				}
+			}
+		},
+		"wifi_details_table": {
+			"qr_code": "Código QR",
+			"ssid": "Nombre de la Red (SSID)",
+			"security": "Seguridad",
+			"hidden": "Oculta",
+			"visible": "Visible",
+			"created": "Creado",
+			"actions": "Acciones",
+			"details": "Detalles",
+			"delete": "Eliminar",
+			"unnamed_network": "Red sin nombre",
+			"password": "Contraseña",
+			"qr_code_aria": "Ver código QR para {ssid}",
+			"more_actions": "Más Acciones"
 		}
 	},
 	"seo": {
 		"title": "Genera Códigos QR WiFi Fácilmente",
 		"description": "Genera códigos QR WiFi fácilmente con nuestro Generador de Códigos QR WiFi. Comparte tus credenciales WiFi de forma segura y conveniente.",
 		"keywords": "Código QR WiFi, Generador de Códigos QR WiFi, Creador de Códigos QR WiFi, Generador de Códigos QR WiFi Online"
+	},
+	"not-found": {
+		"seo": {
+			"title": "Página No Encontrada",
+			"description": "La página que estás buscando no existe. Si us plau, comprova l'URL o torna a la pàgina d'inici."
+		},
+		"back_to_home": "Vuelve a la colmena",
+		"message": "Has entrado en una zona desconocida. ¡Cuidado con las abejas!"
 	}
 }

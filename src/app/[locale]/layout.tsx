@@ -9,9 +9,9 @@ import { getTranslations } from 'next-intl/server'
 import { FloatingControls } from '@atoms/floating-controls'
 import { AVAILABLE_LANGUAGES, LOCALE_NAMESPACES } from '@const/languages'
 import { LocaleLayout, type ResolveLocaleLayoutProps, withLocale } from '@layout/locale-layout'
-import { Footer } from '@molecules/footer'
-import { Header } from '@molecules/header'
-import { NavigationDock } from '@molecules/navigation-dock/navigation-dock'
+import { Footer } from '@molecules/navigation/footer'
+import { Header } from '@molecules/navigation/header'
+import { NavigationDock } from '@molecules/navigation/navigation-dock/navigation-dock'
 import { ToastProvider } from '@providers/toast.provider'
 
 import { getAppName, getPageTitle } from '@/utils/get-app-name'
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: LayoutProps, _parent: Resolvi
 			url: baseUrl,
 			type: 'website',
 			siteName: appTitle,
-			locale: locale === 'es' ? 'es_ES' : 'en_US',
+			locale: locale === 'es' ? 'es_ES' : 'en_US', // TODO implement rest of locales
 			images: [
 				{
 					url: `${baseUrl}/beefi.webp`,
@@ -93,12 +93,10 @@ const RootLayout = async ({
 						</div>
 						<div className='min-h-dvh bg-transparent relative'>
 							<Header />
-							<div className='min-h-[calc(100dvh-calc(var(--spacing)*24))] md:mt-[calc(var(--spacing)*-8)] flex flex-col justify-center p-4'>
-								<div className='max-w-4xl 3xl:max-w-7xl w-full mx-auto flex flex-col space-y-6'>
-									{children}
-									<FloatingControls theme={theme} />
-								</div>
+							<div className='min-h-app justify-center p-4'>
+								<div className='max-w-4xl 3xl:max-w-7xl w-full mx-auto flex flex-col space-y-6'>{children}</div>
 							</div>
+							<FloatingControls theme={theme} />
 							<Footer />
 							<NavigationDock theme={theme} />
 						</div>

@@ -1,4 +1,4 @@
-import type { FC, ReactNode, ButtonHTMLAttributes, Ref } from 'react'
+import type { FC, ReactNode, ButtonHTMLAttributes, Ref, ElementType, HTMLAttributes } from 'react'
 
 import { cn } from '@cn'
 
@@ -12,15 +12,17 @@ export interface DockProps {
 	children: ReactNode
 }
 
-export interface DockItemProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+type ConditionalHTMLAttributes<E extends ElementType> = E extends 'button' ? ButtonHTMLAttributes<HTMLButtonElement> : HTMLAttributes<HTMLElement>
+export type DockItemProps<E extends ElementType> = ConditionalHTMLAttributes<E> & {
 	active?: boolean
 	icon: ReactNode
 	label?: ReactNode
 	className?: string
 	ref?: Ref<HTMLButtonElement>
+	as?: E
 }
 
-export type DockComponent = FC<DockProps> & { Item: FC<DockItemProps> }
+export type DockComponent = FC<DockProps> & { Item: <E extends ElementType>(props: DockItemProps<E>) => ReactNode }
 
 const sizeClasses: Record<DockSize, string> = {
 	xs: 'dock-xs',
@@ -45,11 +47,11 @@ export const Dock: DockComponent = ({ size = 'md', colour = 'base', className, c
 	<div className={cn('dock', sizeClasses[size], colourClasses[colour], className)}>{children}</div>
 )
 
-export const DockItem: FC<DockItemProps> = ({ active, icon, label, className, ...props }) => (
-	<button className={cn(active && 'dock-active', className)} {...props}>
+export const DockItem: DockComponent['Item'] = ({ active, icon, label, className, as: Component = 'button', ...props }) => (
+	<Component className={cn(active && 'dock-active', className)} {...props}>
 		{icon}
-		{label && <span className='dock-label'>{label}</span>}
-	</button>
+		{label && <span className='dock-label line-clamp-1'>{label}</span>}
+	</Component>
 )
 
 Dock.Item = DockItem

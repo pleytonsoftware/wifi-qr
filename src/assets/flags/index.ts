@@ -1,5 +1,5 @@
 import type { AVAILABLE_LANGUAGE_CODES, DISABLED_LANGUAGE_CODES, LANGUAGE_CODES } from '@const/languages'
-import type { ImageProps } from 'next/image'
+import type { FC, SVGProps } from 'react'
 
 import arab from './arab.svg'
 import bg from './bg.svg'
@@ -42,7 +42,9 @@ import tr from './tr.svg'
 import ua from './ua.svg'
 import vn from './vn.svg'
 
-export const AVAILABLE_LANGUAGE_FLAGS_DICTIONARY: Record<AVAILABLE_LANGUAGE_CODES, ImageProps> = {
+type FlagType = FC<SVGProps<SVGElement>>
+
+export const AVAILABLE_LANGUAGE_FLAGS_DICTIONARY: Record<AVAILABLE_LANGUAGE_CODES, FlagType> = {
 	en: gb,
 	de: de,
 	fr: fr,
@@ -54,7 +56,7 @@ export const AVAILABLE_LANGUAGE_FLAGS_DICTIONARY: Record<AVAILABLE_LANGUAGE_CODE
 	gl: esGa,
 	ar: arab, // Using 'arab' for Arabic flag
 }
-export const DISABLED_LANGUAGE_FLAGS_DICTIONARY: Record<DISABLED_LANGUAGE_CODES, ImageProps> = {
+export const DISABLED_LANGUAGE_FLAGS_DICTIONARY: Record<DISABLED_LANGUAGE_CODES, FlagType> = {
 	nl: nl,
 	pl: pl,
 	ru: ru,
@@ -87,7 +89,7 @@ export const DISABLED_LANGUAGE_FLAGS_DICTIONARY: Record<DISABLED_LANGUAGE_CODES,
 	he: il,
 }
 
-export const ALL_LANGUAGE_FLAGS_DICTIONARY: Record<LANGUAGE_CODES, ImageProps> = {
+export const ALL_LANGUAGE_FLAGS_DICTIONARY: Record<LANGUAGE_CODES, FlagType> = {
 	...AVAILABLE_LANGUAGE_FLAGS_DICTIONARY,
 	...DISABLED_LANGUAGE_FLAGS_DICTIONARY,
 }

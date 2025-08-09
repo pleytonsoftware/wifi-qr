@@ -1,41 +1,23 @@
-import type { FC } from 'react'
+'use client'
 
-import { useTranslations } from 'next-intl'
+import { useRef, type FC } from 'react'
 
-import { Card } from '@atoms/card'
-import { Divider } from '@atoms/divider'
-import { LOCALE_NAMESPACES } from '@const/languages'
-import { WiFiConfigForm } from '@molecules/wifi-config-form'
-import { WiFiQRCodeDisplay } from '@molecules/wifi-qr-code-display'
-import { WiFiStringCopy } from '@molecules/wifi-string-copy'
+import { Section } from '@atoms/section'
+import { type WiFiConfigFormRef } from '@molecules/wifi/wifi-config-form'
+import { WiFiFlipCard } from '@molecules/wifi/wifi-flip-card'
 
 export const WiFiQRGenerator: FC = () => {
-	const t = useTranslations(LOCALE_NAMESPACES.common)
+	const ref = useRef<WiFiConfigFormRef>(null)
 
 	return (
 		<>
 			{/* // TODO modify instructions to be a stepper (without a card?) and apply https://www.npmjs.com/package/react-joyride */}
 			{/* <Instructions /> */}
-			<div className='grid md:grid-cols-2 gap-6'>
-				<Card>
-					<Card.Body className='space-y-2'>
-						<Card.Title>{t('wifi_config.title')}</Card.Title>
-						<Card.Description>{t('wifi_config.description')}</Card.Description>
-						<WiFiConfigForm />
-						<Divider spacing='xs' />
-						<div className='space-y-2'>
-							<WiFiStringCopy />
-						</div>
-					</Card.Body>
-				</Card>
-				<Card>
-					<Card.Body className='space-y-2'>
-						<Card.Title>{t('generated_qr.title')}</Card.Title>
-						<Card.Description>{t('generated_qr.description')}</Card.Description>
-						<WiFiQRCodeDisplay />
-					</Card.Body>
-				</Card>
-			</div>
+			<Section heightType='full'>
+				<div className='grid w-full gap-6 max-w-lg mx-auto'>
+					<WiFiFlipCard ref={ref} onClear={(evt) => ref.current?.clearForm(evt)} />
+				</div>
+			</Section>
 		</>
 	)
 }

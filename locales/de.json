@@ -36,11 +36,13 @@
 				"hidden_network": {
 					"label": "Verstecktes Netzwerk?"
 				}
-			}
+			},
+			"submit": "QR zum Summen bringen!"
 		},
 		"generated_qr": {
 			"title": "Generierter QR-Code",
-			"description": "Scannen Sie diesen Code, um sich mit dem Wi-Fi zu verbinden"
+			"description": "Scannen Sie diesen Code, um sich mit dem Wi-Fi zu verbinden",
+			"back_config": "Zurück zur Bienenkorb Konfiguration"
 		},
 		"footer": {
 			"created_by": "Erstellt mit 💛 von <a>@pleyt.dev</a>",
@@ -54,7 +56,8 @@
 		"buttons": {
 			"cancel": "Abbrechen",
 			"print_cards": "{count, plural, =1 {# Karte drucken} other {# Karten drucken}}",
-			"clear": "Löschen"
+			"clear": "Löschen",
+			"save": "Speichern"
 		},
 		"steps": {
 			"title": "So funktioniert's",
@@ -107,11 +110,58 @@
 				}
 			},
 			"legend": "Wi-Fi-Konfigurationszeichenfolge"
+		},
+		"main_drawer": {
+			"menu_button": "Menü",
+			"home": "Startseite",
+			"wifi_cards": "Meine gespeicherten BeeFis"
+		},
+		"dock": {
+			"home": "Startseite",
+			"wifi_cards": "Meine BeeFis",
+			"language": "Sprache",
+			"theme": "Thema"
+		},
+		"saved": {
+			"toast": {
+				"success": {
+					"title": "Bee-rilliant gespeichert!",
+					"description": "Dein BeeFi ist sicher in den Bienenstock gebrummt.",
+					"button": "Anzeigen"
+				},
+				"error": {
+					"title": "Bienen-Alarm! Speichern fehlgeschlagen",
+					"description": "Die Bienen haben den Weg zum Bienenstock verloren. Ihre BeeFi-Konfiguration konnte nicht gespeichert werden. Bitte versuchen Sie es erneut."
+				}
+			}
+		},
+		"wifi_details_table": {
+			"qr_code": "QR-Code",
+			"ssid": "Netzwerkname (SSID)",
+			"security": "Sicherheit",
+			"hidden": "Versteckt",
+			"visible": "Sichtbar",
+			"created": "Erstellt",
+			"actions": "Aktionen",
+			"details": "Details",
+			"delete": "Löschen",
+			"unnamed_network": "Unbenanntes Netzwerk",
+			"password": "Passwort",
+			"qr_code_aria": "QR-Code für {ssid} anzeigen",
+			"more_actions": "Weitere Aktionen"
 		}
 	},
 	"seo": {
 		"title": "Wi-Fi QR Generator",
 		"description": "Erstellen Sie QR-Codes, um Wi-Fi einfach zu teilen. Generieren, drucken und teilen Sie Wi-Fi-QR-Codes für schnellen Zugang.",
 		"keywords": "Wi-Fi, QR Code, Generator, Teilen, Zugang, Netzwerk, WLAN, Drucken, Verbinden"
+	},
+	"not-found": {
+		"seo": {
+			"title": "Seite Nicht Gefunden",
+			"description": "Die von Ihnen gesuchte Seite existiert nicht. Bitte überprüfen Sie die URL oder kehren Sie zur Startseite zurück."
+		},
+		"back_to_home": "Zurück zum Bienenstock",
+		"message": "Sie haben eine nicht gefundene Zone betreten. Hüten Sie sich vor den Bienen!"
 	}
 }

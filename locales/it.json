@@ -36,11 +36,13 @@
 				"hidden_network": {
 					"label": "Rete Nascosta?"
 				}
-			}
+			},
+			"submit": "Fai vibrare il QR!"
 		},
 		"generated_qr": {
 			"title": "Codice QR Generato",
-			"description": "Scansiona questo codice per connetterti alla rete Wi-Fi"
+			"description": "Scansiona questo codice per connetterti alla rete Wi-Fi",
+			"back_config": "Ritorna alla configurazione dell'alveare"
 		},
 		"footer": {
 			"created_by": "Creato con 💛 da <a>@pleyt.dev</a>",
@@ -54,7 +56,8 @@
 		"buttons": {
 			"cancel": "Annulla",
 			"print_cards": "Stampa {count, plural, =1 {# Carta} other {# Carte}}",
-			"clear": "Pulisci"
+			"clear": "Pulisci",
+			"save": "Salva"
 		},
 		"steps": {
 			"title": "Come funziona",
@@ -107,11 +110,58 @@
 				}
 			},
 			"legend": "Stringa di configurazione Wi-Fi"
+		},
+		"main_drawer": {
+			"menu_button": "Menu",
+			"home": "Inizio",
+			"wifi_cards": "I miei BeeFis salvati"
+		},
+		"dock": {
+			"home": "Inizio",
+			"wifi_cards": "I miei BeeFis",
+			"language": "Lingua",
+			"theme": "Tema"
+		},
+		"saved": {
+			"toast": {
+				"success": {
+					"title": "BeeFi salvato con successo!",
+					"description": "La tua configurazione BeeFi è stata conservata al sicuro nell'alveare.",
+					"button": "Visualizza BeeFis"
+				},
+				"error": {
+					"title": "Bee-attento! Salvataggio fallito",
+					"description": "Le api si sono perse sulla strada verso l’alveare. La tua configurazione BeeFi non è stata salvata. Riprova, per favore."
+				}
+			}
+		},
+		"wifi_details_table": {
+			"qr_code": "Codice QR",
+			"ssid": "Nome della rete (SSID)",
+			"security": "Sicurezza",
+			"hidden": "Nascosta",
+			"visible": "Visibile",
+			"created": "Creato",
+			"actions": "Azioni",
+			"details": "Dettagli",
+			"delete": "Elimina",
+			"unnamed_network": "Rete senza nome",
+			"password": "Password",
+			"qr_code_aria": "Visualizza il codice QR per {ssid}",
+			"more_actions": "Altre Azioni"
 		}
 	},
 	"seo": {
 		"title": "Generatore QR Wi-Fi",
 		"description": "Crea codici QR per condividere facilmente il Wi-Fi. Genera, stampa e condividi codici QR Wi-Fi per un accesso rapido.",
 		"keywords": "Wi-Fi, Codice QR, Generatore, Condividere, Accesso, Rete, Stampare, Connessione"
+	},
+	"not-found": {
+		"seo": {
+			"title": "Pagina Non Trovata",
+			"description": "La pagina che stai cercando non esiste. Per favore, controlla l'URL o torna alla pagina iniziale."
+		},
+		"back_to_home": "Torna alla colmena",
+		"message": "Sei entrato in una zona sconosciuta. Attenzione alle api!"
 	}
 }

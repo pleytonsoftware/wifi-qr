@@ -11,6 +11,7 @@
 	--color-bg-gradient-3: hsla(236, 23%, 76%, 0.3);
 
 	--breakpoint-3xl: 120rem;
+	--spacing-app: calc(100dvh - theme('spacing.24'));
 }
 
 .menu {

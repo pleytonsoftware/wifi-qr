@@ -36,11 +36,13 @@
 				"hidden_network": {
 					"label": "Rede Oculta?"
 				}
-			}
+			},
+			"submit": "Faça vibrar o QR!"
 		},
 		"generated_qr": {
 			"title": "Código QR Gerado",
-			"description": "Escaneie este código para se conectar à rede Wi-Fi"
+			"description": "Escaneie este código para se conectar à rede Wi-Fi",
+			"back_config": "Voltar à configuração da colmeia"
 		},
 		"footer": {
 			"created_by": "Criado com 💛 por <a>@pleyt.dev</a>",
@@ -54,7 +56,8 @@
 		"buttons": {
 			"cancel": "Cancelar",
 			"print_cards": "Imprimir {count, plural, =1 {# Cartão} other {# Cartões}}",
-			"clear": "Limpar"
+			"clear": "Limpar",
+			"save": "Salvar"
 		},
 		"steps": {
 			"title": "Como funciona",
@@ -107,11 +110,58 @@
 				}
 			},
 			"legend": "String de configuração Wi-Fi"
+		},
+		"main_drawer": {
+			"menu_button": "Menu",
+			"home": "Lar",
+			"wifi_cards": "Meus BeeFis salvos"
+		},
+		"dock": {
+			"home": "Lar",
+			"wifi_cards": "Meus BeeFis",
+			"language": "Línguagem",
+			"theme": "Tema"
+		},
+		"saved": {
+			"toast": {
+				"success": {
+					"title": "BeeFi salvo com sucesso!",
+					"description": "Sua configuração BeeFi foi guardada com segurança na colmeia.",
+					"button": "Ver Meus BeeFis"
+				},
+				"error": {
+					"title": "Cuidado-bzz! Falha ao salvar",
+					"description": "As abelhas se perderam no caminho para a colmeia. Sua configuração BeeFi não pôde ser salva. Por favor, tente novamente."
+				}
+			}
+		},
+		"wifi_details_table": {
+			"qr_code": "Código QR",
+			"ssid": "Nome da Rede (SSID)",
+			"security": "Segurança",
+			"hidden": "Oculta",
+			"visible": "Visível",
+			"created": "Criado",
+			"actions": "Ações",
+			"details": "Detalhes",
+			"delete": "Excluir",
+			"unnamed_network": "Rede sem nome",
+			"password": "Senha",
+			"qr_code_aria": "Ver código QR para {ssid}",
+			"more_actions": "Mais Ações"
 		}
 	},
 	"seo": {
 		"title": "Gerador de QR Wi-Fi",
 		"description": "Crie códigos QR para compartilhar Wi-Fi facilmente. Gere, imprima e compartilhe códigos QR Wi-Fi para acesso rápido.",
 		"keywords": "Wi-Fi, Código QR, Gerador, Compartilhar, Acesso, Rede, Imprimir, Conectar"
+	},
+	"not-found": {
+		"seo": {
+			"title": "Página Não Encontrada",
+			"description": "A página que você está procurando não existe. Por favor, verifique a URL ou volte para a página inicial."
+		},
+		"back_to_home": "Voltar à colmeia",
+		"message": "Você entrou em uma zona desconhecida. Cuidado com as abelhas!"
 	}
 }
