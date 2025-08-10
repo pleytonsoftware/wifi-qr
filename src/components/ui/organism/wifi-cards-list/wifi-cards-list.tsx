@@ -1,6 +1,6 @@
 'use client'
 
-import { type FC, KeyboardEventHandler, MouseEventHandler, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { type FC, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import { Trash2 } from 'lucide-react'
 import ms from 'ms'
