@@ -59,6 +59,14 @@
 			"clear": "Esborra",
 			"save": "Desa"
 		},
+		"modals": {
+			"confirm_delete": {
+				"title": "Confirmar eliminació",
+				"description": "Segur que vols fer fora aquesta targeta BeeFi del rusc? Un cop les abelles volin amb ella, no podràs recuperar-la!",
+				"confirm": "Sí, fora del rusc",
+				"cancel": "No, queda't"
+			}
+		},
 		"steps": {
 			"title": "Com funciona",
 			"description": "Segueix aquests passos per generar i compartir el teu codi QR de Wi-Fi",
@@ -148,7 +156,8 @@
 			"unnamed_network": "Xarxa sense nom",
 			"password": "Contrasenya",
 			"qr_code_aria": "Veure el codi QR de {ssid}",
-			"more_actions": "Més Accions"
+			"more_actions": "Més Accions",
+			"not_found": "No hi ha BeeFis zumbant a la colònia"
 		}
 	},
 	"seo": {

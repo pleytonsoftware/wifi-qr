@@ -51,6 +51,7 @@ export const WifiDetailsRow: FC<WifiDetailsRowProps> = ({ wifiCard, language, on
 	}, [onQRClick, wifiCard])
 	const handleDeleteClick = useCallback(() => {
 		onDeleteClick?.(wifiCard)
+		closeMenu()
 	}, [onDeleteClick, wifiCard])
 
 	return (

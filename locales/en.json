@@ -59,6 +59,14 @@
 			"clear": "Clear",
 			"save": "Save"
 		},
+		"modals": {
+			"confirm_delete": {
+				"title": "Confirm Removal",
+				"description": "Are you sure you want to buzz this BeeFi card out of the beehive? Once the bees fly away with it, there's no bringing it back!",
+				"confirm": "Buzz out",
+				"cancel": "Keep in hive"
+			}
+		},
 		"steps": {
 			"title": "How to Use",
 			"description": "Follow these steps to generate and share your Wi-Fi QR code",
@@ -148,7 +156,8 @@
 			"unnamed_network": "Unnamed Network",
 			"password": "Password",
 			"qr_code_aria": "View QR code for {ssid}",
-			"more_actions": "More Actions"
+			"more_actions": "More Actions",
+			"not_found": "No BeeFis buzzing in the hive"
 		}
 	},
 	"seo": {

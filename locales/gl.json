@@ -59,6 +59,14 @@
 			"clear": "Limpar",
 			"save": "Gardar"
 		},
+		"modals": {
+			"confirm_delete": {
+				"title": "Confirmar eliminación",
+				"description": "Seguro que queres sacar esta tarxeta BeeFi da colmea? Unha vez que as abellas voen con ela, non volverá.",
+				"confirm": "Si, que voe",
+				"cancel": "Non, queda na colmea"
+			}
+		},
 		"steps": {
 			"title": "Como funciona",
 			"description": "Sigue estes pasos para xerar e compartir o teu código QR de Wi-Fi",
@@ -148,7 +156,8 @@
 			"unnamed_network": "Rede sen nome",
 			"password": "Contrasinal",
 			"qr_code_aria": "Ver código QR de {ssid}",
-			"more_actions": "Máis Accions"
+			"more_actions": "Máis Accions",
+			"not_found": "Non hai BeeFis zumbando na colmea"
 		}
 	},
 	"seo": {

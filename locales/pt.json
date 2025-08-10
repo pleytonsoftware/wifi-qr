@@ -59,6 +59,14 @@
 			"clear": "Limpar",
 			"save": "Salvar"
 		},
+		"modals": {
+			"confirm_delete": {
+				"title": "Confirmar remoção",
+				"description": "Tem certeza que deseja tirar este BeeFi da colmeia? Depois que as abelhas voarem com ele, não tem volta!",
+				"confirm": "Sim, zumbir fora",
+				"cancel": "Não, fica na colmeia"
+			}
+		},
 		"steps": {
 			"title": "Como funciona",
 			"description": "Siga estes passos para gerar e compartilhar seu código QR de Wi-Fi",
@@ -148,7 +156,8 @@
 			"unnamed_network": "Rede sem nome",
 			"password": "Senha",
 			"qr_code_aria": "Ver código QR para {ssid}",
-			"more_actions": "Mais Ações"
+			"more_actions": "Mais Ações",
+			"not_found": "Nenhum BeeFi zumbindo na colmeia"
 		}
 	},
 	"seo": {

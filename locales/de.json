@@ -59,6 +59,14 @@
 			"clear": "Löschen",
 			"save": "Speichern"
 		},
+		"modals": {
+			"confirm_delete": {
+				"title": "Entfernung bestätigen",
+				"description": "Bist du sicher, dass du diese BeeFi-Karte aus dem Bienenstock entfernen möchtest? Sobald die Bienen damit wegfliegen, kommt sie nicht zurück!",
+				"confirm": "Ja, summ weg",
+				"cancel": "Nein, bleib im Stock"
+			}
+		},
 		"steps": {
 			"title": "So funktioniert's",
 			"description": "Folgen Sie diesen Schritten, um Ihren Wi-Fi-QR-Code zu generieren und zu teilen",
@@ -148,7 +156,8 @@
 			"unnamed_network": "Unbenanntes Netzwerk",
 			"password": "Passwort",
 			"qr_code_aria": "QR-Code für {ssid} anzeigen",
-			"more_actions": "Weitere Aktionen"
+			"more_actions": "Weitere Aktionen",
+			"not_found": "Keine BeeFis summen im Bienenstock"
 		}
 	},
 	"seo": {

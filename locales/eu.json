@@ -59,6 +59,14 @@
 			"clear": "Garbitu",
 			"save": "Gorde"
 		},
+		"modals": {
+			"confirm_delete": {
+				"title": "Ezabatzea berretsi",
+				"description": "Ziur zaude BeeFi txartel hau erlauntzetik ateratzea nahi duzula? Behin erleek alde egiten dutenean, ez da itzuliko!",
+				"confirm": "Bai, kanpora zumba!",
+				"cancel": "Ez, erlauntzan utzi"
+			}
+		},
 		"steps": {
 			"title": "Nola funtzionatzen du",
 			"description": "Jarraitu urrats hauek zure Wi-Fi QR kodea sortu eta partekatzeko",
@@ -148,7 +156,8 @@
 			"unnamed_network": "Izengabeko sarea",
 			"password": "Pasahitza",
 			"qr_code_aria": "{ssid} QR kodea ikusi",
-			"more_actions": "Ekintza Gehigarriak"
+			"more_actions": "Ekintza Gehigarriak",
+			"not_found": "Ez dago BeeFis erlauntzan"
 		}
 	},
 	"seo": {

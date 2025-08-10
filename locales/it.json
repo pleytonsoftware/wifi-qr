@@ -59,6 +59,14 @@
 			"clear": "Pulisci",
 			"save": "Salva"
 		},
+		"modals": {
+			"confirm_delete": {
+				"title": "Conferma rimozione",
+				"description": "Sei sicuro di voler rimuovere questa BeeFi dall’alveare? Una volta che le api volano via, non tornerà più!",
+				"confirm": "Sì, vola via",
+				"cancel": "No, resta qui"
+			}
+		},
 		"steps": {
 			"title": "Come funziona",
 			"description": "Segui questi passaggi per generare e condividere il tuo codice QR Wi-Fi",
@@ -148,7 +156,8 @@
 			"unnamed_network": "Rete senza nome",
 			"password": "Password",
 			"qr_code_aria": "Visualizza il codice QR per {ssid}",
-			"more_actions": "Altre Azioni"
+			"more_actions": "Altre Azioni",
+			"not_found": "Nessun BeeFi che ronza nell'alveare"
 		}
 	},
 	"seo": {

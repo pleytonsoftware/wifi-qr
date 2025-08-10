@@ -59,6 +59,14 @@
 			"clear": "Effacer",
 			"save": "Enregistrer"
 		},
+		"modals": {
+			"confirm_delete": {
+				"title": "Confirmer la suppression",
+				"description": "Êtes-vous sûr de vouloir retirer cette carte BeeFi de la ruche ? Une fois les abeilles envolées avec, impossible de la récupérer !",
+				"confirm": "Oui, laisse-la voler",
+				"cancel": "Non, garde-la"
+			}
+		},
 		"steps": {
 			"title": "Comment ça marche",
 			"description": "Suivez ces étapes pour générer et partager votre code QR Wi-Fi",
@@ -148,7 +156,8 @@
 			"unnamed_network": "Réseau sans nom",
 			"password": "Mot de passe",
 			"qr_code_aria": "Voir le code QR pour {ssid}",
-			"more_actions": "Autres actions"
+			"more_actions": "Autres actions",
+			"not_found": "Aucune BeeFi ne bourdonne dans la ruche"
 		}
 	},
 	"seo": {
